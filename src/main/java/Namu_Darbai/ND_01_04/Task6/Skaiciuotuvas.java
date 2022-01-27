@@ -1,4 +1,4 @@
-package Namu_Darbai_01_04.Task6;
+package Namu_Darbai.ND_01_04.Task6;
 
 public class Skaiciuotuvas {
     public Skaiciuotuvas() {

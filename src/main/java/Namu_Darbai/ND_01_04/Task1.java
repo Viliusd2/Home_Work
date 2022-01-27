@@ -1,4 +1,4 @@
-package Namu_Darbai_01_04;
+package Namu_Darbai.ND_01_04;
 
 public class Task1 {
     /*

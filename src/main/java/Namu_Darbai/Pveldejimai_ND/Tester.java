@@ -14,10 +14,10 @@ public class Tester {
         TransportoPriemone transportas = new TransportoPriemone();
         print(transportas.spausdinti());
         line();
-        Automobilis auto = new Automobilis(4,"Melyna", KuroTipas.t1,1.98,4);
+        Automobilis auto = new Automobilis(4,"Melyna", KuroTipas.Gass,1.98,4);
         print(auto.spausdinti());
         line();
-        Sunkvezimis sunkvezimis = new Sunkvezimis(8,"Rudas",KuroTipas.t2,3.5,6);
+        Sunkvezimis sunkvezimis = new Sunkvezimis(8,"Rudas",KuroTipas.Diesel,3.5,6);
         print(sunkvezimis.spausdinti());
         line();
         Dviratis dviratis = new Dviratis(2,"Baltas",32);

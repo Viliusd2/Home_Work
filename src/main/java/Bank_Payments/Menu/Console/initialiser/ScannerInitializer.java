@@ -1,0 +1,19 @@
+package Bank_Payments.Menu.Console.initialiser;
+
+import java.util.Scanner;
+
+/** Initializer class to have only one scanner object through application */
+public final class ScannerInitializer {
+
+  private static Scanner scanner;
+
+  private ScannerInitializer() {}
+
+  public static Scanner getScanner() {
+    if (scanner == null) {
+      scanner = new Scanner(System.in);
+    }
+
+    return scanner;
+  }
+}

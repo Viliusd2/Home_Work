@@ -13,22 +13,15 @@ public class ShvedData extends Bank {
     {"24.01.2022", "LT16444444440000033333", "36,99"},
   };
 
-
   public ShvedData(String bank, LocalDate executionDate, String IBAN, double amount) {
-    super(bank,executionDate, IBAN, amount);
-
+    super(bank, executionDate, IBAN, amount);
   }
 
-
-  @Override
-  public LocalDate getDateFromString(String string) {
-    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-    return LocalDate.parse(string, format);
-  }
 
   @Override
   public String toString() {
-    return "ShvedData: "
+    return super.toString()
+        + "ShvedData: "
         + " name = "
         + getName()
         + " date = "

@@ -18,14 +18,9 @@ public class SepData extends Bank {
   }
 
   @Override
-  public LocalDate getDateFromString(String string) {
-    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-    return LocalDate.parse(string, format);
-  }
-
-  @Override
   public String toString() {
-    return "SepData: "
+    return super.toString()
+        + "SepData: "
         + " name = "
         + getName()
         + " date = "

@@ -54,7 +54,10 @@ public class BankPaymentsApplication {
             }
 
         }
+        Bank.eilesNr = 0;
         run();
     }
+
+
 
 }

@@ -6,5 +6,4 @@ public interface Methods {
 
   void addEntries();
 
-  LocalDate getDateFromString(String string);
 }

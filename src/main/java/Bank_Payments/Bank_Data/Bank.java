@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 // Bank class
@@ -92,11 +91,7 @@ public class Bank implements Methods {
   }
 
   public static void sort(List<Bank> payments) {
-    Collections.sort(payments, new Comparator<Bank>() {
-      @Override
-      public int compare(Bank o1, Bank o2) {
-        return o1.getDate().compareTo(o2.getDate());
-      }});
+    Collections.sort(payments, (o1, o2) -> o1.getDate().compareTo(o2.getDate()));
   }
 
   public String getName() {
@@ -119,6 +114,6 @@ public class Bank implements Methods {
   @Override
   public String toString() {
     eilesNr++;
-    return "Eiles nr.: " + eilesNr + " Bank ";
+    return String.format("Eiles nr: %5d Bank %-8s",eilesNr,getBank());
   }
 }

@@ -1,7 +1,6 @@
 package Bank_Payments.Bank_Data;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class LumiData extends Bank {
 
@@ -17,19 +16,11 @@ public class LumiData extends Bank {
     super(bank, date, name, IBAN, amount);
   }
 
-
   @Override
   public String toString() {
     return super.toString()
-        + "LumiData: "
-        + " Name = "
-        + getName()
-        + " Date = "
-        + getDate()
-        + " IBAN = "
-        + getIBAN()
-        + " Amount = "
-        + getAmount()
-        + "\n";
+        + String.format(
+            " Name = %-25s Date = %-15s IBAN = %-30s Amount = %10.2f \n",
+            getName(), getDate().toString(), getIBAN(), getAmount());
   }
 }

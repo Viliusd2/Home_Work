@@ -1,7 +1,7 @@
 package Bank_Payments.Bank_Data;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 
 public class ShvedData extends Bank {
 
@@ -21,15 +21,8 @@ public class ShvedData extends Bank {
   @Override
   public String toString() {
     return super.toString()
-        + "ShvedData: "
-        + " name = "
-        + getName()
-        + " date = "
-        + getDate()
-        + " IBAN = "
-        + getIBAN()
-        + " amount = "
-        + getAmount()
-        + "\n";
+    + String.format(
+            " Name = %-25s Date = %-15s IBAN = %-30s Amount = %10.2f \n",
+            getName(), getDate().toString(), getIBAN(), getAmount());
   }
 }

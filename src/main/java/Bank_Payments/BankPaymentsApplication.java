@@ -20,7 +20,6 @@ public class BankPaymentsApplication {
   }
 
   public void readDataTransfers(String text) {
-
     label:
     for (int i = 0; i < bank.getPayments().size(); i++) {
       switch (text) {
@@ -41,7 +40,7 @@ public class BankPaymentsApplication {
           break;
         case "4":
           printTable();
-          return;
+          break label;
         case "0":
           return;
         default:

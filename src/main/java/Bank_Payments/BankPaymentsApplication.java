@@ -48,7 +48,6 @@ public class BankPaymentsApplication {
           System.out.println("Wrong input");
           break label;
       }
-
     }
 
     Bank.eilesNr = 0;
@@ -59,9 +58,9 @@ public class BankPaymentsApplication {
 
     bank.printTableHeader();
     bank.printSeparatorLine();
-    for (int i = 0; i < bank.getPayments().size() ; i++) {
+    for (int i = 0; i < bank.getPayments().size(); i++) {
       bank.getPayments().get(i).printParameter();
-      if (bank.getPayments().indexOf(bank.getPayments().get(i)) == bank.getPayments().size()-1) {
+      if (bank.getPayments().indexOf(bank.getPayments().get(i)) == bank.getPayments().size() - 1) {
         break;
       } else {
         bank.printSeparatorLine();

@@ -2,7 +2,6 @@ package Bank_Payments.Bank_Data;
 
 import java.time.LocalDate;
 
-
 public class ShvedData extends Bank {
 
   public static final String[][] MOCK_DATA = {
@@ -17,11 +16,10 @@ public class ShvedData extends Bank {
     super(bank, executionDate, IBAN, amount);
   }
 
-
   @Override
   public String toString() {
     return super.toString()
-    + String.format(
+        + String.format(
             " Name = %-25s Date = %-15s IBAN = %-30s Amount = %10.2f \n",
             getName(), getDate().toString(), getIBAN(), getAmount());
   }

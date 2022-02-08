@@ -1,7 +1,5 @@
 package Bank_Payments.Bank_Data;
 
-import Bank_Payments.Bank_Data.Interface.Methods;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -9,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 // Bank class
-public class Bank implements Methods {
+public class Bank {
   private String bank;
   private LocalDate date;
   private String name = "Unknown";

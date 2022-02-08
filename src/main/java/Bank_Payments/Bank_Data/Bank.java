@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 // Bank class
@@ -89,7 +90,7 @@ public class Bank {
   }
 
   public static void sort(List<Bank> payments) {
-    Collections.sort(payments, (o1, o2) -> o1.getDate().compareTo(o2.getDate()));
+    payments.sort(Comparator.comparing(Bank::getDate));
   }
 
   public String getName() {

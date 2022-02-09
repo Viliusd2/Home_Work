@@ -1,66 +1,74 @@
 package Moduliai.Irasai;
 
-import Moduliai.TypeOfRecord;
+import Moduliai.FinalParameters.PaymentMethods;
+import Moduliai.FinalParameters.BankCards;
+import Moduliai.FinalParameters.PaymentCategory;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
 public class IslaiduIrasas {
-    /*
-    Sukurti dvi klases: PajamuIrasas, IslaiduIrasas. Šios dvi klasės apjungspajamų, išlaidų informaciją.
-     T.y. atliekant operaciją "įvesti pajamas" bus sukuriamas naujas PajamuIraso objektas,
-      kuriame išsaugosime: [sumą], [kategorijosindeksą], [data],[požymį, ar pinigai gauti į banko sąskaitą],
-      [papildomąinformaciją]. Sukurtą objektą padėsime į pajamų masyvą. Analogiškai su išlaidomis...
-      objekte išsaugo išlaidų operacijos susijusią informaciją: [suma], [kategorijosindeksas],
-     [data su laiku], [atsiskaitymo būdas], [kokia banko kortele], [...]. Sukurtą objektą patalpinti į išlaidų masyvą.
-     */
-    private double suma;
-    private final TypeOfRecord TYPE = TypeOfRecord.ISLAIDOS;
-    private LocalDateTime date;
-    private String[] atskiskaitymoBudas = {"Credit","Card","Cash take out","ApplePay"};
-    private String[] bankoKortele = {"Visa", "Debit","Mastercard","American Express"};
-    private String papInfo;
+  /*
+  Sukurti dvi klases: PajamuIrasas, IslaiduIrasas. Šios dvi klasės apjungspajamų, išlaidų informaciją.
+   T.y. atliekant operaciją "įvesti pajamas" bus sukuriamas naujas PajamuIraso objektas,
+    kuriame išsaugosime: [sumą], [kategorijosindeksą], [data],[požymį, ar pinigai gauti į banko sąskaitą],
+    [papildomąinformaciją]. Sukurtą objektą padėsime į pajamų masyvą. Analogiškai su išlaidomis...
+    objekte išsaugo išlaidų operacijos susijusią informaciją: [suma], [kategorijosindeksas],
+   [data su laiku], [atsiskaitymo būdas], [kokia banko kortele], [...]. Sukurtą objektą patalpinti į išlaidų masyvą.
+   */
+  private double sum;
+  private final PaymentCategory Category = PaymentCategory.ISLAIDOS;
+  private LocalDateTime date;
+  private final PaymentMethods PaymentType;
+  private final BankCards BankCardUsed;
+  private String extraInfo;
 
-    public IslaiduIrasas(double suma, String papInfo) {
-        this.suma = suma;
-        this.date = LocalDateTime.now();
-        this.papInfo = papInfo;
-    }
+  public IslaiduIrasas(
+          double sum, PaymentMethods paymentType, BankCards bankCardUsed, String extraInfo) {
+    this.sum = sum;
+    this.PaymentType = paymentType;
+    this.BankCardUsed = bankCardUsed;
+    this.date = LocalDateTime.now();
+    this.extraInfo = extraInfo;
+  }
 
-    public double getSuma() {
-        return suma;
-    }
+  public double getSum() {
+    return sum;
+  }
 
-    public TypeOfRecord getTYPE() {
-        return TYPE;
-    }
+  public PaymentCategory getCategory() {
+    return Category;
+  }
 
-    public LocalDateTime getDate() {
-        return date;
-    }
+  public LocalDateTime getDate() {
+    return date;
+  }
 
-    public String[] getAtskiskaitymoBudas() {
-        return atskiskaitymoBudas;
-    }
+  public PaymentMethods getPaymentType() {
+    return PaymentType;
+  }
 
-    public String[] getBankoKortele() {
-        return bankoKortele;
-    }
+  public BankCards getBankCardUsed() {
+    return BankCardUsed;
+  }
 
-    public String getPapInfo() {
-        return papInfo;
-    }
-    @Override
-    public String toString() {
-        return "Islaidu Irasas "
-                + "\nSuma = "
-                + suma
-                + "\nTYPE = "
-                + TYPE
-                + "\nDate = "
-                + date
-                + "\nPap Info = '"
-                + papInfo + "\n";
-    }
+  public String getExtraInfo() {
+    return extraInfo;
+  }
+
+  @Override
+  public String toString() {
+    return "Category = "
+        + Category
+        + "\nSuma = "
+        + sum
+        + "\nPayment Type = "
+        + PaymentType
+        + "\nBank Card Used = "
+        + BankCardUsed
+        + "\nDate = "
+        + date
+        + "\nPap Info = '"
+        + extraInfo
+        + "\n";
+  }
 }

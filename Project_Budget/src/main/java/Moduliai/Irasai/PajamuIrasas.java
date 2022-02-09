@@ -1,12 +1,12 @@
 package Moduliai.Irasai;
 
-import Moduliai.TypeOfRecord;
+import Moduliai.FinalParameters.PaymentCategory;
 
 import java.time.LocalDate;
 
 public class PajamuIrasas {
   private double suma;
-  private final TypeOfRecord TYPE = TypeOfRecord.PAJAMOS;
+  private final PaymentCategory Category = PaymentCategory.PAJAMOS;
   private LocalDate date;
   private boolean arPinigaiGauti;
   private String papInfo;
@@ -22,8 +22,8 @@ public class PajamuIrasas {
     return suma;
   }
 
-  public TypeOfRecord getTYPE() {
-    return TYPE;
+  public PaymentCategory getCategory() {
+    return Category;
   }
 
   public LocalDate getDate() {
@@ -40,16 +40,16 @@ public class PajamuIrasas {
 
   @Override
   public String toString() {
-    return "PajamuIrasas "
+    return "Category = "
+        + Category
         + "\nSuma = "
         + suma
-        + "\nTYPE = "
-        + TYPE
         + "\nDate = "
         + date
         + "\nAr Pinigai Gauti = "
         + arPinigaiGauti
         + "\nPap Info = '"
-        + papInfo + "\n";
+        + papInfo
+        + "\n";
   }
 }

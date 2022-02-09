@@ -2,6 +2,7 @@ package Moduliai.Irasai;
 
 import Moduliai.TypeOfRecord;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -21,9 +22,45 @@ public class IslaiduIrasas {
     private String[] bankoKortele = {"Visa", "Debit","Mastercard","American Express"};
     private String papInfo;
 
-    public IslaiduIrasas(double suma, LocalDateTime date, String papInfo) {
+    public IslaiduIrasas(double suma, String papInfo) {
         this.suma = suma;
-        this.date = date;
+        this.date = LocalDateTime.now();
         this.papInfo = papInfo;
+    }
+
+    public double getSuma() {
+        return suma;
+    }
+
+    public TypeOfRecord getTYPE() {
+        return TYPE;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public String[] getAtskiskaitymoBudas() {
+        return atskiskaitymoBudas;
+    }
+
+    public String[] getBankoKortele() {
+        return bankoKortele;
+    }
+
+    public String getPapInfo() {
+        return papInfo;
+    }
+    @Override
+    public String toString() {
+        return "Islaidu Irasas "
+                + "\nSuma = "
+                + suma
+                + "\nTYPE = "
+                + TYPE
+                + "\nDate = "
+                + date
+                + "\nPap Info = '"
+                + papInfo + "\n";
     }
 }

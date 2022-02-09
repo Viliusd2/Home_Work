@@ -10,8 +10,7 @@ public class MainMenu {
                             "[3]  - Get Income listing\n" +
                             "[4]  - Get Spending listing\n" +
                             "[0]  - Exit\n";
-
-    public static void main(String[] args) {
-        System.out.println(mainMenu);
+    public void printMainMenu(){
+    System.out.println(mainMenu);
     }
 }

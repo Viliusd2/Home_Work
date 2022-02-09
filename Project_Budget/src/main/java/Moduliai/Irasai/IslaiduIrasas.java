@@ -1,4 +1,6 @@
-package Module;
+package Moduliai.Irasai;
+
+import Moduliai.TypeOfRecord;
 
 import java.time.LocalDateTime;
 

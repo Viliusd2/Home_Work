@@ -1,6 +1,9 @@
-package Module;
+package Moduliai;
 
-import java.util.Date;
+import Moduliai.Irasai.IslaiduIrasas;
+import Moduliai.Irasai.PajamuIrasas;
+
+
 
 public class Biudzetas {
     private PajamuIrasas[] pajamos = new PajamuIrasas[100];

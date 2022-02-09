@@ -1,4 +1,4 @@
-package Module;
+package Moduliai;
 
 public enum TypeOfRecord {
     PAJAMOS,

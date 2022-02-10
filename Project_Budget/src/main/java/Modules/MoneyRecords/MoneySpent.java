@@ -1,12 +1,12 @@
-package Moduliai.Irasai;
+package Modules.MoneyRecords;
 
-import Moduliai.FinalParameters.PaymentMethods;
-import Moduliai.FinalParameters.BankCards;
-import Moduliai.FinalParameters.PaymentCategory;
+import Modules.FinalParameters.PaymentMethods;
+import Modules.FinalParameters.BankCards;
+import Modules.FinalParameters.PaymentCategory;
 
 import java.time.LocalDateTime;
 
-public class IslaiduIrasas {
+public class MoneySpent {
   /*
   Sukurti dvi klases: PajamuIrasas, IslaiduIrasas. Šios dvi klasės apjungspajamų, išlaidų informaciją.
    T.y. atliekant operaciją "įvesti pajamas" bus sukuriamas naujas PajamuIraso objektas,
@@ -22,8 +22,8 @@ public class IslaiduIrasas {
   private final BankCards BankCardUsed;
   private String extraInfo;
 
-  public IslaiduIrasas(
-          double sum, PaymentMethods paymentType, BankCards bankCardUsed, String extraInfo) {
+  public MoneySpent(
+      double sum, PaymentMethods paymentType, BankCards bankCardUsed, String extraInfo) {
     this.sum = sum;
     this.PaymentType = paymentType;
     this.BankCardUsed = bankCardUsed;

@@ -1,4 +1,4 @@
-package Moduliai.FinalParameters;
+package Modules.FinalParameters;
 
 public enum PaymentMethods {
     Credit("Credir card payment"),

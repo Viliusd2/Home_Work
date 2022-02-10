@@ -1,22 +1,24 @@
-package Moduliai.Irasai;
+package Modules.MoneyRecords;
 
-import Moduliai.FinalParameters.PaymentCategory;
+import Modules.FinalParameters.PaymentCategory;
 
 import java.time.LocalDate;
 
-public class PajamuIrasas {
+public class MoneyEarned {
   private double suma;
   private final PaymentCategory Category = PaymentCategory.PAJAMOS;
   private LocalDate date;
   private boolean arPinigaiGauti;
   private String papInfo;
 
-  public PajamuIrasas(double suma, String date, boolean arPinigaiGauti, String papInfo) {
+
+  public MoneyEarned(double suma, String date, boolean arPinigaiGauti, String papInfo) {
     this.suma = suma;
     this.date = LocalDate.parse(date);
     this.arPinigaiGauti = arPinigaiGauti;
     this.papInfo = papInfo;
   }
+
 
   public double getSuma() {
     return suma;

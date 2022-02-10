@@ -1,4 +1,4 @@
-package Menu;
+package Service.Menu;
 
 public class MainMenu {
     private static final String mainMenu =

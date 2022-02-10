@@ -5,23 +5,23 @@ import Modules.FinalParameters.PaymentCategory;
 import java.time.LocalDate;
 
 public class MoneyEarned {
-  private double suma;
-  private final PaymentCategory Category = PaymentCategory.PAJAMOS;
+  private double sum;
+  private final PaymentCategory Category = PaymentCategory.INCOME;
   private LocalDate date;
-  private boolean arPinigaiGauti;
+  private boolean sucsesfulTranfer;
   private String papInfo;
 
 
-  public MoneyEarned(double suma, String date, boolean arPinigaiGauti, String papInfo) {
-    this.suma = suma;
+  public MoneyEarned(double suma, String date, boolean successfulTransfer, String papInfo) {
+    this.sum = suma;
     this.date = LocalDate.parse(date);
-    this.arPinigaiGauti = arPinigaiGauti;
+    this.sucsesfulTranfer = successfulTransfer;
     this.papInfo = papInfo;
   }
 
 
-  public double getSuma() {
-    return suma;
+  public double getSum() {
+    return sum;
   }
 
   public PaymentCategory getCategory() {
@@ -32,8 +32,8 @@ public class MoneyEarned {
     return date;
   }
 
-  public boolean isArPinigaiGauti() {
-    return arPinigaiGauti;
+  public boolean isSucsesfulTranfer() {
+    return sucsesfulTranfer;
   }
 
   public String getPapInfo() {
@@ -44,13 +44,13 @@ public class MoneyEarned {
   public String toString() {
     return "Category = "
         + Category
-        + "\nSuma = "
-        + suma
+        + "\nSum = "
+        + sum
         + "\nDate = "
         + date
-        + "\nAr Pinigai Gauti = "
-        + arPinigaiGauti
-        + "\nPap Info = '"
+        + "\nTransfer success = "
+        + sucsesfulTranfer
+        + "\nExtra Info = '"
         + papInfo
         + "\n";
   }

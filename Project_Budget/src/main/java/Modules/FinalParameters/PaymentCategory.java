@@ -1,6 +1,9 @@
 package Modules.FinalParameters;
 
 public enum PaymentCategory {
-    PAJAMOS,
-    ISLAIDOS
+    INCOME("Money earned"),
+    SPENDINGS("Money spent");
+
+    PaymentCategory(String s) {
+    }
 }

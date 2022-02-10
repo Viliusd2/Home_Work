@@ -16,7 +16,7 @@ public class MoneySpent {
    [data su laiku], [atsiskaitymo būdas], [kokia banko kortele], [...]. Sukurtą objektą patalpinti į išlaidų masyvą.
    */
   private double sum;
-  private final PaymentCategory Category = PaymentCategory.ISLAIDOS;
+  private final PaymentCategory Category = PaymentCategory.SPENDINGS;
   private LocalDateTime date;
   private final PaymentMethods PaymentType;
   private final BankCards BankCardUsed;
@@ -59,7 +59,7 @@ public class MoneySpent {
   public String toString() {
     return "Category = "
         + Category
-        + "\nSuma = "
+        + "\nSum = "
         + sum
         + "\nPayment Type = "
         + PaymentType
@@ -67,7 +67,7 @@ public class MoneySpent {
         + BankCardUsed
         + "\nDate = "
         + date
-        + "\nPap Info = '"
+        + "\nExtra Info = '"
         + extraInfo
         + "\n";
   }

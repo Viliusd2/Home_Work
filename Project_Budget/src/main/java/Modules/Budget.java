@@ -19,11 +19,14 @@ public class Budget {
     spentCounter++;
   }
 
-  public void getEarningsRecord(int index) {
-    System.out.println(moneyEarned[index]);
+  public void getEarningsRecord() {
+    for (int i = 0; i < earnedCounter; i++) {
+      System.out.println(moneyEarned[i]);
+    }
   }
 
-  public void getSpendingRecord(int index) {
-    System.out.println(moneySpent[index]);
+  public void getSpendingRecord() {
+    for (int i = 0; i < spentCounter ; i++) {
+    System.out.println(moneySpent[i]);}
   }
 }

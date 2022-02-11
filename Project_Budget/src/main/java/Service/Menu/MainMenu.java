@@ -1,6 +1,8 @@
 package Service.Menu;
 
-public class MainMenu {
+import Service.Menu.Console.ConsoleMenu;
+
+public class MainMenu implements ConsoleMenu {
     private static final String mainMenu =
                     "-----------------------------\n" +
                             "Main menu for Budget Project\n" +
@@ -10,7 +12,10 @@ public class MainMenu {
                             "[3]  - Get Income listing\n" +
                             "[4]  - Get Spending listing\n" +
                             "[0]  - Exit\n";
-    public void printMainMenu(){
-    System.out.println(mainMenu);
+
+    @Override
+    public void generateMenu() {
+        System.out.println(mainMenu);
     }
+
 }

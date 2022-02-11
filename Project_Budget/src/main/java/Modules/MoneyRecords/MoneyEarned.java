@@ -11,14 +11,12 @@ public class MoneyEarned {
   private boolean sucsesfulTranfer;
   private String papInfo;
 
-
   public MoneyEarned(double suma, String date, boolean successfulTransfer, String papInfo) {
     this.sum = suma;
     this.date = LocalDate.parse(date);
     this.sucsesfulTranfer = successfulTransfer;
     this.papInfo = papInfo;
   }
-
 
   public double getSum() {
     return sum;

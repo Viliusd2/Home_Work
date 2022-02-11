@@ -15,7 +15,8 @@ public final class ScannerInitializer {
 
         return scanner;
     }
-    public static String readParameterInput(String parameter){
+
+  public static String readParameterInput(String parameter) {
         System.out.println(parameter);
         return  getScanner().nextLine();
     }

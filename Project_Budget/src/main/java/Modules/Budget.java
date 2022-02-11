@@ -10,8 +10,8 @@ public class Budget {
   private static int spentCounter = 0;
 
   public void addMoneyEarnedRecord(MoneyEarned pajamos) {
-      this.moneyEarned[earnedCounter] = pajamos;
-      earnedCounter++;
+    this.moneyEarned[earnedCounter] = pajamos;
+    earnedCounter++;
   }
 
   public void addMoneySpentRecord(MoneySpent islaidos) {
@@ -26,7 +26,8 @@ public class Budget {
   }
 
   public void getSpendingRecord() {
-    for (int i = 0; i < spentCounter ; i++) {
-    System.out.println(moneySpent[i]);}
+    for (int i = 0; i < spentCounter; i++) {
+      System.out.println(moneySpent[i]);
+    }
   }
 }

@@ -1,9 +1,8 @@
 package Modules.FinalParameters;
 
 public enum PaymentCategory {
-    INCOME("Money earned"),
-    SPENDINGS("Money spent");
+  INCOME("Money earned"),
+  SPENDINGS("Money spent");
 
-    PaymentCategory(String s) {
-    }
+  PaymentCategory(String s) {}
 }

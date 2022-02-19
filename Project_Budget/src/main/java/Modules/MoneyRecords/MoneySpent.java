@@ -7,14 +7,7 @@ import Modules.FinalParameters.PaymentCategory;
 import java.time.LocalDateTime;
 
 public class MoneySpent {
-  /*
-  Sukurti dvi klases: PajamuIrasas, IslaiduIrasas. Šios dvi klasės apjungspajamų, išlaidų informaciją.
-   T.y. atliekant operaciją "įvesti pajamas" bus sukuriamas naujas PajamuIraso objektas,
-    kuriame išsaugosime: [sumą], [kategorijosindeksą], [data],[požymį, ar pinigai gauti į banko sąskaitą],
-    [papildomąinformaciją]. Sukurtą objektą padėsime į pajamų masyvą. Analogiškai su išlaidomis...
-    objekte išsaugo išlaidų operacijos susijusią informaciją: [suma], [kategorijosindeksas],
-   [data su laiku], [atsiskaitymo būdas], [kokia banko kortele], [...]. Sukurtą objektą patalpinti į išlaidų masyvą.
-   */
+
   private double sum;
   private final PaymentCategory Category = PaymentCategory.SPENDINGS;
   private LocalDateTime date;
@@ -57,18 +50,9 @@ public class MoneySpent {
 
   @Override
   public String toString() {
-    return "Category = "
-        + Category
-        + "\nSum = "
-        + sum
-        + "\nPayment Type = "
-        + PaymentType
-        + "\nBank Card Used = "
-        + BankCardUsed
-        + "\nDate = "
-        + date
-        + "\nExtra Info = '"
-        + extraInfo
-        + "\n";
+
+    return String.format(
+            "Category %s \nSum = %.2f\nPayment Type: %s\nCard Used: %s\nDate = %s\nExtra Info: %s\n",
+            Category, sum, PaymentType, BankCardUsed, date, extraInfo);
   }
 }

@@ -11,6 +11,8 @@ public class MainMenu implements ConsoleMenu {
           + "[2]  - Add Spending listing\n"
           + "[3]  - Get Income listing\n"
           + "[4]  - Get Spending listing\n"
+          + "[5]  - Get Money Balance\n"
+          + "[6] - Chose Entry To Delete\n"
           + "[0]  - Exit\n";
 
   @Override

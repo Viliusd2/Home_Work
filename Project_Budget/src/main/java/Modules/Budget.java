@@ -1,31 +1,27 @@
 package Modules;
 
-import Modules.MoneyRecords.MoneySpent;
-import Modules.MoneyRecords.MoneyEarned;
+import Modules.MoneyRecords.MoneyRecords;
+import Modules.MoneyRecords.MoneySpentRecords;
+import Modules.MoneyRecords.MoneyEarnedRecord;
 
 import java.util.ArrayList;
 
 public class Budget {
-  private final ArrayList<MoneyEarned> moneyEarned = new ArrayList<>();
-  private final ArrayList<MoneySpent> moneySpent = new ArrayList<>();
+  private final ArrayList<MoneyRecords> moneyRecords = new ArrayList<>();
   private double moneyBalance;
 
-  public void addMoneyEarnedRecord(MoneyEarned pajamos) {
-    this.moneyEarned.add(pajamos);
+  public void addMoneyEarnedRecord(MoneyEarnedRecord pajamos) {
+    this.moneyRecords.add(pajamos);
     moneyBalance += pajamos.getSum();
   }
 
-  public void addMoneySpentRecord(MoneySpent islaidos) {
-    this.moneySpent.add(islaidos);
+  public void addMoneySpentRecord(MoneySpentRecords islaidos) {
+    this.moneyRecords.add(islaidos);
     moneyBalance -= islaidos.getSum();
   }
 
-  public ArrayList<MoneyEarned> getMoneyEarned() {
-    return moneyEarned;
-  }
-
-  public ArrayList<MoneySpent> getMoneySpent() {
-    return moneySpent;
+  public ArrayList<MoneyRecords> getMoneyRecords() {
+    return moneyRecords;
   }
 
   public void getMoneyBalance() {

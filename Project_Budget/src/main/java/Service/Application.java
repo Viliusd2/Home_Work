@@ -34,11 +34,10 @@ public class Application {
           break;
         case "3":
           // "[3]  - Get Income listing\n" +
-         GetRecord.printRecords(budget.getMoneyEarned());
+         GetRecord.printRecords(budget.getMoneyRecords());
           break;
         case "4":
           // "[4]  - Get Spending listing\n" +
-          GetRecord.printRecords(budget.getMoneySpent());
           break;
         case "5":
           // [5] - Get Money Balance
@@ -59,15 +58,12 @@ public class Application {
     String text = mainMenu.readInput();
     switch (text) {
       case "1":        // "[1]  - Delete Income listing\n"
-        GetRecord.printRecords(budget.getMoneyEarned());
+        GetRecord.printRecords(budget.getMoneyRecords());
         text = mainMenu.readInput();
-        budget.getMoneyEarned().remove(Integer.parseInt(text)-1);
+        budget.getMoneyRecords().remove(Integer.parseInt(text)-1);
         break;
       case "2":// "[2]  - delete Spending listing\n"
-        GetRecord.printRecords(budget.getMoneySpent());
-        text = mainMenu.readInput();
-        budget.getMoneySpent().remove(Integer.parseInt(text)-1);
-        // "[2]  - delete Spending listing\n"
+
         break;
     }
   }

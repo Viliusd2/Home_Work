@@ -1,14 +1,15 @@
 package Service;
 
-import Modules.Budget;
-import Utils.GetRecord;
-import Utils.RecordSettersAndGetters;
+import Model.Budget;
+import Service.Utils.RecordPrinter;
+import Service.Utils.RecordGenerator;
 import Service.Menu.Console.ConsoleMenu;
 import Service.Menu.MainMenu;
 
 public class Application {
   private final ConsoleMenu mainMenu;
   private final Budget budget = new Budget();
+  private final RecordPrinter printer = new RecordPrinter();
 
   public Application() {
     this.mainMenu = new MainMenu();
@@ -26,23 +27,18 @@ public class Application {
       switch (text) {
         case "1":
           // "[1]  - Add Income listing\n"
-          budget.addMoneyEarnedRecord(RecordSettersAndGetters.earningsSetter());
+          budget.addMoneyRecord(RecordGenerator.generateRecords());
           break;
         case "2":
-          // "[2]  - Add Spending listing\n"
-          budget.addMoneySpentRecord(RecordSettersAndGetters.spendingsSetter());
+          //Get listings
+         printer.printRecords(budget.getMoneyRecords());
           break;
         case "3":
-          // "[3]  - Get Income listing\n" +
-         GetRecord.printRecords(budget.getMoneyRecords());
-          break;
-        case "4":
-          // "[4]  - Get Spending listing\n" +
-          break;
-        case "5":
           // [5] - Get Money Balance
           budget.getMoneyBalance();
-        case "6": //Chose entry to delete
+          break;
+        case "4":
+          //Chose entry to delete
           choseEntryFromList();
           break;
         default:
@@ -58,7 +54,7 @@ public class Application {
     String text = mainMenu.readInput();
     switch (text) {
       case "1":        // "[1]  - Delete Income listing\n"
-        GetRecord.printRecords(budget.getMoneyRecords());
+        printer.printRecords(budget.getMoneyRecords());
         text = mainMenu.readInput();
         budget.getMoneyRecords().remove(Integer.parseInt(text)-1);
         break;
@@ -67,4 +63,5 @@ public class Application {
         break;
     }
   }
+
 }

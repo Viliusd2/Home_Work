@@ -9,6 +9,7 @@ import Model.Records.MoneyRecords;
 import Model.Records.MoneySpentRecords;
 import Service.Menu.MainMenu;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -17,23 +18,29 @@ public class RecordEditor {
   private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
   public void editor(ArrayList<MoneyRecords> records) {
-    RecordPrinter.printAll(records);
     System.out.println("Chose which record to change by ID number");
     String recordID = new MainMenu().readInput();
+    if (Integer.parseInt(recordID)>records.size()) {
+      System.out.println("Wrong id number");
+      editor(records);
+    }
     System.out.println("[1] - Edit a record\n[2] - Delete a record");
     String selection = new MainMenu().readInput();
     switch (selection) {
+
       case "1":
         editRecord(records, recordID);
         break;
       case "2":
         deleteRecord(records, recordID);
         break;
+      default:
+        System.out.println("Wrong selection");
+        editor(records);
     }
   }
 
   private void editRecord(ArrayList<MoneyRecords> records, String recordId) {
-    System.out.println();
     boolean continueLoop = true;
     int id = Integer.parseInt(recordId);
 

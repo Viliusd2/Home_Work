@@ -2,13 +2,14 @@ package Model.Records;
 
 import Model.ParameterClasses.Enums.PaymentRecordType;
 import lombok.Getter;
-import lombok.Setter;
 
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
 
-public class MoneyEarnedRecord extends MoneyRecords {
+public class MoneyEarnedRecord extends MoneyRecords implements Serializable {
 
   private final LocalDate date;
   private final boolean successfulTransfer;

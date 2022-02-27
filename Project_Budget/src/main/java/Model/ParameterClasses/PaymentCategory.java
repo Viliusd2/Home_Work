@@ -1,9 +1,7 @@
 package Model.ParameterClasses;
 
-import Service.Menu.Console.ConsoleMenu;
-import Service.Menu.MainMenu;
 
-import java.util.Arrays;
+import Service.Menu.MainMenu;
 import java.util.stream.IntStream;
 
 public class PaymentCategory {

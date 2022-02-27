@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 @Getter
 public class Budget {
-  private final ArrayList<MoneyRecords> moneyRecords = new ArrayList<>();
+  private ArrayList<MoneyRecords> moneyRecords = new ArrayList<>();
   private double moneyBalance;
 
   public void addMoneyRecord(MoneyRecords moneyRecords) {
@@ -25,7 +25,9 @@ public class Budget {
       }
     }
   }
-
+  public void setMoneyRecords(ArrayList<MoneyRecords> records){
+    this.moneyRecords = records;
+  }
   public ArrayList<MoneyRecords> getMoneyRecords() {
     return moneyRecords;
   }

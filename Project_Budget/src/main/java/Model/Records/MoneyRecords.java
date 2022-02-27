@@ -2,11 +2,13 @@ package Model.Records;
 
 import Model.ParameterClasses.Enums.PaymentRecordType;
 import lombok.Getter;
-import lombok.Setter;
+
+import java.io.Serializable;
+
 
 @Getter
 
-public class MoneyRecords {
+public class MoneyRecords implements Serializable {
   private final double sum;
   private final PaymentRecordType paymentRecordType;
   private final String papInfo;

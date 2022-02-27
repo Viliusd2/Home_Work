@@ -11,6 +11,8 @@ public class MainMenu implements ConsoleMenu {
           + "[2]  - Get All listing\n"
           + "[3]  - Get Money Balance\n"
           + "[4]  - Chose Entry Edit\n"
+          + "[5]  - Write to a file\n"
+          + "[6]  - Read from a file\n"
           + "[0]  - Exit\n";
 
   @Override

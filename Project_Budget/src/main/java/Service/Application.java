@@ -1,5 +1,7 @@
 package Service;
 
+import FileUtils.RecordReaderFromFile;
+import FileUtils.WriteRecordsToFile;
 import Model.Budget;
 import Service.Utils.RecordEditor;
 import Service.Utils.RecordPrinter;
@@ -40,9 +42,17 @@ public class Application {
           budget.getMoneyBalance();
           break;
         case "4":
-          //Chose entry to delete or edit
+          // Chose entry to delete or edit
+          RecordPrinter.printAll(budget.getMoneyRecords());
           editor.editor(budget.getMoneyRecords());
           break;
+        case "5":
+          // write to a file
+          WriteRecordsToFile.writeRecords(budget.getMoneyRecords());
+          break;
+        case "6":
+          //read from a file
+          budget.setMoneyRecords(RecordReaderFromFile.reader());
         default:
           System.out.println("Wrong input");
       }

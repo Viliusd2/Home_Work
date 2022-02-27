@@ -1,9 +1,8 @@
 package Model;
 
-import Model.MoneyRecords.MoneyRecords;
-import Model.MoneyRecords.MoneySpentRecords;
-import Model.MoneyRecords.MoneyEarnedRecord;
-import Model.ParameterClasses.RecordType;
+import Model.ParameterClasses.Enums.PaymentRecordType;
+import Model.Records.MoneyEarnedRecord;
+import Model.Records.MoneyRecords;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class Budget {
 
   public void balanceCounter() {
     for (MoneyRecords moneyRecord : moneyRecords) {
-      if (moneyRecord.getRecordType().equals(RecordType.INCOME)) {
+      if (moneyRecord.getPaymentRecordType().equals(PaymentRecordType.INCOME)) {
         this.moneyBalance += moneyRecord.getSum();
       } else {
         this.moneyBalance -= moneyRecord.getSum();
@@ -35,4 +34,5 @@ public class Budget {
     balanceCounter();
     System.out.printf("Money Balance at the moment = %.2f\n", moneyBalance);
   }
+
 }

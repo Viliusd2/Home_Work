@@ -1,10 +1,11 @@
 package Service.Utils;
 
-import Model.MoneyRecords.MoneyRecords;
-import Model.ParameterClasses.PaymentCards;
-import Model.ParameterClasses.PaymentMethods;
-import Model.MoneyRecords.MoneyEarnedRecord;
-import Model.MoneyRecords.MoneySpentRecords;
+import Model.ParameterClasses.PaymentCategory;
+import Model.Records.MoneyRecords;
+import Model.ParameterClasses.Enums.PaymentCards;
+import Model.ParameterClasses.Enums.PaymentMethods;
+import Model.Records.MoneyEarnedRecord;
+import Model.Records.MoneySpentRecords;
 import Service.Menu.MainMenu;
 
 public class RecordGenerator {
@@ -23,21 +24,27 @@ public class RecordGenerator {
     //double sum = Double.parseDouble(ScannerInitializer.readParameterInput("Isleista suma: "));
     //String info = ScannerInitializer.readParameterInput("Papildoma info ");
     sum = (Math.random() * ((500 - 50) + 1)) + 50;
-    return new MoneySpentRecords(sum, PaymentMethods.Card, PaymentCards.Debit, "kazkoks aprasas");
+    return new MoneySpentRecords(sum, PaymentMethods.Card, PaymentCards.Debit, "kazkoks aprasas", PaymentCategory.getCategories());
   }
 
   public static MoneyRecords generateRecords() {
-    System.out.println("Chose what kind of record to add");
-    System.out.println("[1] - Earnings\n[2] - Spending's");
-    String selection = new MainMenu().readInput();
-    if (selection.equals("1")){
-      return earningsSetter();
-    }else if(selection.equals("2")){
-      return spendingSetter();
-    }else {
-      System.out.println("Wrong input");
-      generateRecords();
-      return null;
+    boolean continueLoop = true;
+    MoneyRecords record = null;
+
+    while (continueLoop) {
+      System.out.println("Chose what kind of record to add");
+      System.out.println("[1] - Earnings\n[2] - Spending's");
+      String selection = new MainMenu().readInput();
+      if (selection.equals("1")) {
+        record = earningsSetter();
+        continueLoop = false;
+      } else if (selection.equals("2")) {
+        record = spendingSetter();
+        continueLoop = false;
+      } else {
+        System.out.println("Wrong input");
+      }
     }
+    return  record;
   }
 }

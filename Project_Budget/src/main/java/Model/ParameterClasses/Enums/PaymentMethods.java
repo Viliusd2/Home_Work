@@ -1,4 +1,4 @@
-package Model.ParameterClasses;
+package Model.ParameterClasses.Enums;
 
 public enum PaymentMethods {
   Credit("Credit card payment"),

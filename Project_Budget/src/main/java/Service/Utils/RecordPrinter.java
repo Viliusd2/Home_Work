@@ -1,7 +1,7 @@
 package Service.Utils;
 
-import Model.MoneyRecords.MoneyRecords;
-import Model.ParameterClasses.RecordType;
+import Model.Records.MoneyRecords;
+import Model.ParameterClasses.Enums.PaymentRecordType;
 import Service.Menu.Console.ConsoleMenu;
 import Service.Menu.MainMenu;
 
@@ -28,25 +28,28 @@ public class RecordPrinter {
         printAll(list);
         break;
       case "2": //  "[2]  - Get Earnings listing\n"
-        printSelection(list,RecordType.INCOME);
+        printSelection(list, PaymentRecordType.INCOME);
         break;
 
       case "3": //   "[3]  - Get Spendings"
-        printSelection(list,RecordType.SPENDING);
+        printSelection(list, PaymentRecordType.SPENDING);
         break;
       case "4":
-        
+
     }
   }
 
-  private void printAll(ArrayList<MoneyRecords> list) {
-     System.out.println(list);
+  public static void printAll(ArrayList<MoneyRecords> list) {
+    for (int i = 0; i < list.size(); i++) {
+      System.out.println(i + "|" + list.get(i));
+    }
   }
 
-  private void printSelection(ArrayList<MoneyRecords> list,RecordType recordType) {
-    for (MoneyRecords moneyRecords : list) {
-      if (moneyRecords.getRecordType().equals(recordType)) {
-        System.out.println(moneyRecords);
+  private void printSelection(ArrayList<MoneyRecords> list, PaymentRecordType paymentRecordType) {
+    for (int i = 0; i < list.size(); i++) {
+      MoneyRecords moneyRecords = list.get(i);
+      if (moneyRecords.getPaymentRecordType().equals(paymentRecordType)) {
+        System.out.println(i + "|" + moneyRecords);
       }
     }
   }

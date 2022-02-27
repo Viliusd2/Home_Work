@@ -1,6 +1,7 @@
 package Service;
 
 import Model.Budget;
+import Service.Utils.RecordEditor;
 import Service.Utils.RecordPrinter;
 import Service.Utils.RecordGenerator;
 import Service.Menu.Console.ConsoleMenu;
@@ -10,6 +11,7 @@ public class Application {
   private final ConsoleMenu mainMenu;
   private final Budget budget = new Budget();
   private final RecordPrinter printer = new RecordPrinter();
+  private final RecordEditor editor = new RecordEditor();
 
   public Application() {
     this.mainMenu = new MainMenu();
@@ -38,8 +40,8 @@ public class Application {
           budget.getMoneyBalance();
           break;
         case "4":
-          //Chose entry to delete
-          choseEntryFromList();
+          //Chose entry to delete or edit
+          editor.editor(budget.getMoneyRecords());
           break;
         default:
           System.out.println("Wrong input");
@@ -47,21 +49,6 @@ public class Application {
       text = mainMenu.printAndRead();
     }
   }
-  public void choseEntryFromList(){
-    System.out.println("Chose which Entry \nTo delete from the list\n" +
-            "[1] - From Income list\n" +
-            "[2] - from Spending list\n");
-    String text = mainMenu.readInput();
-    switch (text) {
-      case "1":        // "[1]  - Delete Income listing\n"
-        printer.printRecords(budget.getMoneyRecords());
-        text = mainMenu.readInput();
-        budget.getMoneyRecords().remove(Integer.parseInt(text)-1);
-        break;
-      case "2":// "[2]  - delete Spending listing\n"
 
-        break;
-    }
-  }
 
 }

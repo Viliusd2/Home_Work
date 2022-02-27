@@ -10,7 +10,7 @@ public class MainMenu implements ConsoleMenu {
           + "[1]  - Add Records to listing\n"
           + "[2]  - Get All listing\n"
           + "[3]  - Get Money Balance\n"
-          + "[4]  - Chose Entry To Delete\n"
+          + "[4]  - Chose Entry Edit\n"
           + "[0]  - Exit\n";
 
   @Override

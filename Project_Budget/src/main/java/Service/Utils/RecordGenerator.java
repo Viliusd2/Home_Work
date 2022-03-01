@@ -12,19 +12,13 @@ public class RecordGenerator {
   private static double sum;
 
   public static MoneyEarnedRecord earningsSetter() {
-    // double suma, String date, boolean successfulTransfer, String papInfo
-    //double sum = Double.parseDouble(ScannerInitializer.readParameterInput("Gauta/Idedama suma: "));
-    //String info = ScannerInitializer.readParameterInput("Papildoma info ");
     sum = (Math.random() * ((500 - 50) + 1)) + 50;
     return new MoneyEarnedRecord(sum, true, "kazkoks aprasas");
   }
 
   public static MoneySpentRecords spendingSetter() {
-    // double sum, PaymentMethods paymentType, BankCards bankCardUsed, String extraInfo
-    //double sum = Double.parseDouble(ScannerInitializer.readParameterInput("Isleista suma: "));
-    //String info = ScannerInitializer.readParameterInput("Papildoma info ");
     sum = (Math.random() * ((500 - 50) + 1)) + 50;
-    return new MoneySpentRecords(sum, PaymentMethods.Card, PaymentCards.Debit, "kazkoks aprasas", PaymentCategory.getCategories());
+    return new MoneySpentRecords(sum, EnumSetters.setMethod(), EnumSetters.setCard(), "kazkoks aprasas", PaymentCategory.getCategories());
   }
 
   public static MoneyRecords generateRecords() {

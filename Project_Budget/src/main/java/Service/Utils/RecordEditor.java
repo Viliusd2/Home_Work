@@ -8,8 +8,6 @@ import Model.Records.MoneyEarnedRecord;
 import Model.Records.MoneyRecords;
 import Model.Records.MoneySpentRecords;
 import Service.Menu.MainMenu;
-
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -20,7 +18,7 @@ public class RecordEditor {
   public void editor(ArrayList<MoneyRecords> records) {
     System.out.println("Chose which record to change by ID number");
     String recordID = new MainMenu().readInput();
-    if (Integer.parseInt(recordID)>records.size()) {
+    if (Integer.parseInt(recordID)>records.size()-1) {
       System.out.println("Wrong id number");
       editor(records);
     }
@@ -46,10 +44,10 @@ public class RecordEditor {
 
       while (continueLoop) {
           if (records.get(id).getPaymentRecordType().equals(PaymentRecordType.INCOME)) {
-            records.set(id, moneyEarnedEdit((MoneyEarnedRecord) records.get(id)));
+            records.set(id, moneyEarnedEdit(records.get(id)));
             continueLoop = false;
           } else if (records.get(id).getPaymentRecordType().equals(PaymentRecordType.SPENDING)){
-            records.set(id, moneySpentEdit((MoneySpentRecords) records.get(id)));
+            records.set(id, moneySpentEdit(records.get(id)));
             continueLoop = false;
           } else {
           System.out.println("Wrong id");
@@ -64,65 +62,46 @@ public class RecordEditor {
     records.remove(index);
   }
 
-  private MoneyEarnedRecord moneyEarnedEdit(MoneyEarnedRecord record) {
+  private MoneyEarnedRecord moneyEarnedEdit(MoneyRecords record) {
 
-    double sum = record.getSum();
-    String info = record.getPapInfo();
+    double sum = sumEdit(record);
+    String info = infoEdit(record);
 
-    System.out.println("Income Sum: " + record.getSum());
-    boolean selection = editOption();
-    if (selection) {
-      sum = Double.parseDouble(new MainMenu().readInput());
-    }
-
-    System.out.println("Extra info: " + record.getPapInfo());
-    selection = editOption();
-    if (selection) {
-      info = new MainMenu().readInput();
-    }
     System.out.println("Confirm record?");
     boolean confirm = editOption();
     return new MoneyEarnedRecord(sum, confirm, info);
   }
 
-  private MoneySpentRecords moneySpentEdit(MoneySpentRecords record) {
+  private MoneySpentRecords moneySpentEdit(MoneyRecords record) {
+    double sum = sumEdit(record);
+    String info = infoEdit(record);
 
-    double sum = record.getSum();
-    String info = record.getPapInfo();
-    PaymentMethods method = record.getPaymentMethod();
-    PaymentCards card = record.getBankCardUsed();
-    String category = record.getCategory();
-    LocalDateTime date = record.getDate();
+    MoneySpentRecords spentRecords = (MoneySpentRecords) record;
 
-    System.out.println("Income Sum: " + record.getSum());
-    boolean selection = editOption();
-    if (selection) {
-      sum = Double.parseDouble(new MainMenu().readInput());
-    }
-    System.out.println("Extra info: " + record.getPapInfo());
-    selection = editOption();
-    if (selection) {
-      info = new MainMenu().readInput();
-    }
+    PaymentMethods method = spentRecords.getPaymentMethod();
+    PaymentCards card = spentRecords.getBankCardUsed();
+    String category = spentRecords.getCategory();
+    LocalDateTime date = spentRecords.getDate();
+    boolean selection;
 
-    System.out.println("Payment method: " + record.getPaymentMethod());
+    System.out.println("Payment method: " + spentRecords.getPaymentMethod());
     selection = editOption();
     if (selection) {
       method = EnumSetters.setMethod();
-      System.out.println("Payment Card: " + record.getPaymentMethod());
+      System.out.println("Payment Card: " + spentRecords.getPaymentMethod());
       selection = editOption();
       if (selection) {
         card = EnumSetters.setCard();
       }
     }
 
-    System.out.println("Payment category: " + record.getCategory());
+    System.out.println("Payment category: " + spentRecords.getCategory());
     selection = editOption();
     if (selection) {
       category = PaymentCategory.getCategories();
     }
 
-    System.out.println("Payment date: " + record.getDate());
+    System.out.println("Payment date: " + spentRecords.getDate());
     selection = editOption();
     if (selection) {
       System.out.println("Input format yyyy-MM-dd HH:mm");
@@ -135,5 +114,23 @@ public class RecordEditor {
     System.out.println("[1] - Edit\t[2] - Next");
     String select = new MainMenu().readInput();
     return select.equals("1");
+  }
+  private Double sumEdit(MoneyRecords record){
+    System.out.println("Sum: " + record.getSum());
+    boolean selection = editOption();
+    double sum = record.getSum();
+    if (selection) {
+      sum = Double.parseDouble(new MainMenu().readInput());
+    }
+    return sum;
+  }
+  private String infoEdit(MoneyRecords record){
+    System.out.println("Extra info: " + record.getPapInfo());
+    boolean selection = editOption();
+    String info = record.getPapInfo();
+    if (selection) {
+      info = new MainMenu().readInput();
+    }
+    return info;
   }
 }

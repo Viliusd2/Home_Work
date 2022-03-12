@@ -3,9 +3,9 @@ package Service;
 import FileUtils.RecordReaderFromFile;
 import FileUtils.WriteRecordsToFile;
 import Model.Budget;
-import Service.Utils.RecordEditor;
-import Service.Utils.RecordPrinter;
-import Service.Utils.RecordGenerator;
+import Service.RecordServices.RecordEditorMenu;
+import Service.RecordServices.RecordPrinter;
+import Service.RecordServices.RecordGenerator;
 import Service.Menu.Console.ConsoleMenu;
 import Service.Menu.MainMenu;
 
@@ -13,16 +13,15 @@ public class Application {
   private final ConsoleMenu mainMenu;
   private final Budget budget = new Budget();
   private final RecordPrinter printer = new RecordPrinter();
-  private final RecordEditor editor = new RecordEditor();
+  private final RecordEditorMenu editor = new RecordEditorMenu();
 
   public Application() {
     this.mainMenu = new MainMenu();
   }
 
   public void run() {
-    String selectedOption = mainMenu.printAndRead();
     // TODO: your implementation here
-    choseMenuOption(selectedOption);
+    choseMenuOption(mainMenu.printAndRead());
   }
 
   public void choseMenuOption(String text) {
@@ -52,6 +51,7 @@ public class Application {
           break;
         case "6":
           //read from a file
+
           budget.setMoneyRecords(RecordReaderFromFile.reader());
         default:
           System.out.println("Wrong input");

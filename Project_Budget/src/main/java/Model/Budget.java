@@ -1,7 +1,6 @@
 package Model;
 
 import Model.ParameterClasses.Enums.PaymentRecordType;
-import Model.Records.MoneyEarnedRecord;
 import Model.Records.MoneyRecords;
 import lombok.Getter;
 
@@ -19,12 +18,13 @@ public class Budget {
   public void balanceCounter() {
     for (MoneyRecords moneyRecord : moneyRecords) {
       if (moneyRecord.getPaymentRecordType().equals(PaymentRecordType.INCOME)) {
-        this.moneyBalance += moneyRecord.getSum();
+        this.moneyBalance += moneyRecord.getMoneyAmount();
       } else {
-        this.moneyBalance -= moneyRecord.getSum();
+        this.moneyBalance -= moneyRecord.getMoneyAmount();
       }
     }
   }
+
   public void setMoneyRecords(ArrayList<MoneyRecords> records){
     this.moneyRecords = records;
   }

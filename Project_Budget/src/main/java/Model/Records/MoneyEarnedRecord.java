@@ -11,18 +11,18 @@ import java.time.LocalDate;
 
 public class MoneyEarnedRecord extends MoneyRecords implements Serializable {
 
-  private final LocalDate date;
+  private final LocalDate moneyTransferDate;
   private final boolean successfulTransfer;
 
-  public MoneyEarnedRecord(double sum, boolean successfulTransfer, String papInfo) {
-    super(sum, PaymentRecordType.INCOME, papInfo);
-    this.date = LocalDate.now();
+  public MoneyEarnedRecord(double moneyAmount, boolean successfulTransfer, String papInfo) {
+    super(moneyAmount, PaymentRecordType.INCOME, papInfo);
+    this.moneyTransferDate = LocalDate.now();
     this.successfulTransfer = successfulTransfer;
   }
 
   @Override
   public String toString() {
     return super.toString()
-        + String.format("Date = %s " + "\nTransfer success = %s\n\n", date, successfulTransfer);
+        + String.format("Date = %s " + "\nTransfer success = %s\n\n", moneyTransferDate, successfulTransfer);
   }
 }

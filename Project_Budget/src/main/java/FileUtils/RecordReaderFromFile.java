@@ -3,6 +3,7 @@ package FileUtils;
 import Model.Records.MoneyRecords;
 import Service.Menu.MainMenu;
 
+import javax.validation.constraints.NotNull;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 
 
 public class RecordReaderFromFile {
-
+@NotNull
   public static ArrayList<MoneyRecords> reader() {
     ArrayList<MoneyRecords> records = new ArrayList<>();
     boolean cont = true;

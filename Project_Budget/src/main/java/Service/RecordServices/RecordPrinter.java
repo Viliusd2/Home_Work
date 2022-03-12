@@ -1,4 +1,4 @@
-package Service.Utils;
+package Service.RecordServices;
 
 import Model.Records.MoneyRecords;
 import Model.ParameterClasses.Enums.PaymentRecordType;

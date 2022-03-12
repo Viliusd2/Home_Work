@@ -1,4 +1,4 @@
-package Service.Utils;
+package Service.RecordServices;
 
 import Model.ParameterClasses.PaymentCategory;
 import Model.Records.MoneyRecords;
@@ -7,18 +7,17 @@ import Model.ParameterClasses.Enums.PaymentMethods;
 import Model.Records.MoneyEarnedRecord;
 import Model.Records.MoneySpentRecords;
 import Service.Menu.MainMenu;
+import Service.Utils.EnumSetters;
 
 public class RecordGenerator {
   private static double sum;
 
   public static MoneyEarnedRecord earningsSetter() {
-    sum = (Math.random() * ((500 - 50) + 1)) + 50;
-    return new MoneyEarnedRecord(sum, true, "kazkoks aprasas");
+    return new MoneyEarnedRecord((Math.random() * ((500 - 50) + 1)) + 50, true, "kazkoks aprasas");
   }
 
   public static MoneySpentRecords spendingSetter() {
-    sum = (Math.random() * ((500 - 50) + 1)) + 50;
-    return new MoneySpentRecords(sum, EnumSetters.setMethod(), EnumSetters.setCard(), "kazkoks aprasas", PaymentCategory.getCategories());
+    return new MoneySpentRecords((Math.random() * ((500 - 50) + 1)) + 50, EnumSetters.setMethod(), EnumSetters.setCard(), "kazkoks aprasas", PaymentCategory.getCategories());
   }
 
   public static MoneyRecords generateRecords() {
@@ -29,14 +28,18 @@ public class RecordGenerator {
       System.out.println("Chose what kind of record to add");
       System.out.println("[1] - Earnings\n[2] - Spending's");
       String selection = new MainMenu().readInput();
-      if (selection.equals("1")) {
-        record = earningsSetter();
-        continueLoop = false;
-      } else if (selection.equals("2")) {
-        record = spendingSetter();
-        continueLoop = false;
-      } else {
-        System.out.println("Wrong input");
+
+      switch (selection){
+        case  "1":
+          record = earningsSetter();
+          continueLoop = false;
+          break;
+        case "2":
+          record = spendingSetter();
+          continueLoop = false;
+          break;
+        default:
+          System.out.println("Wrong input");
       }
     }
     return  record;

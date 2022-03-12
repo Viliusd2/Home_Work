@@ -9,16 +9,16 @@ import java.io.Serializable;
 @Getter
 
 public class MoneyRecords implements Serializable {
-  private final double sum;
+  private final double moneyAmount;
   private final PaymentRecordType paymentRecordType;
-  private final String papInfo;
+  private final String commentForRecord;
   private final int id;
   private static int counter = 0;
 
-  public MoneyRecords(double sum, PaymentRecordType paymentRecordType, String papInfo) {
-    this.sum = sum;
+  public MoneyRecords(double moneyAmount, PaymentRecordType paymentRecordType, String commentForRecord) {
+    this.moneyAmount = moneyAmount;
     this.paymentRecordType = paymentRecordType;
-    this.papInfo = papInfo;
+    this.commentForRecord = commentForRecord;
     this.id = counter;
     counter++;
   }
@@ -26,6 +26,6 @@ public class MoneyRecords implements Serializable {
   @Override
   public String toString() {
     return String.format(
-        " MoneyRecords : Type: %s\n Sum = %.2f  Info : %s\n", paymentRecordType, sum, papInfo);
+        " MoneyRecords : Type: %s\n Sum = %.2f  Info : %s\n", paymentRecordType, moneyAmount, commentForRecord);
   }
 }

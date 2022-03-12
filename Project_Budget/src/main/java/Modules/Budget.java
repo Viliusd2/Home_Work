@@ -3,31 +3,32 @@ package Modules;
 import Modules.MoneyRecords.MoneySpent;
 import Modules.MoneyRecords.MoneyEarned;
 
+import java.util.ArrayList;
+
 public class Budget {
-  private MoneyEarned[] moneyEarned = new MoneyEarned[100];
-  private MoneySpent[] moneySpent = new MoneySpent[100];
-  private static int earnedCounter = 0;
-  private static int spentCounter = 0;
+  private final ArrayList<MoneyEarned> moneyEarned = new ArrayList<>();
+  private final ArrayList<MoneySpent> moneySpent = new ArrayList<>();
+  private double moneyBalance;
 
   public void addMoneyEarnedRecord(MoneyEarned pajamos) {
-    this.moneyEarned[earnedCounter] = pajamos;
-    earnedCounter++;
+    this.moneyEarned.add(pajamos);
+    moneyBalance += pajamos.getSum();
   }
 
   public void addMoneySpentRecord(MoneySpent islaidos) {
-    this.moneySpent[spentCounter] = islaidos;
-    spentCounter++;
+    this.moneySpent.add(islaidos);
+    moneyBalance -= islaidos.getSum();
   }
 
-  public void getEarningsRecord() {
-    for (int i = 0; i < earnedCounter; i++) {
-      System.out.println(moneyEarned[i]);
-    }
+  public ArrayList<MoneyEarned> getMoneyEarned() {
+    return moneyEarned;
   }
 
-  public void getSpendingRecord() {
-    for (int i = 0; i < spentCounter; i++) {
-      System.out.println(moneySpent[i]);
-    }
+  public ArrayList<MoneySpent> getMoneySpent() {
+    return moneySpent;
+  }
+
+  public void getMoneyBalance() {
+    System.out.printf("Money Balance at the moment = %.2f\n", moneyBalance);
   }
 }

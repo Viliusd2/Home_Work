@@ -11,9 +11,9 @@ public class MoneyEarned {
   private boolean sucsesfulTranfer;
   private String papInfo;
 
-  public MoneyEarned(double suma, String date, boolean successfulTransfer, String papInfo) {
+  public MoneyEarned(double suma, boolean successfulTransfer, String papInfo) {
     this.sum = suma;
-    this.date = LocalDate.parse(date);
+    this.date = LocalDate.now();
     this.sucsesfulTranfer = successfulTransfer;
     this.papInfo = papInfo;
   }
@@ -40,16 +40,8 @@ public class MoneyEarned {
 
   @Override
   public String toString() {
-    return "Category = "
-        + Category
-        + "\nSum = "
-        + sum
-        + "\nDate = "
-        + date
-        + "\nTransfer success = "
-        + sucsesfulTranfer
-        + "\nExtra Info = '"
-        + papInfo
-        + "\n";
+    return String.format(
+        "Category %s \nSum = %.2f \nDate = %s " + "\nTransfer success = %s \nExtra Info = %s\n",
+        Category, sum, date, sucsesfulTranfer, papInfo);
   }
 }

@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  postgresqldb:
+    image: postgres
+    mem_limit: 1536MB
+    mem_reservation: 1G
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: a
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres_network
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
+  pgadmin-data:
+
+networks:
+  postgres_network:
+    driver: bridge

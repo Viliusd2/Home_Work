@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
-<head th:replace="fragments/main :: head(#{create.product})"></head>
+<head th:replace="fragments/layout :: head(#{create.product})"></head>
 <body >
 
-<div th:replace="fragments/main :: navbar">Cia yra navbar (menu)</div>
+<div th:replace="fragments/layout :: navbar">Cia yra navbar (menu)</div>
 <div th:align="center">
     <h3 th:text="#{create.product}"></h3>
     <form method="post" th:object="${product}">
@@ -27,7 +27,7 @@
 
 </div>
 
-<div th:replace="fragments/main :: footer"></div>
+<div th:replace="fragments/layout :: footer"></div>
 
 </body>
 </html>

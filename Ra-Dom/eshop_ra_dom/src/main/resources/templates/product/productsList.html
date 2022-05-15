@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
-<head th:replace="fragments/main :: head(#{products.header})"></head>
+<head th:replace="fragments/layout :: head(#{products.header})"></head>
 <body>
 
-<div th:replace="fragments/main :: navbar">Cia yra navbar (menu)</div>
+<div th:replace="fragments/layout :: navbar">Cia yra navbar (menu)</div>
 
 <div th:align="center">
 <h2 th:text="#{products.header}" ></h2>
@@ -17,9 +17,9 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col"><a th:replace="fragments/main :: sortColumn(data=${productsPage},name='name',fieldName=#{products.name},path='/products/list',down='fa-arrow-down-a-z',up='fa-arrow-up-z-a')"></a></th>
-            <th scope="col"><a th:replace="fragments/main :: sortColumn(data=${productsPage}, name='countOfStock',fieldName=#{products.quantity},path=@{/products/list}, down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a></th>
-            <th scope="col"><a th:replace="fragments/main :: sortColumn(data=${productsPage}, name='price',fieldName=#{products.price},path=@{/products/list},down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a></th>
+            <th scope="col"><a th:replace="fragments/layout :: sortColumn(data=${productsPage},name='name',fieldName=#{products.name},path='/products/list',down='fa-arrow-down-a-z',up='fa-arrow-up-z-a')"></a></th>
+            <th scope="col"><a th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='countOfStock',fieldName=#{products.quantity},path=@{/products/list}, down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a></th>
+            <th scope="col"><a th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='price',fieldName=#{products.price},path=@{/products/list},down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a></th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -70,7 +70,7 @@
 
 </div>
 
-<div th:replace="fragments/main :: footer"></div>
+<div th:replace="fragments/layout :: footer"></div>
 
 </body>
 </html>

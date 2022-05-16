@@ -1,0 +1,13 @@
+.hasError {
+    border-color: red;
+    color: red;
+}
+
+.error-block {
+    background-color: #ce6c6c;
+}
+
+.form-control {
+    background-color: #ceeaea;
+}
+

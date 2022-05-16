@@ -1,7 +1,6 @@
 package com.radom.eshop_ra_dom.controller;
 
 import com.radom.eshop_ra_dom.dto.ProductDto;
-import com.radom.eshop_ra_dom.exception.ProductNotFoundException;
 import com.radom.eshop_ra_dom.service.ProductService;
 import com.radom.eshop_ra_dom.helper.MessageService;
 import lombok.RequiredArgsConstructor;
@@ -42,7 +41,7 @@ public class ProductController {
             Model model, @PageableDefault(size = 7, sort = {"name"}, direction = Sort.Direction.ASC) Pageable pageable) {
         model.addAttribute("productsPage", productService.getProductPaginated(pageable));
 
-        return "product/productsList";
+        return "product/products";
     }
 
     @GetMapping("/{productId}/update")

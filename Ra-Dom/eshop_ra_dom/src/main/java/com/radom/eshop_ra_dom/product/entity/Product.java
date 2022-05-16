@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -31,4 +32,6 @@ public class Product {
 
     private String flavor;
 
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private Set<ProductCategory> productCategories;
 }

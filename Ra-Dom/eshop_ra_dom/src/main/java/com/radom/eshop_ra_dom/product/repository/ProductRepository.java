@@ -2,6 +2,8 @@ package com.radom.eshop_ra_dom.product.repository;
 
 
 import com.radom.eshop_ra_dom.product.entity.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,4 +14,6 @@ import java.util.UUID;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Optional<Product> findByProductId(UUID id);
+
+    Page<Product> findProductsByNameIsLikeIgnoreCase(String productName, Pageable pageable);
 }

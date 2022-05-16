@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
-<head th:replace="fragments/layout :: head(#{create.product})"></head>
-<body >
+<head th:replace="fragments/layout :: head(#{create.product.title})"></head>
+<body>
 
 <div th:replace="fragments/layout :: navbar(rootPath='products')">Cia yra navbar (menu)</div>
-<div th:align="center">
-    <h3 th:text="#{create.product}"></h3>
-    <form method="post" th:object="${product}">
-        <label th:text="#{create.product.name}"></label>
-        <input type="text" placeholder="Write Name" th:field="*{name}"><br/>
 
-        <label th:text="#{create.product.quantity}"></label>
-        <input type="number" placeholder="Write Quantity" th:field="*{quantity}"><br/>
+    <div class="container" th:align="center">
+        <h3 th:text="#{create.product}"></h3>
+        <form method="post" th:object="${productDto}">
+            <div class="mb-3">
+                <ul class="error-block" th:if="${#fields.hasErrors()}">
+                    <li th:each="error: ${#fields.errors()}" th:text="${error}"></li>
+                </ul>
+            </div>
+            <div class="mb-3">
+                <label th:text="#{create.product.name}"></label>
+                <input class="form-control" type="text" th:placeholder="#{write.product.name}" th:field="*{name}" th:errorclass="hasError">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="hasError"></span>
+            </div>
 
-        <label th:text="#{create.product.price}"></label>
-        <input type="number" placeholder="Write Price" th:field="*{price}"><br/>
+            <div class="mb-3">
+                <label th:text="#{create.product.quantity}"></label>
+                <input class="form-control" type="number" th:placeholder="#{write.product.quantity}" th:field="*{quantity}" th:errorclass="hasError">
+                <span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}" th:errorclass="hasError"></span>
+            </div>
 
-        <label th:text="#{create.product.flavor}"></label>
-        <textarea type="text" placeholder="Write Flavor" th:field="*{flavor}"></textarea><br/><br/>
+            <div class="mb-3">
+                <label th:text="#{create.product.price}"></label>
+                <input class="form-control" type="number" th:placeholder="#{write.product.price}" th:field="*{price}" th:errorclass="hasError">
+                <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" th:errorclass="hasError"></span>
+            </div>
+            <div class="mb-3">
+                <label th:text="#{create.product.flavor}"></label>
+                <textarea class="form-control"
+                          type="text"
+                          th:placeholder="#{write.product.flavor}"
+                          th:field="*{flavor}"
+                          th:errorclass="hasError"></textarea>
+                <span th:if="${#fields.hasErrors('flavor')}" th:errors="*{flavor}" th:errorclass="hasError"></span>
+            </div>
 
-        <button type="submit" th:text="#{create.product.add}"></button>
-    </form>
+            <button class="btn btn-primary" type="submit" th:text="#{create.product.add}"></button>
+        </form>
 
-    <div th:text="${message}"></div>
+        <div th:text="${message}"></div>
+    </div>
 
-</div>
 
 <div th:replace="fragments/layout :: footer"></div>
 

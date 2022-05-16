@@ -1,7 +1,7 @@
-package com.radom.eshop_ra_dom.controller;
+package com.radom.eshop_ra_dom.product.controller;
 
-import com.radom.eshop_ra_dom.dto.ProductDto;
-import com.radom.eshop_ra_dom.service.ProductService;
+import com.radom.eshop_ra_dom.product.dto.ProductDto;
+import com.radom.eshop_ra_dom.product.service.ProductService;
 import com.radom.eshop_ra_dom.helper.MessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;

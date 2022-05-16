@@ -1,10 +1,10 @@
-package com.radom.eshop_ra_dom.service;
+package com.radom.eshop_ra_dom.product.service;
 
-import com.radom.eshop_ra_dom.dto.ProductDto;
-import com.radom.eshop_ra_dom.entity.Product;
-import com.radom.eshop_ra_dom.exception.ProductNotFoundException;
-import com.radom.eshop_ra_dom.mapper.ProductMapper;
-import com.radom.eshop_ra_dom.repository.ProductRepository;
+import com.radom.eshop_ra_dom.product.dto.ProductDto;
+import com.radom.eshop_ra_dom.product.entity.Product;
+import com.radom.eshop_ra_dom.product.exception.ProductNotFoundException;
+import com.radom.eshop_ra_dom.product.mapper.ProductMapper;
+import com.radom.eshop_ra_dom.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

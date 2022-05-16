@@ -1,4 +1,4 @@
-package com.radom.eshop_ra_dom.entity;
+package com.radom.eshop_ra_dom.product.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

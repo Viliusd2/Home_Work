@@ -1,4 +1,4 @@
-package com.radom.eshop_ra_dom.dto;
+package com.radom.eshop_ra_dom.product.dto;
 
 import lombok.Builder;
 import lombok.Data;

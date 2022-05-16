@@ -1,7 +1,7 @@
-package com.radom.eshop_ra_dom.mapper;
+package com.radom.eshop_ra_dom.product.mapper;
 
-import com.radom.eshop_ra_dom.dto.ProductDto;
-import com.radom.eshop_ra_dom.entity.Product;
+import com.radom.eshop_ra_dom.product.dto.ProductDto;
+import com.radom.eshop_ra_dom.product.entity.Product;
 import org.springframework.stereotype.Component;
 
 @Component

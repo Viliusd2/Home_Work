@@ -1,4 +1,4 @@
-package com.radom.eshop_ra_dom.exception;
+package com.radom.eshop_ra_dom.product.exception;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

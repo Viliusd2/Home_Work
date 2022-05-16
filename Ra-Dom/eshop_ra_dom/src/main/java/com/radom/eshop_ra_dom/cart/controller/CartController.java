@@ -1,32 +1,37 @@
 package com.radom.eshop_ra_dom.cart.controller;
 
+import com.radom.eshop_ra_dom.cart.dto.CartDto;
+import com.radom.eshop_ra_dom.product.dto.ProductDto;
+import com.radom.eshop_ra_dom.product.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.*;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/cart")
 @SessionAttributes("cartSession")
+@RequiredArgsConstructor
 public class CartController {
-// defaultine sessija
+
+    private final ProductService productService;
+
+    // defaultine sessija
     @ModelAttribute("cartSession")
-    public String createCart() {
-        return "Labas";
+    public CartDto createCart() {
+        return new CartDto();
     }
 
     @GetMapping
-    public String openCart(@ModelAttribute("cartSession") String cart){
+    public String openCart(@ModelAttribute("cartSession") CartDto cart) {
         return "/cart/cart";
     }
-//    @GetMapping("/add")
-//    public String addToCart(Model model){
-//        model.addAttribute("cartSession", "Labas");
-//
-//        return "redirect:/cart";
-//    }
+
+    @PostMapping("/{productId}")
+    public String addToCart(@PathVariable UUID productId, @ModelAttribute("cartSession") CartDto cart) {
+        ProductDto productDto = productService.getProductByUUID(productId);
+        cart.add(productDto);
+
+        return "redirect:/products/list";
+    }
 }

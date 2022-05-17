@@ -11,4 +11,8 @@ public class CartItem {
     private Integer quantity;
 
 
+    public void incrementQuantity (){
+        quantity++;
+    }
+
 }

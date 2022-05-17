@@ -1,6 +1,7 @@
 package com.radom.eshop_ra_dom.cart.controller;
 
 import com.radom.eshop_ra_dom.cart.dto.CartDto;
+import com.radom.eshop_ra_dom.cart.service.CartService;
 import com.radom.eshop_ra_dom.product.dto.ProductDto;
 import com.radom.eshop_ra_dom.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class CartController {
 
-    private final ProductService productService;
+    private final CartService cartService;
 
     // defaultine sessija
     @ModelAttribute("cartSession")
@@ -29,9 +30,10 @@ public class CartController {
 
     @PostMapping("/{productId}")
     public String addToCart(@PathVariable UUID productId, @ModelAttribute("cartSession") CartDto cart) {
-        ProductDto productDto = productService.getProductByUUID(productId);
-        cart.add(productDto);
+        cartService.addToCartByProductId(productId,cart);
 
         return "redirect:/products/list";
     }
+
+
 }

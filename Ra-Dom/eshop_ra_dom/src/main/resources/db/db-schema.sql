@@ -6,7 +6,7 @@ CREATE TABLE PRODUCT
 (
     id                BIGINT PRIMARY KEY AUTO_INCREMENT,
     product_id        UUID           NOT NULL,
-    name              VARCHAR(20)    NOT NULL,
+    name              VARCHAR(200)    NOT NULL,
     quantity_in_stock INT            NOT NULL,
     price             DECIMAL(20, 2) NOT NULL,
     flavor            VARCHAR(500) DEFAULT NULL
@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS product_category;
 CREATE TABLE product_category
 (
     id   BIGINT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(20) NOT NULL
+    name VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE product_product_categories

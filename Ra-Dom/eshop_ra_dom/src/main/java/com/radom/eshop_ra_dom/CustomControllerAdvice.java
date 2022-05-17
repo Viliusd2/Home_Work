@@ -27,6 +27,8 @@ public class CustomControllerAdvice {
         return new Date();
     }
 
+
+
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder) {
         PropertyEditor stringTrimmer = new StringTrimmerEditor(true);

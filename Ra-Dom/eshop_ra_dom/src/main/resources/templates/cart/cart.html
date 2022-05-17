@@ -24,10 +24,17 @@
             <td th:text="${cartItem.productDto.name}"></td>
             <td th:text="${cartItem.productDto.price}"></td>
             <td th:text="${cartItem.quantity}"></td>
-            <td th:text="${cartItem.productDto.price}"></td>
+            <td th:text="${cartItem.getItemTotalPrice}"></td>
             <td></td>
         </tr>
         </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3"></td>
+            <td th:text="${cartSession.getCartTotalQuantity()}"></td>
+            <td th:text="${cartSession.getCartTotalPrice()}"></td>
+        </tr>
+        </tfoot>
     </table>
 
     <button class="btn btn-primary" type="submit" th:text="#{cart.order}"></button>

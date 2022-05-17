@@ -4,6 +4,8 @@ import com.radom.eshop_ra_dom.product.dto.ProductDto;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.math.BigDecimal;
+
 @Builder
 @Getter
 public class CartItem {
@@ -13,6 +15,11 @@ public class CartItem {
 
     public void incrementQuantity (){
         quantity++;
+    }
+
+    public BigDecimal getItemTotalPrice(){
+
+        return productDto.getPrice().multiply(BigDecimal.valueOf(quantity));
     }
 
 }

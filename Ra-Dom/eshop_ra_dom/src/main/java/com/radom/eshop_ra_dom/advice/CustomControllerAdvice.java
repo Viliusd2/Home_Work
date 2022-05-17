@@ -1,4 +1,4 @@
-package com.radom.eshop_ra_dom;
+package com.radom.eshop_ra_dom.advice;
 
 import com.radom.eshop_ra_dom.product.exception.ProductNotFoundException;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -21,12 +21,6 @@ public class CustomControllerAdvice {
         model.addAttribute("productId", e.getProductId());
         return "product/error/productNotFound";
     }
-
-    @ModelAttribute("modelDate")
-    public Date now() {
-        return new Date();
-    }
-
 
 
     @InitBinder

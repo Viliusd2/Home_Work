@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.UUID;
@@ -32,12 +33,13 @@ public class ProductController {
     }
 
     @PostMapping
-    public String createProduct(Model model, @Valid ProductDto product, BindingResult errors) {
+    public String createProduct(Model model, @Valid ProductDto product, BindingResult errors, RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) {
             return "product/product";
         }
 
         productService.addProduct(product);
+        redirectAttributes.addFlashAttribute("message", "create.product.message.success");
 
         return "redirect:/products?message=create.product.message.success";
     }
@@ -64,9 +66,23 @@ public class ProductController {
         return "redirect:/products/list";
     }
 
+    /**
+     * @deprecated since 2022-05-17, use #deleteProductV2
+     * @param model
+     * @param id
+     * @return
+     */
+    @Deprecated
     @GetMapping("/{productId}/delete")
+
     public String deleteProduct(Model model, @PathVariable("productId") UUID id) {
         productService.deleteProduct(id);
+
+        return "redirect:/products/list";
+    }
+    @PostMapping("/delete")
+    public String deleteProductV2(@RequestParam("productId") UUID productId) {
+        productService.deleteProduct(productId);
 
         return "redirect:/products/list";
     }

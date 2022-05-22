@@ -14,7 +14,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .formLogin()
-                .permitAll();
+           .formLogin()
+                .permitAll()
+                .loginPage("/login-eshop")
+                .loginProcessingUrl("/login-eshop")
+                .defaultSuccessUrl("/", true)
+                .usernameParameter("loginEmail")
+                .passwordParameter("loginPassword");
     }
 }

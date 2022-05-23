@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+import static com.radom.eshop_ra_dom.EshopEndpoints.USERS_REGISTER_PATH;
+import static com.radom.eshop_ra_dom.EshopEndpoints.USERS_ROOT_PATH;
+
 @Controller
 @RequestMapping("/users")
 @RequiredArgsConstructor
@@ -21,14 +24,14 @@ public class UserController {
     private final UserValidator validator;
     private final UserService userService;
 
-    @GetMapping("/register")
+    @GetMapping(USERS_REGISTER_PATH)
     public String getUserForm(Model model) {
         model.addAttribute("userDto", UserDto.builder().build());
 
         return "/user/user";
     }
 
-    @PostMapping("/register")
+    @PostMapping(USERS_REGISTER_PATH)
     public String register(@Valid UserDto userDto, BindingResult errors) {
         validator.validate(userDto, errors);
         if (errors.hasErrors()) {
@@ -37,6 +40,6 @@ public class UserController {
 
         userService.register(userDto);
 
-        return "redirect:/user";
+        return "redirect:" + USERS_ROOT_PATH;
     }
 }

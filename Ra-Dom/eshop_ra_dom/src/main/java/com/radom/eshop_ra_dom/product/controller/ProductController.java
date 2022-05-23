@@ -16,15 +16,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 import java.util.UUID;
 
+import static com.radom.eshop_ra_dom.EshopEndpoints.*;
+
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/products")
+
 public class ProductController {
 
     private final ProductService productService;
     private final MessageService messageService;
 
-    @GetMapping
+    @GetMapping(PRODUCT_ROOT_PATH)
     public String openCrateProductForm(Model model, String message) {
         model.addAttribute("productDto", ProductDto.builder().build());
         model.addAttribute("message", messageService.getMessage(message));
@@ -32,7 +34,7 @@ public class ProductController {
         return "product/product";
     }
 
-    @PostMapping
+    @PostMapping(PRODUCT_ROOT_PATH)
     public String createProduct(Model model, @Valid ProductDto product, BindingResult errors, RedirectAttributes redirectAttributes) {
         if (errors.hasErrors()) {
             return "product/product";
@@ -41,10 +43,10 @@ public class ProductController {
         productService.addProduct(product);
         redirectAttributes.addFlashAttribute("message", "create.product.message.success");
 
-        return "redirect:/products?message=create.product.message.success";
+        return "redirect:" + PRODUCT_ROOT_PATH;
     }
 
-    @GetMapping("/list")
+    @GetMapping(PRODUCT_LIST_PATH)
     public String getProducts(
             Model model, @PageableDefault(size = 7, sort = {"name"}, direction = Sort.Direction.ASC) Pageable pageable) {
         model.addAttribute("productsPage", productService.getProductPaginated(pageable));
@@ -52,38 +54,24 @@ public class ProductController {
         return "product/products";
     }
 
-    @GetMapping("/{productId}/update")
+    @GetMapping(PRODUCT_UPDATE_PATH)
     public String getUpdateProduct(Model model, @PathVariable("productId") UUID id) {
         model.addAttribute("productDto", productService.getProductByUUID(id));
 
         return "product/product";
     }
 
-    @PostMapping("/{productId}/update")
+    @PostMapping(PRODUCT_UPDATE_PATH)
     public String getUpdateProduct(Model model, ProductDto product) {
         productService.updateProduct(product);
 
-        return "redirect:/products/list";
+        return "redirect:" + PRODUCT_LIST_PATH;
     }
 
-    /**
-     * @deprecated since 2022-05-17, use #deleteProductV2
-     * @param model
-     * @param id
-     * @return
-     */
-    @Deprecated
-    @GetMapping("/{productId}/delete")
-
-    public String deleteProduct(Model model, @PathVariable("productId") UUID id) {
-        productService.deleteProduct(id);
-
-        return "redirect:/products/list";
-    }
-    @PostMapping("/delete")
+    @PostMapping(PRODUCT_DELETE_PATH)
     public String deleteProductV2(@RequestParam("productId") UUID productId) {
         productService.deleteProduct(productId);
 
-        return "redirect:/products/list";
+        return "redirect:" + PRODUCT_LIST_PATH;
     }
 }

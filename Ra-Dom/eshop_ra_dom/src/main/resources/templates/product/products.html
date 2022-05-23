@@ -34,8 +34,7 @@
                 <td th:text="${product.price}"></td>
                 <td>
                     <div class="d-flex justify-content-between">
-                        <form method="POST" th:action="@{/cart/{productId}(productId=${product.productId})}">
-                            <button class="btn btn-primary">
+                        <form method="POST" th:action="@{{path}(path=${cartPath} + '/' + ${product.productId})}">                            <button class="btn btn-primary">
                                 <i class="fa-solid fa-cart-arrow-down"></i>
                             </button>
                         </form>

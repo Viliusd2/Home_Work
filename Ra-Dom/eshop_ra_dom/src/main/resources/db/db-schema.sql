@@ -49,5 +49,7 @@ DROP TABLE IF EXISTS users_authorities;
 CREATE TABLE users_authorities
 (
     user_id BIGINT not null ,
-    authorities_id BIGINT not null
+    authorities_id BIGINT not null,
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (authorities_id) REFERENCES authority (id)
 );

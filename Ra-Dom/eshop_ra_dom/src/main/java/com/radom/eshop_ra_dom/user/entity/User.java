@@ -32,7 +32,7 @@ public class User implements UserDetails {
     private String zipCode;
     private String phoneNumber;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     private Set<Authority> authorities;
 
     @Override

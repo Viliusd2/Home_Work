@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Builder
@@ -31,9 +32,12 @@ public class User implements UserDetails {
     private String zipCode;
     private String phoneNumber;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Authority> authorities;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("USER"));
+        return this.authorities;
     }
     //this is optional if lombok getter matches
     @Override

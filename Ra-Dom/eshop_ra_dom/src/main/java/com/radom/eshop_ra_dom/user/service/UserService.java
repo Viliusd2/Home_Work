@@ -16,21 +16,21 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
 
     public void register(UserDto userDto) {
-    userRepository.save(User.builder()
-                    .email(userDto.getEmail())
-                    .name(userDto.getName())
-                    .surname(userDto.getSurname())
-                    .phoneNumber(userDto.getPhoneNumber())
-                    .zipCode(userDto.getZipCode())
-                    .password(userDto.getPassword()) //FIXME: do not save as plain text for security reason
-            .build());
+        userRepository.save(User.builder()
+                .email(userDto.getEmail())
+                .name(userDto.getName())
+                .surname(userDto.getSurname())
+                .phoneNumber(userDto.getPhoneNumber())
+                .zipCode(userDto.getZipCode())
+                .password(userDto.getPassword()) //FIXME: do not save as plain text for security reason
+                .build());
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         return userRepository.findUserByEmail(username)
-                .orElseThrow(()-> new UsernameNotFoundException("'"+username + "' not found!"));
+                .orElseThrow(() -> new UsernameNotFoundException("'" + username + "' not found!"));
     }
 
 }

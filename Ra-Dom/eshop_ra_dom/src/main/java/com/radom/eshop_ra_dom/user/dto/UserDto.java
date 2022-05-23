@@ -13,7 +13,6 @@ import javax.validation.constraints.Size;
 
 @Builder
 @Getter
-//@PasswordCompare
 @FieldsStringCompare(
         firstField = "password",
         secondField = "repeatedPassword",

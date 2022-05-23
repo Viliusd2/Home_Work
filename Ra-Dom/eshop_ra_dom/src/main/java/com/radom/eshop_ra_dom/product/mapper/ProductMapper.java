@@ -14,6 +14,7 @@ public class ProductMapper {
                 .quantity(product.getCountOfStock())
                 .price(product.getPrice())
                 .flavor(product.getFlavor())
+                .description(product.getDescription())
                 .build();
     }
 }

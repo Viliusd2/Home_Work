@@ -8,7 +8,8 @@ CREATE TABLE product
     name              VARCHAR(200)   NOT NULL,
     quantity_in_stock INT            NOT NULL,
     price             DECIMAL(20, 2) NOT NULL,
-    flavor            VARCHAR(500) DEFAULT NULL
+    flavor            VARCHAR(100) DEFAULT NULL,
+    description       VARCHAR(500) DEFAULT NULL
 );
 DROP TABLE IF EXISTS product_category;
 CREATE TABLE product_category
@@ -28,12 +29,12 @@ CREATE TABLE product_product_categories
 DROP TABLE IF EXISTS users;
 CREATE TABLE users
 (
-    id          BIGINT PRIMARY KEY AUTO_INCREMENT,
-    name        VARCHAR(20)  NOT NULL,
-    surname     VARCHAR(50)  NOT NULL,
-    email       VARCHAR(50)  NOT NULL,
-    password    VARCHAR(255) NOT NULL,
+    id           BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name         VARCHAR(20)  NOT NULL,
+    surname      VARCHAR(50)  NOT NULL,
+    email        VARCHAR(50)  NOT NULL,
+    password     VARCHAR(255) NOT NULL,
     zip_code     VARCHAR(10)  NOT NULL,
-    phone_Number VARCHAR(12)  NOT NULL
+    phone_Number VARCHAR(12)      NOT NULL
 
 );

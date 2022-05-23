@@ -32,6 +32,8 @@ public class Product {
 
     private String flavor;
 
+    private String description;
+
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<ProductCategory> productCategories;
 }

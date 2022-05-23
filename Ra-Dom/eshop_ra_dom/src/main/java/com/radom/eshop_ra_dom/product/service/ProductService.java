@@ -39,6 +39,7 @@ public class ProductService {
                 .countOfStock(productDto.getQuantity())
                 .price(productDto.getPrice())
                 .flavor(productDto.getFlavor())
+                .description(productDto.getDescription())
                 .productCategories(Set.of(productCategory))
                 .build());
     }
@@ -70,6 +71,7 @@ public class ProductService {
                     .countOfStock(productDto.getQuantity())
                     .price(productDto.getPrice())
                     .flavor(productDto.getFlavor())
+                    .description(productDto.getDescription())
                     .build();
 
             productRepository.save(product);

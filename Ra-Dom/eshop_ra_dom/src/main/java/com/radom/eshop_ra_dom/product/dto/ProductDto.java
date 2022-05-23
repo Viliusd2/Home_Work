@@ -32,4 +32,7 @@ public class ProductDto {
 
     @NotBlank
     private String flavor;
+
+    @NotBlank
+    private String description;
 }

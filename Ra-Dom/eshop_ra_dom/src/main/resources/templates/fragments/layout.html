@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head th:fragment="head(title)">
     <meta charset="UTF-8">
@@ -25,7 +26,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" th:href="@{/public/products/list}" th:text="#{products.header}"></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" sec:authorize="hasRole('ADMIN')">
                     <a class="nav-link" aria-current="page" th:href="@{/products}" th:text="#{create.product.title}"></a>
                 </li>
                 <li class="nav-item">
@@ -55,9 +56,9 @@
     </a>
     <ul class="dropdown-menu dropdown-menu-dark"
         aria-labelledby="navbarDarkDropdownMenuLink">
-        <li><a class="dropdown-item" th:href="'/' + *{rootPath} + '?lang=lt'">Lietuvių</a></li>
+        <li><a class="dropdown-item" th:href="'/public/' + *{rootPath} + '?lang=lt'">Lietuvių</a></li>
         <li><a class="dropdown-item" th:href="'/' + *{rootPath} + '?lang=de'">Deutsch</a></li>
-        <li><a class="dropdown-item" th:href="'/' + *{rootPath} + '?lang=en'">English</a></li>
+        <li><a class="dropdown-item" th:href="'/public/' + *{rootPath} + '?lang=en'">English</a></li>
     </ul>
 </li>
 

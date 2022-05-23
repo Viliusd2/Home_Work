@@ -14,7 +14,6 @@ import static com.radom.eshop_ra_dom.EshopEndpoints.CART_ROOT_PATH;
 import static com.radom.eshop_ra_dom.EshopEndpoints.PRODUCT_LIST_PATH;
 
 @Controller
-@RequestMapping(CART_ROOT_PATH)
 @SessionAttributes("cartSession")
 @RequiredArgsConstructor
 public class CartController {
@@ -27,18 +26,18 @@ public class CartController {
         return new CartDto();
     }
 
-    @GetMapping
+    @GetMapping(CART_ROOT_PATH)
     public String openCart(@ModelAttribute("cartSession") CartDto cart) {
         return "/cart/cart";
     }
 
-    @PostMapping("/{productId}")
+    @PostMapping(CART_ROOT_PATH+"/{productId}")
     public String addToCart(@PathVariable UUID productId, @ModelAttribute("cartSession") CartDto cart) {
         cartService.addToCartByProductId(productId,cart);
 
         return "redirect:" + PRODUCT_LIST_PATH;
     }
-    @PostMapping
+    @PostMapping("/cart")
     public String order(SessionStatus sessionStatus, RedirectAttributes redirectAttributes){
         //TODO: save into db or do other things to cart data
 

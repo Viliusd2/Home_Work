@@ -35,6 +35,19 @@ CREATE TABLE users
     email        VARCHAR(50)  NOT NULL,
     password     VARCHAR(255) NOT NULL,
     zip_code     VARCHAR(10)  NOT NULL,
-    phone_Number VARCHAR(12)      NOT NULL
+    phone_Number VARCHAR(12)  NOT NULL
 
+);
+
+DROP TABLE IF EXISTS authority;
+CREATE TABLE authority
+(
+    id   BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL
+);
+DROP TABLE IF EXISTS users_authorities;
+CREATE TABLE users_authorities
+(
+    user_id BIGINT not null ,
+    authorities_id BIGINT not null
 );

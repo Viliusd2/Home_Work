@@ -1,11 +1,9 @@
 package com.radom.eshop_ra_dom.user.entity;
-
-import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
-@Getter
+
 @Entity
 public class Authority implements GrantedAuthority {
 
@@ -17,6 +15,6 @@ public class Authority implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return this.name;
+        return "ROLE_" + this.name;
     }
 }

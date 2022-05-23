@@ -1,5 +1,9 @@
-body{
-    background-color: pink;
+
+body {
+    background-color: #434453;
+    color: #0bc0c0;
+    min-height: 100vh;
+    font-size: calc(6px + 2vmin);
 }
 .hasError {
     border-color: red;
@@ -12,5 +16,11 @@ body{
 
 .form-control {
     background-color: #ceeaea;
+}
+#login-text{
+    color: darkred;
+}
+nav {
+  color: #0bc0c0;
 }
 

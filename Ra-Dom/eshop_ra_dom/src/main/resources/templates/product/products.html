@@ -22,13 +22,13 @@
             <thead>
             <tr>
                 <th scope="col" style="width: auto"><a
-                        th:replace="fragments/layout :: sortColumn(data=${productsPage},name='name',fieldName=#{products.name},path='/products/list',down='fa-arrow-down-a-z',up='fa-arrow-up-z-a')"></a>
+                        th:replace="fragments/layout :: sortColumn(data=${productsPage},name='name',fieldName=#{products.name},path=@{/public/products/list},down='fa-arrow-down-a-z',up='fa-arrow-up-z-a')"></a>
                 </th>
                 <th scope="col" style="width: 15%"><a
-                        th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='countOfStock',fieldName=#{products.quantity},path=@{/products/list}, down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a>
+                        th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='countOfStock',fieldName=#{products.quantity},path=@{/public/products/list}, down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a>
                 </th>
                 <th scope="col" style="width: 15%"><a
-                        th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='price',fieldName=(#{products.price} + ' (' + ${currency} + ')'),path=@{/products/list},down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a>
+                        th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='price',fieldName=(#{products.price} + ' (' + ${currency} + ')'),path=@{/public/products/list},down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a>
                 </th>
                 <th scope="col" style="width: 15%"></th>
             </tr>

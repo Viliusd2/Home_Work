@@ -6,10 +6,13 @@ import com.radom.eshop_ra_dom.validator.PhoneNumber;
 import com.radom.eshop_ra_dom.validator.PhoneType;
 import lombok.Builder;
 import lombok.Getter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 
 @Builder
 @Getter
@@ -17,7 +20,7 @@ import javax.validation.constraints.Size;
         firstField = "password",
         secondField = "repeatedPassword",
         message = "{validate.string.fields}")
-public class UserDto {
+public class UserDto{
 
     private String name;
     private String surname;
@@ -37,4 +40,5 @@ public class UserDto {
 
     @PhoneNumber(type = PhoneType.LOCAL)
     private String phoneNumber;
+
 }

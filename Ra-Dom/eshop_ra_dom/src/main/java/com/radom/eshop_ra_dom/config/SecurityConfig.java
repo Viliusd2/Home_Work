@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
@@ -32,11 +33,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
            .formLogin()
                 .permitAll()
-                .loginPage("/login-eshop")
+                .loginPage("/loginV2")
                 .loginProcessingUrl("/login-eshop")
                 .defaultSuccessUrl("/", true)
                 .usernameParameter("loginEmail")
-                .passwordParameter("loginPassword");
+                .passwordParameter("loginPassword")
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     }
     //Static file access and h2 db access
     @Override

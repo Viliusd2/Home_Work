@@ -6,10 +6,7 @@
 <body>
 
 <div th:replace="fragments/layout :: navbar(rootPath='cart')">Cia yra navbar (menu)</div>
-<div class="card mx-4 mx-md-5 shadow-5-strong" style="
-        background: hsla(0, 0%, 100%, 0.8);
-        backdrop-filter: blur(30px);
-        ">
+<div class="card card__main">
     <div class="card-body py-6 px-md-6">
         <div class="container">
             <h2 th:text="#{cart.title}">My Cart</h2>

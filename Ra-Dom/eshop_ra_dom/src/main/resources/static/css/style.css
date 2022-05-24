@@ -28,3 +28,68 @@ nav {
   color: #0bc0c0;
 }
 
+.cards{
+    margin: 0 auto;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(225px,1fr));
+    gap: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.card{
+    box-shadow: 0 0 3px rgba(0,0,0,0.8);
+}
+
+.card__main{
+    max-width: 1050px;
+    padding: 15px;
+    background: #f5b1b1;
+    float: none;
+    margin: 0 auto 10px;
+}
+
+.card__main__login{
+    justify-content: center;
+    max-width: 1050px;
+    padding: 15px;
+    background: #f5b1b1;
+    float: none;
+    z-index: 2;
+    margin: -100px auto 10px;
+}
+
+
+.card__image{
+    width: 100%;
+    display: block;
+}
+
+.card__content{
+    line-height: 1.5;
+    font-size: 0.9em;
+    padding: 15px;
+    background: #fafafa;
+
+}
+
+.card__content > p:first-of-type{
+    margin-top: 0;
+}
+.card__content > p:last-of-type{
+    margin-bottom: 0;
+}
+.card__info{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    background: #eeee;
+    font-size: 0.8em;
+    border-bottom: 2px solid #cccccc;
+    align-items: center;
+}
+.card__content_inside{
+    display: flex;
+    justify-content: space-between;
+}
+

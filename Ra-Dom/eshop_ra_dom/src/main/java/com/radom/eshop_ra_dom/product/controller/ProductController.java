@@ -49,10 +49,10 @@ public class ProductController {
 
     @GetMapping(PRODUCT_LIST_PATH)
     public String getProducts(
-            Model model, @PageableDefault(size = 7, sort = {"name"}, direction = Sort.Direction.ASC) Pageable pageable) {
+            Model model, @PageableDefault(size = 8, sort = {"name"}, direction = Sort.Direction.ASC) Pageable pageable) {
         model.addAttribute("productsPage", productService.getProductPaginated(pageable));
 
-        return "product/products";
+        return "product/productsV2";
     }
 
     @GetMapping(PRODUCT_UPDATE_PATH)

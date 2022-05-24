@@ -4,21 +4,17 @@
 <head th:replace="fragments/layout :: head('Login')"></head>
 <body >
 
+<div th:replace="fragments/layout :: navbar(rootPath='login')">Cia yra navbar (menu)</div>
 
 <!-- Section: Design Block -->
 <section class="vh-100 text-center" id="login-text">
     <!-- Background image -->
-    <div class="p-5 bg-image" style="
-        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
-        height: 300px;
-        "></div>
+    <div>
+        <img th:src="@{/images/Logo Juodas 3x1.png}" alt="" style="max-height: 50vh; z-index: 1;">
+    </div>
     <!-- Background image -->
 
-    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
-        margin-top: -50px;
-        background: hsla(0, 0%, 100%, 0.8);
-        backdrop-filter: blur(30px);
-        ">
+    <div class="card card__main__login">
         <div class="card-body py-6 px-md-6">
 
             <div class="row d-flex justify-content-center">

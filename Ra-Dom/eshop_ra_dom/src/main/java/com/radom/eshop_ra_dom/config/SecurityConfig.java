@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .loginPage("/loginV2")
                 .loginProcessingUrl("/login-eshop")
-                .defaultSuccessUrl("/", true)
+                .defaultSuccessUrl("/public/", true)
                 .usernameParameter("loginEmail")
                 .passwordParameter("loginPassword")
                 .and()

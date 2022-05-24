@@ -14,7 +14,7 @@ public class EshopRaDomApplication {
         envConfig.addActiveProfile("dev");
 
         SpringApplication app = new SpringApplication(EshopRaDomApplication.class);
-        app.setEnvironment(envConfig);
+//        app.setEnvironment(envConfig);
         app.run(args);
     }
 

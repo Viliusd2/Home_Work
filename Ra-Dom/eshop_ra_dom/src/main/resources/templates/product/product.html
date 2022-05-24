@@ -6,7 +6,11 @@
 <body>
 
 <div th:replace="fragments/layout :: navbar(rootPath='products')">Cia yra navbar (menu)</div>
-
+<div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-6 px-md-6">
     <div class="container" >
         <h3 th:text="#{create.product}"></h3>
         <form method="post" th:object="${productDto}" th:action="@{/products}">
@@ -56,7 +60,8 @@
 
         <div th:text="${message}"></div>
     </div>
-
+    </div>
+</div>
 
 <div th:replace="fragments/layout :: footer"></div>
 

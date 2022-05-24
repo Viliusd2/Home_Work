@@ -5,15 +5,20 @@
 <body>
 
 <div th:replace="fragments/layout :: navbar(rootPath='')">Cia yra navbar (menu)</div>
+<div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-6 px-md-6">
+        <div th:align="center">
 
-<div th:align="center">
+            <h1 th:text="'Welcome to ' + #{eshop.name}"></h1>
+            <h2 th:text="#{hello.world}"></h2>
+            <h3 th:text="'Today is: ' + ${modelDate}"></h3>
 
-<h1 th:text="'Welcome to ' + #{eshop.name}"></h1>
-<h2 th:text="#{hello.world}"></h2>
-<h3 th:text="'Today is: ' + ${modelDate}"></h3>
-
+        </div>
+    </div>
 </div>
-
 <div th:replace="fragments/layout :: footer"></div>
 
 </body>

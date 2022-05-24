@@ -6,42 +6,47 @@
 <body>
 
 <div th:replace="fragments/layout :: navbar(rootPath='cart')">Cia yra navbar (menu)</div>
+<div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-6 px-md-6">
+        <div class="container">
+            <h2 th:text="#{cart.title}">My Cart</h2>
 
-<div class="container">
-    <h2 th:text="#{cart.title}">My Cart</h2>
-
-    <table class="table table-dark table-hover">
-        <thead>
-        <tr th:with="curr=' (' + ${currency}+ ') '">
-            <th scope="col" th:text="#{cart.productName}">Product Name</th>
-            <th scope="col" th:text="#{cart.unitPrice} + *{curr}">Unit Price</th>
-            <th scope="col" th:text="#{cart.quantity}">Quantity</th>
-            <th scope="col" th:text="#{cart.totalPrice} + *{curr}">Total Price</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="cartItem: ${cartSession.cartItems}">
-            <td th:text="${cartItem.productDto.name}"></td>
-            <td th:text="${cartItem.productDto.price}"></td>
-            <td th:text="${cartItem.quantity}"></td>
-            <td th:text="${cartItem.getItemTotalPrice}"></td>
-            <td></td>
-        </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-            <td colspan="3"></td>
-            <td th:text="${cartSession.getCartTotalQuantity()}"></td>
-            <td th:text="${cartSession.getCartTotalPrice()}"></td>
-        </tr>
-        </tfoot>
-    </table>
-    <form method="POST" th:action="@{/cart}">
-    <button class="btn btn-primary" type="submit" th:text="#{cart.order}"></button>
-    </form>
+            <table class="table table-light table-hover">
+                <thead>
+                <tr th:with="curr=' (' + ${currency}+ ') '">
+                    <th scope="col" th:text="#{cart.productName}">Product Name</th>
+                    <th scope="col" th:text="#{cart.unitPrice} + *{curr}">Unit Price</th>
+                    <th scope="col" th:text="#{cart.quantity}">Quantity</th>
+                    <th scope="col" th:text="#{cart.totalPrice} + *{curr}">Total Price</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="cartItem: ${cartSession.cartItems}">
+                    <td th:text="${cartItem.productDto.name}"></td>
+                    <td th:text="${cartItem.productDto.price}"></td>
+                    <td th:text="${cartItem.quantity}"></td>
+                    <td th:text="${cartItem.getItemTotalPrice}"></td>
+                    <td></td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3"></td>
+                    <td th:text="${cartSession.getCartTotalQuantity()}"></td>
+                    <td th:text="${cartSession.getCartTotalPrice()}"></td>
+                </tr>
+                </tfoot>
+            </table>
+            <form method="POST" th:action="@{/cart}">
+                <button class="btn btn-primary" type="submit" th:text="#{cart.order}"></button>
+            </form>
+        </div>
+    </div>
 </div>
-
 <div th:replace="fragments/layout :: footer"></div>
 
 </body>

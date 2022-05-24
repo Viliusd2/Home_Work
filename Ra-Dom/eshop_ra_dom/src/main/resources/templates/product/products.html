@@ -7,60 +7,67 @@
 
 <div th:replace="fragments/layout :: navbar(rootPath='products/list')">Cia yra navbar (menu)</div>
 
-<div th:align="center">
-    <h2 th:text="#{products.header}"></h2>
-    <div th:if="${not productsPage.hasContent()}" th:text="#{products.empty.message}"></div>
-</div>
-<div th:with="urlRootPath=${#httpServletRequest.requestURI}">
-    <div th:if="${productsPage.hasContent()}"
-         class="container">
+<div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-6 px-md-6">
+        <div th:align="center">
+            <h2 th:text="#{products.header}"></h2>
+            <div th:if="${not productsPage.hasContent()}" th:text="#{products.empty.message}"></div>
+        </div>
+        <div th:with="urlRootPath=${#httpServletRequest.requestURI}">
+            <div th:if="${productsPage.hasContent()}"
+                 class="container">
 
-        <div th:replace="fragments/messages :: message"></div>
+                <div th:replace="fragments/messages :: message"></div>
 
-        <span th:text="#{products.all(${productsPage.totalElements})}"></span>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col" style="width: auto"><a
-                        th:replace="fragments/layout :: sortColumn(data=${productsPage},name='name',fieldName=#{products.name},path=@{/public/products/list},down='fa-arrow-down-a-z',up='fa-arrow-up-z-a')"></a>
-                </th>
-                <th scope="col" style="width: 15%"><a
-                        th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='countOfStock',fieldName=#{products.quantity},path=@{/public/products/list}, down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a>
-                </th>
-                <th scope="col" style="width: 15%"><a
-                        th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='price',fieldName=(#{products.price} + ' (' + ${currency} + ')'),path=@{/public/products/list},down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a>
-                </th>
-                <th scope="col" style="width: 15%"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="product: ${productsPage}">
-                <td><a th:href="@{/products/{productId}/update(productId=${product.productId})}"
-                       th:text="${product.name}"></a></td>
-                <td th:text="${product.quantity}"></td>
-                <td th:text="${product.price}"></td>
-                <td>
-                    <div class="d-flex justify-content-between">
-                        <form method="POST" th:action="@{{path}(path=${cartPath} + '/' + ${product.productId})}">
-                            <button class="btn btn-primary">
-                                <i class="fa-solid fa-cart-arrow-down"></i>
-                            </button>
-                        </form>
-                        <div sec:authorize="hasRole('ADMIN')">
-                            <form method="POST" th:action="@{/products/delete}">
-                                <input type="hidden" name="productId" th:value="${product.productId}">
-                                <button class="btn btn-danger" th:text="#{products.delete}"></button>
-                            </form>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                <span th:text="#{products.all(${productsPage.totalElements})}"></span>
+                <table class="table table-striped dark">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width: auto"><a
+                                th:replace="fragments/layout :: sortColumn(data=${productsPage},name='name',fieldName=#{products.name},path=@{/public/products/list},down='fa-arrow-down-a-z',up='fa-arrow-up-z-a')"></a>
+                        </th>
+                        <th scope="col" style="width: 15%"><a
+                                th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='countOfStock',fieldName=#{products.quantity},path=@{/public/products/list}, down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a>
+                        </th>
+                        <th scope="col" style="width: 15%"><a
+                                th:replace="fragments/layout :: sortColumn(data=${productsPage}, name='price',fieldName=(#{products.price} + ' (' + ${currency} + ')'),path=@{/public/products/list},down='fa-arrow-down-1-9',up='fa-arrow-up-9-1')"></a>
+                        </th>
+                        <th scope="col" style="width: 15%"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product: ${productsPage}">
+                        <td><a th:href="@{/products/{productId}/update(productId=${product.productId})}"
+                               th:text="${product.name}"></a></td>
+                        <td th:text="${product.quantity}"></td>
+                        <td th:text="${product.price}"></td>
+                        <td>
+                            <div class="d-flex justify-content-between">
+                                <form method="POST"
+                                      th:action="@{{path}(path=${cartPath} + '/' + ${product.productId})}">
+                                    <button class="btn btn-primary">
+                                        <i class="fa-solid fa-cart-arrow-down"></i>
+                                    </button>
+                                </form>
+                                <div sec:authorize="hasRole('ADMIN')">
+                                    <form method="POST" th:action="@{/products/delete}">
+                                        <input type="hidden" name="productId" th:value="${product.productId}">
+                                        <button class="btn btn-danger" th:text="#{products.delete}"></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
-        <span th:text="#{products.all(${productsPage.totalElements})}"></span>
+                <span th:text="#{products.all(${productsPage.totalElements})}"></span>
+            </div>
+        </div>
     </div>
-
     <nav class="d-flex justify-content-center">
         <ul class="pagination"
             th:with="
@@ -87,7 +94,7 @@
                 th:classappend="${!productsPage.hasNext()} ? 'disabled'"
             >
                 <a class="page-link"
-                   th:href="@{/products/list(page=${productsPage.number} + 1,sort=${sortParam})}"
+                   th:href="@{*{urlRootPath}(page=${productsPage.number} + 1,sort=${sortParam})}"
                    th:text="#{products.next}"
                 ></a>
             </li>

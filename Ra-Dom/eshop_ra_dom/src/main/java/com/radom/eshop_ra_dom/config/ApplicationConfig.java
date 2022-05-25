@@ -55,7 +55,8 @@ public class ApplicationConfig implements WebMvcConfigurer {
     }
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login-eshop").setViewName("login/loginV2");
+        registry.addViewController("/login-eshop").setViewName("login/login");
+
     }
 
 }

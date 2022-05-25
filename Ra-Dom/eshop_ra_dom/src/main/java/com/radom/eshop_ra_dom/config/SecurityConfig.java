@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -27,7 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        SavedRequestAwareAuthenticationSuccessHandler successHandler = new    SavedRequestAwareAuthenticationSuccessHandler();
+        successHandler.setUseReferer(true);//redirect to the previous page
         http
                 .authorizeRequests()
                 .antMatchers("/public/**","/").permitAll()
@@ -36,15 +38,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
            .formLogin()
                 .permitAll()
-                .loginPage("/loginV2")
+                .loginPage("/login")
                 .loginProcessingUrl("/login-eshop")
-                .defaultSuccessUrl("/public/", true)
+                .defaultSuccessUrl("/public/", true) //TODO: if user logs in from a button he stays on login page...
                 .usernameParameter("loginEmail")
                 .passwordParameter("loginPassword")
+                .successHandler(successHandler)//enable success handler
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/public/")
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     }
     //Static file access and h2 db access

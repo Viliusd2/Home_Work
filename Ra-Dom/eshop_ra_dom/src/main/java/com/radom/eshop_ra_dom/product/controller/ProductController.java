@@ -52,7 +52,7 @@ public class ProductController {
             Model model, @PageableDefault(size = 8, sort = {"name"}, direction = Sort.Direction.ASC) Pageable pageable) {
         model.addAttribute("productsPage", productService.getProductPaginated(pageable));
 
-        return "product/productsV2";
+        return "/product/products";
     }
 
     @GetMapping(PRODUCT_UPDATE_PATH)

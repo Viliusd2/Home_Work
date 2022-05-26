@@ -11,10 +11,11 @@ public class ProductMapper {
         return ProductDto.builder()
                 .productId(product.getProductId())
                 .name(product.getName())
-                .quantity(product.getCountOfStock())
                 .price(product.getPrice())
                 .flavor(product.getFlavor())
                 .description(product.getDescription())
+                .quantityInStock(product.getCountOfStock())
+                .portionSize(product.getPortionSize())
                 .build();
     }
 }

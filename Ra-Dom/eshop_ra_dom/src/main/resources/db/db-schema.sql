@@ -3,13 +3,14 @@ DROP TABLE IF EXISTS product;
 
 CREATE TABLE product
 (
-    id                BIGINT PRIMARY KEY AUTO_INCREMENT,
-    product_id        UUID           NOT NULL,
-    name              VARCHAR(200)   NOT NULL,
-    quantity_in_stock INT            NOT NULL,
-    price             DECIMAL(20, 2) NOT NULL,
-    flavor            VARCHAR(100) DEFAULT NULL,
-    description       VARCHAR(500) DEFAULT NULL
+    id                   BIGINT PRIMARY KEY AUTO_INCREMENT,
+    product_id           UUID           NOT NULL,
+    name                 VARCHAR(200)   NOT NULL,
+    quantity_in_stock    INT            NOT NULL,
+    one_portion_quantity INT            NOT NULL,
+    price                DECIMAL(20, 2) NOT NULL,
+    flavor               VARCHAR(100) DEFAULT NULL,
+    description          VARCHAR(500) DEFAULT NULL
 );
 DROP TABLE IF EXISTS product_category;
 CREATE TABLE product_category
@@ -48,7 +49,7 @@ CREATE TABLE authority
 DROP TABLE IF EXISTS users_authorities;
 CREATE TABLE users_authorities
 (
-    user_id BIGINT not null ,
+    user_id        BIGINT not null,
     authorities_id BIGINT not null,
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (authorities_id) REFERENCES authority (id)

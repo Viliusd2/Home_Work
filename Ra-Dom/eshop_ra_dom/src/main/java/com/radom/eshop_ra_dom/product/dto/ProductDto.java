@@ -24,7 +24,12 @@ public class ProductDto {
     @PositiveOrZero
     @Max(value = 1000)
     @NotNull
-    private Integer quantity;
+    private Integer quantityInStock;
+
+    @PositiveOrZero
+    @Max(value = 1000)
+    @NotNull
+    private Integer portionSize;
 
     @Positive
     @NotNull

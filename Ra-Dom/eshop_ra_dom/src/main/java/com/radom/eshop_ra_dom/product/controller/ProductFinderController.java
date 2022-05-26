@@ -21,12 +21,12 @@ public class ProductFinderController {
 
     @GetMapping
     public String getProductsByName(Model model, @RequestParam String productName) {
-        return "forward:" + PUBLIC_WORKSPACE + "/product-finder/searchResult/" + productName;
+        return "forward:"+ PUBLIC_WORKSPACE + "/product-finder/searchResult/" + productName;
     }
 
     @GetMapping("/searchResult/{productName}")
     public String getProductsByNameSearchResult(Model model, @PathVariable String productName, Pageable pageable) {
         model.addAttribute("productsPage", productService.getProductByNamePageable(productName, pageable));
-        return "product/products";
+        return "/product/products";
     }
 }

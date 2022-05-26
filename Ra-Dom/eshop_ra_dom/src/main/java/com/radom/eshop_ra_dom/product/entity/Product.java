@@ -28,6 +28,9 @@ public class Product {
     @Column(name = "quantity_in_stock")
     private Integer countOfStock;
 
+    @Column(name = "one_portion_quantity")
+    private Integer portionSize;
+
     private BigDecimal price;
 
     private String flavor;

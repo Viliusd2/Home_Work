@@ -1,4 +1,4 @@
-package com.radom.eshop_ra_dom.config;
+package com.radom.eshop_ra_dom.helper.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

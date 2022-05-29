@@ -1,4 +1,4 @@
-package com.radom.eshop_ra_dom.helper.config;
+package com.radom.eshop_ra_dom.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -55,7 +55,7 @@ public class ApplicationConfig implements WebMvcConfigurer {
     }
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login-eshop").setViewName("login/login");
+        registry.addViewController("/login").setViewName("login/login");
 
     }
 

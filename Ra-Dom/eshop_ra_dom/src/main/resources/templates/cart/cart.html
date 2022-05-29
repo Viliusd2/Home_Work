@@ -38,13 +38,11 @@
                 </tr>
                 </tfoot>
             </table>
-            <div  sec:authorize="isAnonymous()">
-            <form method="POST" th:action="@{/public/cart}">
-                    <button class="btn btn-primary" type="submit" th:text="#{cart.order}"></button>
-                </form>
+            <div sec:authorize="isAnonymous()">
+                <a class="btn btn-primary" th:href="@{/anonymousCheck}" th:text="#{cart.order}"></a>
             </div>
-            <div  sec:authorize="isAuthenticated()">
-                <form method="POST" th:action="@{/public/cart}">
+            <div sec:authorize="isAuthenticated()">
+                <form method="POST" th:action="@{/cart}">
                     <button class="btn btn-primary" type="submit" th:text="#{cart.order}"></button>
                 </form>
             </div>

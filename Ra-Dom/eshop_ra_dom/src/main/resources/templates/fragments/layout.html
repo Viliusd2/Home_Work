@@ -50,7 +50,7 @@
             </form>
             <div class="d-flex justify-content-center mx-5">
                 <div sec:authorize="!isAuthenticated()">
-                    <a class="btn btn-primary" aria-current="page" th:href="@{/login-eshop}" th:text="#{login}"></a>
+                    <a class="btn btn-primary" aria-current="page" th:href="@{/login}" th:text="#{login}"></a>
                 </div>
                 <div sec:authorize="isAuthenticated()" >
                    <span sec:authentication="principal.fullName" style="font-size: medium; color: #ceeaea; padding-right: 5px;"></span>

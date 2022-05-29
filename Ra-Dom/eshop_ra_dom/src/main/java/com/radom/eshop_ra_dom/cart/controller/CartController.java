@@ -3,6 +3,7 @@ package com.radom.eshop_ra_dom.cart.controller;
 import com.radom.eshop_ra_dom.cart.dto.CartDto;
 import com.radom.eshop_ra_dom.cart.service.CartService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -41,19 +42,10 @@ public class CartController {
         return "redirect:" + PRODUCT_LIST_PATH;
     }
 
-    @PostMapping("/public/cart")
+    @PostMapping("/cart")
     public String order(SessionStatus sessionStatus, RedirectAttributes redirectAttributes, Principal principal) {
         //TODO: save into db or do other things to cart data
-        String text = "";
-        try {
-            text = principal.getName();
 
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-        if (text.equals("")) {
-            return "login/login";
-        } else {
             sessionStatus.setComplete();
 
             redirectAttributes.addFlashAttribute("successMessage", "cart.order.message.success");
@@ -61,6 +53,10 @@ public class CartController {
             return "redirect:" + PRODUCT_LIST_PATH;
         }
 
+        @GetMapping("/anonymousCheck")
+    public String testGet(){
+        return "redirect:" + CART_ROOT_PATH;
+    }
 
     }
-}
+

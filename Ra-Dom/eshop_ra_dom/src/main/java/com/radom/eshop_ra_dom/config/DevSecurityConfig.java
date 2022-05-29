@@ -1,4 +1,4 @@
-package com.radom.eshop_ra_dom.helper.config;
+package com.radom.eshop_ra_dom.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;

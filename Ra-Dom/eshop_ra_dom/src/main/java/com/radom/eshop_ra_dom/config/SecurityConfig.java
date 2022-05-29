@@ -1,4 +1,4 @@
-package com.radom.eshop_ra_dom.helper.config;
+package com.radom.eshop_ra_dom.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -28,8 +28,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        SavedRequestAwareAuthenticationSuccessHandler successHandler = new    SavedRequestAwareAuthenticationSuccessHandler();
-        successHandler.setUseReferer(true);//redirect to the previous page
         http
                 .authorizeRequests()
                 .antMatchers("/public/**","/").permitAll()
@@ -39,11 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
            .formLogin()
                 .permitAll()
                 .loginPage("/login")
-                .loginProcessingUrl("/login-eshop")
-                .defaultSuccessUrl("/public/", true) //TODO: if user logs in from a button he stays on login page...
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/public/", false) //TODO: if user logs in from a button he stays on login page...
                 .usernameParameter("loginEmail")
                 .passwordParameter("loginPassword")
-                .successHandler(successHandler)//enable success handler
                 .and()
                 .logout()
                 .logoutUrl("/logout")

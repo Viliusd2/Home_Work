@@ -1,17 +1,16 @@
 package com.radom.eshop_ra_dom.cart.dto;
-
 import com.radom.eshop_ra_dom.product.dto.ProductDto;
-import lombok.Getter;
-import org.hibernate.validator.internal.engine.messageinterpolation.util.InterpolationHelper;
-
+import lombok.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-@Getter
+@Data
 public class CartDto {
 
-    private final List<CartItem> cartItems = new ArrayList<>();
+    private List<CartItem> cartItems = new ArrayList<>();
+
 
     public void add(ProductDto productDto) {
         cartItems.add(CartItem.builder()

@@ -54,3 +54,22 @@ CREATE TABLE users_authorities
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (authorities_id) REFERENCES authority (id)
 );
+
+DROP TABLE IF EXISTS cart;
+CREATE TABLE cart
+(
+    id      BIGINT PRIMARY KEY AUTO_INCREMENT,
+    cart_id UUID         NOT NULL,
+    name    VARCHAR(100) NOT NULL,
+    user_id BIGINT       not null,
+    FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+DROP TABLE IF EXISTS cart_items;
+CREATE TABLE cart_items
+(
+    cart_id    BIGINT not null,
+    product_id BIGINT not null,
+    FOREIGN KEY (product_id) REFERENCES product (id),
+    FOREIGN KEY (cart_id) REFERENCES cart (id)
+);

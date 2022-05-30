@@ -3,15 +3,10 @@ package com.radom.eshop_ra_dom.cart.controller;
 import com.radom.eshop_ra_dom.cart.dto.CartDto;
 import com.radom.eshop_ra_dom.cart.service.CartService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.security.Principal;
 import java.util.UUID;
 
 import static com.radom.eshop_ra_dom.EshopEndpoints.CART_ROOT_PATH;
@@ -43,7 +38,7 @@ public class CartController {
     }
 
     @PostMapping("/cart")
-    public String order(SessionStatus sessionStatus, RedirectAttributes redirectAttributes, Principal principal) {
+    public String order(SessionStatus sessionStatus, RedirectAttributes redirectAttributes, CartDto cart) {
         //TODO: save into db or do other things to cart data
 
             sessionStatus.setComplete();

@@ -6,12 +6,14 @@ import lombok.Getter;
 
 import java.math.BigDecimal;
 
+
 @Builder
 @Getter
 public class CartItem {
-    private final ProductDto productDto;
-    private Integer quantity;
 
+
+    private ProductDto productDto;
+    private Integer quantity;
 
     public void incrementQuantity (){
         quantity++;

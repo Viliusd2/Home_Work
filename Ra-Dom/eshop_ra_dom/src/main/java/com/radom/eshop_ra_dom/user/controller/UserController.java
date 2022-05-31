@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 
-import static com.radom.eshop_ra_dom.EshopEndpoints.USERS_REGISTER_PATH;
-import static com.radom.eshop_ra_dom.EshopEndpoints.USERS_ROOT_PATH;
+import static com.radom.eshop_ra_dom.EshopEndpoints.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -38,7 +37,7 @@ public class UserController{
 
         userService.register(userDto);
 
-        return "redirect:" + USERS_ROOT_PATH;
+        return "redirect:" + PUBLIC_WORKSPACE+"/";
     }
 
 }

@@ -25,6 +25,7 @@ public class UserService implements UserDetailsService {
                 .phoneNumber(userDto.getPhoneNumber())
                 .zipCode(userDto.getZipCode())
                 .password(userDto.getPassword()) //FIXME: do not save as plain text for security reason
+                // TODO: Need to make it so after register ads authority user by default
                 .build());
     }
 

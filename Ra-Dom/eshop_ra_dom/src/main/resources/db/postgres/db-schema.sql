@@ -15,7 +15,8 @@ DROP TABLE IF EXISTS product_category cascade;
 CREATE TABLE product_category
 (
     id   SERIAL PRIMARY KEY,
-    name VARCHAR(200) NOT NULL
+    name VARCHAR(200) NOT NULL,
+    CONSTRAINT product_category_key UNIQUE (name)
 );
 DROP TABLE IF EXISTS product_product_categories;
 CREATE TABLE product_product_categories
@@ -35,15 +36,17 @@ CREATE TABLE users
     email        VARCHAR(50)  NOT NULL,
     password     VARCHAR(255) NOT NULL,
     zip_code     VARCHAR(10)  NOT NULL,
-    phone_Number VARCHAR(12)  NOT NULL
-
+    phone_Number VARCHAR(12)  NOT NULL,
+    CONSTRAINT users_key UNIQUE (email)
 );
 
 DROP TABLE IF EXISTS authority CASCADE;
 CREATE TABLE authority
 (
     id   SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    name VARCHAR(100) NOT NULL,
+    CONSTRAINT authority_key UNIQUE (name)
+
 );
 DROP TABLE IF EXISTS users_authorities;
 CREATE TABLE users_authorities
@@ -58,7 +61,6 @@ DROP TABLE IF EXISTS cart CASCADE;
 CREATE TABLE cart
 (
     id      SERIAL PRIMARY KEY,
-    name    VARCHAR(100) NOT NULL,
     user_id BIGINT       not null,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
@@ -68,6 +70,8 @@ CREATE TABLE cart_items
 (
     cart_id    BIGINT not null,
     product_id BIGINT not null,
+    quantity   INT not null,
+    original_price DECIMAL(20, 2) NOT NULL,
     FOREIGN KEY (product_id) REFERENCES product (id),
     FOREIGN KEY (cart_id) REFERENCES cart (id)
 );

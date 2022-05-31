@@ -14,9 +14,10 @@ public class CartItem {
 
     private ProductDto productDto;
     private Integer quantity;
+    private BigDecimal original_price;
 
     public void incrementQuantity (){
-        quantity++;
+        this.quantity++;
     }
 
     public BigDecimal getItemTotalPrice(){

@@ -58,7 +58,6 @@ DROP TABLE IF EXISTS cart CASCADE;
 CREATE TABLE cart
 (
     id      SERIAL PRIMARY KEY,
-    cart_id UUID         NOT NULL,
     name    VARCHAR(100) NOT NULL,
     user_id BIGINT       not null,
     FOREIGN KEY (user_id) REFERENCES users (id)

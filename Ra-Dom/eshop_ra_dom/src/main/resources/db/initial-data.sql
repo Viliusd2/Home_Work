@@ -45,5 +45,5 @@ VALUES ('ADMIN'),
 
 INSERT into users_authorities(user_id, authorities_id)
 VALUES (1, 1),
-       (2, 1),
+       (2, 2),
        (1, 2);

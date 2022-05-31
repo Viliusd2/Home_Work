@@ -24,7 +24,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
-    private LogoutSuccessHandler logoutHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -38,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/public/", false) //TODO: if user logs in from a button he stays on login page...
+                .defaultSuccessUrl("/public/", false)
                 .usernameParameter("loginEmail")
                 .passwordParameter("loginPassword")
                 .and()

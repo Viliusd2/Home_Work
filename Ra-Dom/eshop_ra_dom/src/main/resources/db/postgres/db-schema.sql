@@ -62,6 +62,7 @@ CREATE TABLE cart
 (
     id      SERIAL PRIMARY KEY,
     user_id BIGINT       not null,
+    purchase_date DATE not null,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 

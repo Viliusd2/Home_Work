@@ -1,7 +1,7 @@
 package com.radom.eshop_ra_dom.user.controller;
 
 import com.radom.eshop_ra_dom.user.dto.UserDto;
-import com.radom.eshop_ra_dom.user.service.UserService;
+import com.radom.eshop_ra_dom.user.service.RegistrationService;
 import com.radom.eshop_ra_dom.validator.spring.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ import static com.radom.eshop_ra_dom.EshopEndpoints.*;
 public class UserController{
 
     private final UserValidator validator;
-    private final UserService userService;
+    private final RegistrationService registrationService;
 
     @GetMapping(USERS_REGISTER_PATH)
     public String getUserForm(Model model) {
@@ -35,7 +35,7 @@ public class UserController{
             return "/user/user";
         }
 
-        userService.register(userDto);
+        registrationService.register(userDto);
 
         return "redirect:" + PUBLIC_WORKSPACE+"/";
     }

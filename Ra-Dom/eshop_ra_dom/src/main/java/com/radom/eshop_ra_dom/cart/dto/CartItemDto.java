@@ -7,14 +7,14 @@ import lombok.Getter;
 import java.math.BigDecimal;
 
 
+
 @Builder
 @Getter
-public class CartItem {
-
+public class CartItemDto {
 
     private ProductDto productDto;
     private Integer quantity;
-    private BigDecimal original_price;
+    private BigDecimal originalPrice;
 
     public void incrementQuantity (){
         this.quantity++;

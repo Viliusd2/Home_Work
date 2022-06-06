@@ -60,22 +60,31 @@ CREATE TABLE users_authorities
 DROP TABLE IF EXISTS cart CASCADE;
 CREATE TABLE cart
 (
-    id      SERIAL PRIMARY KEY,
-    user_id BIGINT       not null,
-    purchase_date DATE not null,
+    id            SERIAL PRIMARY KEY,
+    user_id       BIGINT not null,
+    purchase_date DATE   not null,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
-DROP TABLE IF EXISTS cart_items;
+DROP TABLE IF EXISTS cart_items CASCADE;
 CREATE TABLE cart_items
 (
-    cart_id    BIGINT not null,
-    product_id BIGINT not null,
-    quantity   INT not null,
+    id             SERIAL PRIMARY KEY,
+    product_id     BIGINT         not null,
+    quantity       INT            not null,
     original_price DECIMAL(20, 2) NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES product (id),
-    FOREIGN KEY (cart_id) REFERENCES cart (id)
+    FOREIGN KEY (product_id) REFERENCES product (id)
 );
+
+DROP TABLE IF EXISTS cart_cart_items ;
+CREATE TABLE cart_cart_items
+(
+    cart_id    BIGINT not null,
+    cart_items_id    BIGINT not null,
+    FOREIGN KEY (cart_id) REFERENCES cart (id),
+    FOREIGN KEY (cart_items_id) REFERENCES cart_items (id)
+)
+
 
 
 

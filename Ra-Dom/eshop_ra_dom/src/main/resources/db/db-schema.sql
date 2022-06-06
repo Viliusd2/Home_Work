@@ -58,21 +58,30 @@ CREATE TABLE users_authorities
     FOREIGN KEY (authorities_id) REFERENCES authority (id)
 );
 
-DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS cart cascade ;
 CREATE TABLE cart
 (
     id      BIGINT PRIMARY KEY AUTO_INCREMENT,
     user_id BIGINT       not null,
+    purchase_date DATE not null,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
-DROP TABLE IF EXISTS cart_items;
+DROP TABLE IF EXISTS cart_items cascade ;
 CREATE TABLE cart_items
 (
-    cart_id    BIGINT not null,
+    id      BIGINT PRIMARY KEY AUTO_INCREMENT,
     product_id BIGINT not null,
-    quantity   BIGINT not null,
+    quantity   INT not null,
     original_price DECIMAL(20, 2) NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES product (id),
-    FOREIGN KEY (cart_id) REFERENCES cart (id)
+    FOREIGN KEY (product_id) REFERENCES product (id)
 );
+
+DROP TABLE IF EXISTS cart_cart_items ;
+CREATE TABLE cart_cart_items
+(
+    cart_id    BIGINT not null,
+    cart_items_id    BIGINT not null,
+    FOREIGN KEY (cart_id) REFERENCES cart (id),
+    FOREIGN KEY (cart_items_id) REFERENCES cart_items (id)
+)

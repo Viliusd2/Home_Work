@@ -1,5 +1,6 @@
 package com.radom.eshop_ra_dom.user.service;
 
+import com.radom.eshop_ra_dom.user.entity.User;
 import com.radom.eshop_ra_dom.user.mapper.UserMapper;
 import com.radom.eshop_ra_dom.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,10 @@ public class UserService implements UserDetailsService {
         return userRepository.findUserByEmailWithAuthorities(username)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> new UsernameNotFoundException("'" + username + "' not found!"));
+    }
+
+    public User checkAndReturnUserIfExists(String username) throws UsernameNotFoundException {
+        return  userRepository.findUserByEmail(username);
     }
 
 

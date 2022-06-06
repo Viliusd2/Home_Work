@@ -5,7 +5,7 @@
 <head th:replace="fragments/layout :: head(#{cart.title})"></head>
 <body>
 
-<div th:replace="fragments/layout :: navbar(rootPath='cart')">Cia yra navbar (menu)</div>
+<div th:replace="fragments/layout :: navbar(rootPath='/public/cart')">Cia yra navbar (menu)</div>
 <div class="card card__main">
     <div class="card-body py-6 px-md-6">
         <div class="container">
@@ -22,7 +22,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="cartItem: ${cartSession.cartItems}">
+                <tr th:each="cartItem: ${cartSession.cartItemsDto}">
                     <td th:text="${cartItem.productDto.name}"></td>
                     <td th:text="${cartItem.productDto.price}"></td>
                     <td th:text="${cartItem.quantity}"></td>

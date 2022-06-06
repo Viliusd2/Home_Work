@@ -57,7 +57,7 @@ public class ProductController {
 
     @GetMapping(PRODUCT_UPDATE_PATH)
     public String getUpdateProduct(Model model, @PathVariable("productId") UUID id) {
-        model.addAttribute("productDto", productService.getProductByUUID(id));
+        model.addAttribute("productDto", productService.getProductDtoByUUID(id));
 
         return "product/product";
     }

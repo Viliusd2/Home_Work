@@ -56,18 +56,18 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    public ProductDto getProductByUUID(UUID id) {
+    public ProductDto getProductDtoByUUID(UUID id) {
         return productRepository.findByProductId(id)
                 .map(mapper::mapTo)
                 .orElseThrow(() -> new ProductNotFoundException(id));
     }
 
-    @Transactional
-    public void updateProduct(ProductDto productDto) {
+    public Product getProductByUUID(ProductDto productDto){
         Optional<Product> productOptional = productRepository.findByProductId(productDto.getProductId());
-
+        Product product = new Product();
         if (productOptional.isPresent()) {
-            Product product = productOptional.get().toBuilder()
+            product = productOptional.get().toBuilder()
+                    .productId(productDto.getProductId())
                     .name(productDto.getName())
                     .countOfStock(productDto.getQuantityInStock())
                     .portionSize(productDto.getPortionSize())
@@ -76,8 +76,15 @@ public class ProductService {
                     .description(productDto.getDescription())
                     .build();
 
-            productRepository.save(product);
         }
+        return  product;
+    }
+
+    @Transactional
+    public void updateProduct(ProductDto productDto) {
+        Product product = getProductByUUID(productDto);
+            productRepository.save(product);
+
     }
 
     @Transactional
@@ -95,4 +102,5 @@ public class ProductService {
     private String convertToLikeResult(String value) {
         return '%' + value + '%';
     }
+
 }

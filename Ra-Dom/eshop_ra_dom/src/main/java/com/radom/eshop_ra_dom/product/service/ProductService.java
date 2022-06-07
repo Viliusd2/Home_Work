@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -28,37 +27,28 @@ public class ProductService {
     private final ProductMapper mapper;
 
     @Transactional
-    public void addProduct(ProductDto productDto) {
+    public void saveProduct(ProductDto productDto) {
         ProductCategory productCategory = ProductCategory.builder()
                 .name("NaN")
                 .build();
 
-        productRepository.save(Product.builder()
-                .productId(UUID.randomUUID())
-                .name(productDto.getName())
-                .countOfStock(productDto.getQuantityInStock())
-                .portionSize(productDto.getPortionSize())
-                .price(productDto.getPrice())
-                .flavor(productDto.getFlavor())
-                .description(productDto.getDescription())
-                .productCategories(Set.of(productCategory))
-                .build());
+        productRepository.save(mapper.mapToEntity(productDto,productCategory));
     }
 
     public Page<ProductDto> getProductPaginated(Pageable pageable) {
         return productRepository.findAll(pageable)
-                .map(mapper::mapTo);
+                .map(mapper::mapToDto);
     }
 
     public List<ProductDto> getProducts() {
         return productRepository.findAll().stream()
-                .map(mapper::mapTo)
+                .map(mapper::mapToDto)
                 .collect(Collectors.toList());
     }
 
     public ProductDto getProductDtoByUUID(UUID id) {
         return productRepository.findByProductId(id)
-                .map(mapper::mapTo)
+                .map(mapper::mapToDto)
                 .orElseThrow(() -> new ProductNotFoundException(id));
     }
 
@@ -74,6 +64,7 @@ public class ProductService {
                     .price(productDto.getPrice())
                     .flavor(productDto.getFlavor())
                     .description(productDto.getDescription())
+                    .productCategories(productOptional.get().getProductCategories())
                     .build();
 
         }
@@ -96,7 +87,7 @@ public class ProductService {
     public Page<ProductDto> getProductByNamePageable(String productName, Pageable pageable) {
         return productRepository.findProductsByNameIsLikeIgnoreCase(
                         convertToLikeResult(productName), pageable)
-                .map(mapper::mapTo);
+                .map(mapper::mapToDto);
     }
 
     private String convertToLikeResult(String value) {

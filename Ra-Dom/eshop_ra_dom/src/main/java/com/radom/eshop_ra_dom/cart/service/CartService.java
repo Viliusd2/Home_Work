@@ -4,6 +4,8 @@ import com.radom.eshop_ra_dom.cart.dto.CartDto;
 import com.radom.eshop_ra_dom.cart.dto.CartItemDto;
 import com.radom.eshop_ra_dom.cart.entity.Cart;
 import com.radom.eshop_ra_dom.cart.entity.CartItem;
+import com.radom.eshop_ra_dom.cart.mapper.CartItemMapper;
+import com.radom.eshop_ra_dom.cart.mapper.CartMapper;
 import com.radom.eshop_ra_dom.cart.repository.CartItemRepository;
 import com.radom.eshop_ra_dom.cart.repository.CartRepository;
 import com.radom.eshop_ra_dom.product.dto.ProductDto;
@@ -29,6 +31,8 @@ public class CartService {
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
 
+    private final CartItemMapper cartItemMapper;
+private final CartMapper cartMapper;
 
     public void addToCartByProductId(UUID productId, CartDto cart) {
         this.getCartItem(productId, cart.getCartItemsDto())
@@ -54,7 +58,6 @@ public class CartService {
         List<CartItem> cartItemList = getCartItems(cartDto.getCartItemsDto());
         cartItemRepository.saveAll(cartItemList);
 
-
         cartRepository.save(Cart.builder()
                 .purchaseDate(localDateFormatToSql(cartDto.getPurchaseDate()))
                 .user(userService.checkAndReturnUserIfExists(cartDto.getUserEmail()))
@@ -64,14 +67,8 @@ public class CartService {
 
     private List<CartItem> getCartItems(List<CartItemDto> cartItemDto) {
         return cartItemDto.stream()
-                .map( (itemDto -> CartItem.builder()
-                        .quantity(itemDto.getQuantity())
-                        .product(productService.getProductByUUID(itemDto.getProductDto()))
-                        .originalPrice(itemDto.getProductDto().getPrice())
-                        .build()))
+                .map( cartItemMapper::mapToCartItemEntity)
                 .collect(Collectors.toList());
 
     }
-
-
 }

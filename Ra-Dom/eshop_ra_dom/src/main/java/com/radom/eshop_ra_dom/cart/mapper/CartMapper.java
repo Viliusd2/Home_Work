@@ -2,7 +2,6 @@ package com.radom.eshop_ra_dom.cart.mapper;
 
 import com.radom.eshop_ra_dom.cart.dto.CartDto;
 import com.radom.eshop_ra_dom.cart.entity.Cart;
-import com.radom.eshop_ra_dom.user.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +21,7 @@ public class CartMapper {
                 .purchaseDate(sqlDateFormatToLocal(cart.getPurchaseDate()))
                 .userEmail(cart.getUser().getEmail())
                 .cartItemsDto(cart.getCartItems().stream()
-                        .map(cartItemMapper::toCartItemDto)
+                        .map(cartItemMapper::mapToCartItemDto)
                         .collect(Collectors.toUnmodifiableList()))
                 .build();
     }

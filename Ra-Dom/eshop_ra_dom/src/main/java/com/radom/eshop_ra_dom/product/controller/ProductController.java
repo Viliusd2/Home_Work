@@ -41,7 +41,7 @@ public class ProductController {
             return "product/product";
         }
 
-        productService.addProduct(product);
+        productService.saveProduct(product);
         redirectAttributes.addFlashAttribute("message", "create.product.message.success");
 
         return "redirect:" + PRODUCT_ROOT_PATH;

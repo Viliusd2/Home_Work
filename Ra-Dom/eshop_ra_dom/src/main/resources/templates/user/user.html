@@ -46,13 +46,6 @@
                     <span class="invalid-feedback" th:errors="*{global}" th:if="${#fields.hasErrors('global')}"/>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" th:text="#{create.user.zip}"></label>
-                    <input class="form-control" placeholder=""
-                           th:classappend="${#fields.hasErrors('zipCode')} ? 'is-invalid'"
-                           th:field="*{zipCode}" type="text"/>
-                    <span class="invalid-feedback" th:errors="*{zipCode}" th:if="${#fields.hasErrors('zipCode')}"/>
-                </div>
-                <div class="mb-3">
                     <label class="form-label" th:text="#{create.user.phoneNumber}"></label>
                     <input class="form-control" th:classappend="${#fields.hasErrors('phoneNumber')} ? 'is-invalid'"
                            th:field="*{phoneNumber}" type="text"/>

@@ -36,7 +36,6 @@ CREATE TABLE users
     surname      VARCHAR(50)  NOT NULL,
     email        VARCHAR(50)  NOT NULL,
     password     VARCHAR(255) NOT NULL,
-    zip_code     VARCHAR(10)  NOT NULL,
     phone_Number VARCHAR(12)  NOT NULL,
     CONSTRAINT users_key UNIQUE (email)
 

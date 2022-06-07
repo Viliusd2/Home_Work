@@ -22,7 +22,6 @@ public class UserMapper {
                         .password(userEntity.getPassword())
                         .phoneNumber(userEntity.getPhoneNumber())
                         .surname(userEntity.getSurname())
-                        .zipCode(userEntity.getZipCode())
                         .build())
                 .roles(
                         userEntity.getAuthorities().stream()

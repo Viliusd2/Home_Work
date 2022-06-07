@@ -35,9 +35,9 @@ VALUES (1, 1),
        (12, 3),
        (13, 3);
 
-INSERT INTO users(name, surname, email, password, zip_code, phone_number)
-VALUES ('Admin', 'Pavardenis', 'admin@eshop.lt', '{bcrypt}$2a$10$kf8cJpZFe1z3hrI9O/Cjnuh.SKShYOMEGlYigeKxRvwqBAQ4jKJze', 'LT-00001', ''), -- pass is admin
-       ('User', 'Pavardenis', 'user@eshop.lt', '{bcrypt}$2a$10$auHiOfM5qK7.M2ghqP5X/.U2XOa2OjADI7X/6cM9MEI3HglrZuWLW', 'LT-00001', ''); -- pass is user
+INSERT INTO users(name, surname, email, password, phone_number)
+VALUES ('Admin', 'Pavardenis', 'admin@eshop.lt', '{bcrypt}$2a$10$kf8cJpZFe1z3hrI9O/Cjnuh.SKShYOMEGlYigeKxRvwqBAQ4jKJze',  ''), -- pass is admin
+       ('User', 'Pavardenis', 'user@eshop.lt', '{bcrypt}$2a$10$auHiOfM5qK7.M2ghqP5X/.U2XOa2OjADI7X/6cM9MEI3HglrZuWLW',  ''); -- pass is user
 
 INSERT into authority(name)
 VALUES ('ADMIN'),

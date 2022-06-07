@@ -31,7 +31,6 @@ public class RegistrationService {
                 .name(userDto.getName())
                 .surname(userDto.getSurname())
                 .phoneNumber(userDto.getPhoneNumber())
-                .zipCode(userDto.getZipCode())
                 .password(passwordEncoder.encode(userDto.getPassword()))
                 .authorities(getDefaultAuthorityFromDB())
                 .build());

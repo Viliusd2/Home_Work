@@ -24,7 +24,6 @@ public class User {
     private String surname;
     private String email;
     private String password;
-    private String zipCode;
     @Column(name = "phone_number")
     private String phoneNumber;
 

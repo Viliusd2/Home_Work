@@ -19,7 +19,7 @@
 <nav th:fragment="navbar(rootPath)" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/public/}"><img th:src="@{/images/logo.png}"
-                                                                                          width="150"/></a>
+                                                           width="150"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,9 +41,11 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" th:href="@{/public/cart}" th:text="#{cart.title}"></a>
                 </li>
-                <li th:replace="this :: language(${rootPath})"></li>
             </ul>
             <form class="d-flex" method="GET" th:action="@{/public/product-finder}">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li th:replace="this :: language(${rootPath})"></li>
+            </ul>
                 <input class="form-control me-2" type="search" th:placeholder="#{search.placeholder}"
                        aria-label="Search" name="productName">
                 <button class="btn btn-outline-success" type="submit" th:text="#{search.button}"></button>
@@ -52,8 +54,9 @@
                 <div sec:authorize="!isAuthenticated()">
                     <a class="btn btn-primary" aria-current="page" th:href="@{/login}" th:text="#{login}"></a>
                 </div>
-                <div sec:authorize="isAuthenticated()" >
-                   <span sec:authentication="principal.fullName" style="font-size: medium; color: #ceeaea; padding-right: 5px;"></span>
+                <div sec:authorize="isAuthenticated()">
+                    <span sec:authentication="principal.fullName"
+                          style="font-size: medium; color: #ceeaea; padding-right: 5px;"></span>
                     <a class="btn btn-primary" aria-current="page" th:href="@{/logout}" th:text="#{logout}"></a>
                 </div>
 
@@ -89,5 +92,5 @@
 </a>
 
 <div class="fixed-bottom" th:fragment="footer">
-    <div class="fixed-bottom">CodeAcademy. Spring MVC. All Rights reserved</div>
+    <div class="fixed-bottom" style="text-align: center">RA-DOM ESHOP. Spring MVC. p.s It's a Disaster...</div>
 </div>

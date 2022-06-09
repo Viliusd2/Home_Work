@@ -10,12 +10,7 @@ public class EshopRaDomApplication {
 
     public static void main(String[] args) {
 
-        ConfigurableEnvironment envConfig = new StandardEnvironment();
-        envConfig.addActiveProfile("dev");
-
-        SpringApplication app = new SpringApplication(EshopRaDomApplication.class);
-//        app.setEnvironment(envConfig);
-        app.run(args);
+        SpringApplication.run(EshopRaDomApplication.class, args);
     }
 
 }

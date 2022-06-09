@@ -16,8 +16,7 @@ DROP TABLE IF EXISTS product_category;
 CREATE TABLE product_category
 (
     id   BIGINT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(200) NOT NULL,
-    CONSTRAINT product_category_key UNIQUE (name)
+    name VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE product_product_categories

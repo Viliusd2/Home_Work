@@ -21,8 +21,14 @@
                     <img th:src="@{/images/logo.png}" alt="" class="card__image">
                     <div class="card__content">
                         <div th:text="#{products.name}"></div>
-                        <div><a th:href="@{/products/{productId}/update(productId=${product.productId})}"
-                                th:text="${product.name}"></a></div>
+                        <div>
+                            <div sec:authorize="hasRole('ADMIN')">
+                                <a th:href="@{/products/{productId}/update(productId=${product.productId})}"
+                                    th:text="${product.name}"></a>
+                            </div>
+                            <div sec:authorize="!hasRole('ADMIN')"><a th:text="${product.name}"></a></div>
+
+                        </div>
                         <div class="card__content_inside">
                             <div>
                                 <div th:text="#{products.quantity}"></div>

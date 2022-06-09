@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS product cascade;
 
 CREATE TABLE product
 (
-    id                   SERIAL PRIMARY KEY,
+    id                   BIGSERIAL PRIMARY KEY,
     product_id           UUID           NOT NULL,
     name                 VARCHAR(200)   NOT NULL,
     quantity_in_stock    INT            NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE product
 DROP TABLE IF EXISTS product_category cascade;
 CREATE TABLE product_category
 (
-    id   SERIAL PRIMARY KEY,
+    id   BIGSERIAL PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     CONSTRAINT product_category_key UNIQUE (name)
 );
@@ -30,7 +30,7 @@ CREATE TABLE product_product_categories
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users
 (
-    id           SERIAL PRIMARY KEY,
+    id           BIGSERIAL PRIMARY KEY,
     name         VARCHAR(20)  NOT NULL,
     surname      VARCHAR(50)  NOT NULL,
     email        VARCHAR(50)  NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE users
 DROP TABLE IF EXISTS authority CASCADE;
 CREATE TABLE authority
 (
-    id   SERIAL PRIMARY KEY,
+    id   BIGSERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     CONSTRAINT authority_key UNIQUE (name)
 
@@ -59,7 +59,7 @@ CREATE TABLE users_authorities
 DROP TABLE IF EXISTS cart CASCADE;
 CREATE TABLE cart
 (
-    id            SERIAL PRIMARY KEY,
+    id            BIGSERIAL PRIMARY KEY,
     user_id       BIGINT not null,
     purchase_date DATE   not null,
     FOREIGN KEY (user_id) REFERENCES users (id)
@@ -68,7 +68,7 @@ CREATE TABLE cart
 DROP TABLE IF EXISTS cart_items CASCADE;
 CREATE TABLE cart_items
 (
-    id             SERIAL PRIMARY KEY,
+    id             BIGSERIAL PRIMARY KEY,
     product_id     BIGINT         not null,
     quantity       INT            not null,
     original_price DECIMAL(20, 2) NOT NULL,

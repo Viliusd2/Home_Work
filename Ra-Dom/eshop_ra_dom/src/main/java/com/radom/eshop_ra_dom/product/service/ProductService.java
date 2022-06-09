@@ -1,5 +1,7 @@
 package com.radom.eshop_ra_dom.product.service;
 
+import com.radom.eshop_ra_dom.cart.dto.CartItemDto;
+import com.radom.eshop_ra_dom.cart.entity.CartItem;
 import com.radom.eshop_ra_dom.product.dto.ProductDto;
 import com.radom.eshop_ra_dom.product.entity.Product;
 import com.radom.eshop_ra_dom.product.entity.ProductCategory;
@@ -94,4 +96,14 @@ public class ProductService {
         return '%' + value + '%';
     }
 
+
+    public void updateProductsAfterPurchase(List<CartItemDto> cartItemsDto) {
+
+        for (CartItemDto cartItemDto : cartItemsDto) {
+            cartItemDto.getProductDto().setQuantityInStock(cartItemDto.getProductDto().getQuantityInStock() - cartItemDto.getQuantity());
+            updateProduct(cartItemDto.getProductDto());
+        }
+
+
+    }
 }

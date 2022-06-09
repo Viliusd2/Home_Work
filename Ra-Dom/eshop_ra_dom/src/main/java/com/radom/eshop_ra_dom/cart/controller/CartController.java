@@ -1,12 +1,8 @@
 package com.radom.eshop_ra_dom.cart.controller;
 
 import com.radom.eshop_ra_dom.cart.dto.CartDto;
-import com.radom.eshop_ra_dom.cart.dto.CartItemDto;
 import com.radom.eshop_ra_dom.cart.service.CartService;
-import com.radom.eshop_ra_dom.user.dto.UserDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
@@ -15,7 +11,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import static com.radom.eshop_ra_dom.EshopEndpoints.CART_ROOT_PATH;

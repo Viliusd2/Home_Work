@@ -32,7 +32,7 @@ public class CartService {
     private final CartItemRepository cartItemRepository;
 
     private final CartItemMapper cartItemMapper;
-private final CartMapper cartMapper;
+    private final CartMapper cartMapper;
 
     public void addToCartByProductId(UUID productId, CartDto cart) {
         this.getCartItem(productId, cart.getCartItemsDto())
@@ -63,11 +63,12 @@ private final CartMapper cartMapper;
                 .user(userService.checkAndReturnUserIfExists(cartDto.getUserEmail()))
                 .cartItems(cartItemList)
                 .build());
+        productService.updateProductsAfterPurchase(cartDto.getCartItemsDto());
     }
 
     private List<CartItem> getCartItems(List<CartItemDto> cartItemDto) {
         return cartItemDto.stream()
-                .map( cartItemMapper::mapToCartItemEntity)
+                .map(cartItemMapper::mapToCartItemEntity)
                 .collect(Collectors.toList());
 
     }

@@ -4,8 +4,9 @@
       lang="en">
 <head th:replace="fragments/layout :: head(#{create.product.title})"></head>
 <body>
-
+<div th:text="${message}"></div>
 <div th:replace="fragments/layout :: navbar(rootPath='products')">Cia yra navbar (menu)</div>
+
 <div class="card card__main">
     <div class="card-body py-6 px-md-6">
     <div class="container" >
@@ -58,10 +59,10 @@
                 <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" th:errorclass="hasError"></span>
             </div>
 
+
             <button class="btn btn-primary" type="submit" th:text="#{create.product.add}"></button>
         </form>
 
-        <div th:text="${message}"></div>
     </div>
     </div>
 </div>

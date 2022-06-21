@@ -39,7 +39,7 @@ public interface CartApiSpec {
 
     @PostMapping("/cart")
     @ApiOperation(value = "Save Cart",
-            httpMethod = "GET",
+            httpMethod = "POST",
             notes = "Save cart with all the selected products as a Purchase order")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Kai sekmingai sukuriamas uzsakymas"),

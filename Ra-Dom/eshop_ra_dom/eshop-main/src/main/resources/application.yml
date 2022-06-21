@@ -1,0 +1,42 @@
+server:
+  servlet:
+    session:
+      tracking-modes: COOKIE
+spring:
+  main:
+    banner-mode: console
+  datasource:
+    url: jdbc:h2:mem:eshopdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: root
+  sql:
+    init:
+      schema-locations: classpath:db/db-schema.sql
+      data-locations: classpath:db/initial-data.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    web:
+      pageable:
+        default-page-size: 8
+  security:
+    user:
+      name: user@eshop.lt
+      password: user
+logging:
+  level:
+    com:
+      radom:
+        eshop_ra_dom:
+          config: DEBUG
+          filter: TRACE

@@ -1,0 +1,5 @@
+<div th:fragment="message">
+    <div class="alert alert-success" role="alert"
+         th:if="${successMessage ne null}"
+         th:text="#{${successMessage}}"></div>
+</div>

@@ -73,16 +73,24 @@ public class ProductService {
     }
 
     @Transactional
-    public void updateProduct(ProductDto productDto) {
+    public boolean updateProduct(ProductDto productDto) {
         Product product = getProductByUUID(productDto);
+        if (product != null){
             productRepository.save(product);
+            return true;
+        }
+        return false;
+
 
     }
 
     @Transactional
-    public void deleteProduct(UUID uuid) {
+    public boolean deleteProduct(UUID uuid) {
         Optional<Product> product = productRepository.findByProductId(uuid);
         product.ifPresent(value -> productRepository.deleteById(value.getId()));
+
+        return productRepository.findByProductId(uuid).isEmpty();
+
     }
 
     public Page<ProductDto> getProductByNamePageable(String productName, Pageable pageable) {

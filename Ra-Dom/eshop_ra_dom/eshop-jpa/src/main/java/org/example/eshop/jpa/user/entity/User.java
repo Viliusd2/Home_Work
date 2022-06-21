@@ -1,4 +1,4 @@
-package org.example.eshop.user.entity;
+package org.example.eshop.jpa.user.entity;
 
 
 import lombok.AllArgsConstructor;

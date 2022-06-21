@@ -1,8 +1,8 @@
 package org.example.eshop.user.service;
 
-import org.example.eshop.user.entity.User;
+import org.example.eshop.jpa.user.entity.User;
 import org.example.eshop.user.mapper.UserMapper;
-import org.example.eshop.user.repository.UserRepository;
+import org.example.eshop.jpa.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

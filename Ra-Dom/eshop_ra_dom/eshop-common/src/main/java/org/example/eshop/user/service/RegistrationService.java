@@ -1,10 +1,10 @@
 package org.example.eshop.user.service;
 
 import org.example.eshop.user.dto.UserDto;
-import org.example.eshop.user.entity.Authority;
-import org.example.eshop.user.entity.User;
-import org.example.eshop.user.repository.AuthorityRepository;
-import org.example.eshop.user.repository.UserRepository;
+import org.example.eshop.jpa.user.entity.Authority;
+import org.example.eshop.jpa.user.entity.User;
+import org.example.eshop.jpa.user.repository.AuthorityRepository;
+import org.example.eshop.jpa.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

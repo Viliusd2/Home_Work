@@ -2,12 +2,12 @@ package org.example.eshop.product.service;
 
 import org.example.eshop.cart.dto.CartItemDto;
 import org.example.eshop.product.dto.ProductDto;
-import org.example.eshop.product.entity.Product;
-import org.example.eshop.product.entity.ProductCategory;
+import org.example.eshop.jpa.product.entity.Product;
+import org.example.eshop.jpa.product.entity.ProductCategory;
 import org.example.eshop.product.exception.ProductNotFoundException;
 import org.example.eshop.product.mapper.ProductMapper;
-import org.example.eshop.product.repository.ProductCategoryRepository;
-import org.example.eshop.product.repository.ProductRepository;
+import org.example.eshop.jpa.product.repository.ProductCategoryRepository;
+import org.example.eshop.jpa.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

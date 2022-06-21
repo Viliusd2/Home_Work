@@ -1,8 +1,8 @@
 package org.example.eshop.product.mapper;
 
 import org.example.eshop.product.dto.ProductDto;
-import org.example.eshop.product.entity.Product;
-import org.example.eshop.product.entity.ProductCategory;
+import org.example.eshop.jpa.product.entity.Product;
+import org.example.eshop.jpa.product.entity.ProductCategory;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;

@@ -1,7 +1,7 @@
-package org.example.eshop.product.repository;
+package org.example.eshop.jpa.product.repository;
 
 
-import org.example.eshop.product.entity.Product;
+import org.example.eshop.jpa.product.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

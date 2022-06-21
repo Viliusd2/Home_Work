@@ -1,6 +1,6 @@
-package org.example.eshop.cart.entity;
+package org.example.eshop.jpa.cart.entity;
 
-import org.example.eshop.user.entity.User;
+import org.example.eshop.jpa.user.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

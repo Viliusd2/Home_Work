@@ -1,0 +1,42 @@
+package org.example.eshop.api.config;
+
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.RequestHandler;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+
+import java.util.Collections;
+
+
+@Configuration
+public class SpringFoxConfig {
+
+    @Bean
+    public Docket api(){
+        return new Docket(DocumentationType.OAS_30)
+                .apiInfo(getInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("org.example.eshop.api"))
+                .build();
+    }
+
+    private static ApiInfo getInfo(){
+        return new ApiInfo(
+                "Ra-Dom Eshop Rest Api Documentation",
+                "This is simple documentation for Ra-Dom project",
+                "0.0.1",
+                "Ra-Dom Eshop terms of use Url",
+                new Contact("Vilius Domarkas","www.radom.eu","radom@gmail.com"),
+                "Eshop License",
+                "License Url",
+                Collections.emptyList()
+        );
+    }
+
+}

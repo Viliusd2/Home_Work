@@ -2,7 +2,7 @@ package org.example.eshop.cart.mapper;
 
 
 import org.example.eshop.cart.dto.CartItemDto;
-import org.example.eshop.cart.entity.CartItem;
+import org.example.eshop.jpa.cart.entity.CartItem;
 import org.example.eshop.product.mapper.ProductMapper;
 import org.example.eshop.product.service.ProductService;
 import lombok.RequiredArgsConstructor;

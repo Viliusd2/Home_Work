@@ -1,4 +1,4 @@
-package org.example.eshop.product.entity;
+package org.example.eshop.jpa.product.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

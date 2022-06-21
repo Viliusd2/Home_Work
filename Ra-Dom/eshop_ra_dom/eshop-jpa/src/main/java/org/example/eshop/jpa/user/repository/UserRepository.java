@@ -1,7 +1,7 @@
-package org.example.eshop.user.repository;
+package org.example.eshop.jpa.user.repository;
 
 
-import org.example.eshop.user.entity.User;
+import org.example.eshop.jpa.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

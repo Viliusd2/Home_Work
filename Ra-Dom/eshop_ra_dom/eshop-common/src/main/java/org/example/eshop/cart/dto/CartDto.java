@@ -6,6 +6,7 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 
 @Builder
@@ -13,6 +14,7 @@ import java.util.List;
 @Setter
 public class CartDto {
 
+    private UUID cartId;
     private List<CartItemDto> cartItemsDto;
     private String userEmail;
     private LocalDate purchaseDate;

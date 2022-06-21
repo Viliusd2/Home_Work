@@ -43,8 +43,11 @@ public class CartApiController implements CartApiSpec {
         return ResponseEntity.notFound().build();
     }
 
-    @PostMapping("/cart")
-    public ResponseEntity<Void> orderSave(SessionStatus sessionStatus, RedirectAttributes redirectAttributes, @ModelAttribute("cartSession") CartDto cart, Principal principal) {
+    public ResponseEntity<Void> orderSave(
+            SessionStatus sessionStatus,
+            RedirectAttributes redirectAttributes,
+            @ModelAttribute("cartSession") CartDto cart,
+            Principal principal) {
         cart.setUserEmail(principal.getName());
         cartService.saveCart(cart);
         sessionStatus.setComplete();

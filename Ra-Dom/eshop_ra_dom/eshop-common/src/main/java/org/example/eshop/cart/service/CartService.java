@@ -34,12 +34,14 @@ public class CartService {
     private final CartItemMapper cartItemMapper;
     private final CartMapper cartMapper;
 
-    public void addToCartByProductId(UUID productId, CartDto cart) {
+    public boolean addToCartByProductId(UUID productId, CartDto cart) {
         this.getCartItem(productId, cart.getCartItemsDto())
                 .ifPresentOrElse(CartItemDto::incrementQuantity
                         , () -> addProductToCart(productId, cart)
                 );
+        return true;
     }
+
 
     private void addProductToCart(UUID productId, CartDto cart) {
         ProductDto productDto = productService.getProductDtoByUUID(productId);
@@ -60,6 +62,7 @@ public class CartService {
 
         cartRepository.save(Cart.builder()
                 .purchaseDate(DateConverter.localDateFormatToSql(cartDto.getPurchaseDate()))
+                .cartId(cartDto.getCartId())
                 .user(userService.checkAndReturnUserIfExists(cartDto.getUserEmail()))
                 .cartItems(cartItemList)
                 .build());
@@ -71,5 +74,9 @@ public class CartService {
                 .map(cartItemMapper::mapToCartItemEntity)
                 .collect(Collectors.toList());
 
+    }
+
+    public boolean findCartByUUID(UUID cartId) {
+        return cartRepository.findByCartId(cartId).isPresent();
     }
 }

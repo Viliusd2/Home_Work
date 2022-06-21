@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head th:replace="fragments/layout :: head(#{welcome.title})"></head>
+<body>
+
+<div th:replace="fragments/layout :: navbar(rootPath='')">Cia yra navbar (menu)</div>
+<div class="card card__main">
+    <div class="card-body py-6 px-md-6">
+        <div th:align="center">
+            <img class="card__image" th:src="@{/images/Logo Juodas 3x1.png}">
+            <h1 th:text="'Welcome to ' + #{eshop.name}"></h1>
+            <h2 th:text="#{hello.world}"></h2>
+
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/layout :: footer"></div>
+
+</body>
+</html>

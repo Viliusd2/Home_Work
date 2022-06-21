@@ -1,0 +1,60 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.7'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'jacoco'
+}
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+
+allprojects{
+    apply plugin: "java-library"
+    apply plugin: "org.springframework.boot"
+    apply plugin: "io.spring.dependency-management"
+    apply plugin: "jacoco"
+
+    repositories {
+        mavenCentral()
+    }
+
+    sourceCompatibility = '11'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+    }
+
+    tasks.jar {
+        enabled = true
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    test {
+        finalizedBy jacocoTestReport // report is always generated after tests run
+    }
+
+    jacocoTestReport {
+        dependsOn test // tests are required to run before generating the report
+    }
+}
+
+ext {
+    devToolsVersion = '2.7.0'
+    h2Version = '2.1.212'
+    postgresVersion = '42.3.6'
+    mysqlVersion = '8.0.29'
+    thymeleafExtrasVersion = '3.0.4.RELEASE'
+    httpComponentsHttpClientVersion = '4.5.13'
+    springFoxVersion = '3.0.0'
+}
+
+

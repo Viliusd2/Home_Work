@@ -19,15 +19,6 @@ import java.util.UUID;
 public interface CartApiSpec {
 
 
-    @GetMapping(path = "/cart", produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
-    @ApiOperation(value = "Opening cart session",
-            httpMethod = "GET",
-            notes = "Get an empty cart session")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Kai sekmingai grazina sessija"),
-    })
-     CartDto getCart(@ModelAttribute("cartSession") CartDto cart);
-
     @PostMapping( "/cart/{productId}")
     @ApiOperation(value = "Add product to cart",
             httpMethod = "POST",

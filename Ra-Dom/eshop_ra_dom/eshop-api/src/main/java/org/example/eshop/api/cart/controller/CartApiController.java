@@ -17,23 +17,7 @@ import java.util.UUID;
 @RestController
 @RequiredArgsConstructor
 public class CartApiController implements CartApiSpec {
-
     private final CartService cartService;
-
-    @ModelAttribute("cartSession")
-    public CartDto createCart() {
-
-        return CartDto.builder()
-                .cartItemsDto(new ArrayList<>())
-                .cartId(UUID.randomUUID())
-                .userEmail("")
-                .purchaseDate(LocalDate.now())
-                .build();
-    }
-
-    public CartDto getCart(@ModelAttribute("cartSession") CartDto cart) {
-        return cart;
-    }
 
     public ResponseEntity<Void> addToCart(@PathVariable UUID productId, @ModelAttribute("cartSession") CartDto cart) {
         if (cartService.addToCartByProductId(productId, cart)) {

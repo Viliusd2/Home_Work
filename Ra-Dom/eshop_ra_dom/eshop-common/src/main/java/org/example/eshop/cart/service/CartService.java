@@ -41,6 +41,15 @@ public class CartService {
                 );
         return true;
     }
+    public boolean removeFromCartByProductId(UUID productId, CartDto cart) {
+        if (this.getCartItem(productId, cart.getCartItemsDto()).isPresent()
+                && this.getCartItem(productId, cart.getCartItemsDto()).get().getQuantity() > 0){
+            this.getCartItem(productId, cart.getCartItemsDto()).get().decrementQuantity();
+        }else {
+            cart.remove(productService.getProductDtoByUUID(productId));
+        }
+        return true;
+    }
 
 
     private void addProductToCart(UUID productId, CartDto cart) {
@@ -78,5 +87,23 @@ public class CartService {
 
     public boolean findCartByUUID(UUID cartId) {
         return cartRepository.findByCartId(cartId).isPresent();
+    }
+
+    public List<CartDto> findAll() {
+        return cartRepository.findAll().stream()
+                .map(cartMapper::toCartDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<CartDto> findCartByUsername(String username) {
+        return  cartRepository.findCartsByUserEmail(username).stream()
+                .map(cartMapper::toCartDto)
+                .collect(Collectors.toList());
+    }
+
+    public boolean deleteCart(UUID cartId) {
+        Optional<Cart> cart = cartRepository.findByCartId(cartId);
+        cart.ifPresent(value -> cartRepository.deleteById(value.getId()));
+        return cartRepository.findByCartId(cartId).isEmpty();
     }
 }

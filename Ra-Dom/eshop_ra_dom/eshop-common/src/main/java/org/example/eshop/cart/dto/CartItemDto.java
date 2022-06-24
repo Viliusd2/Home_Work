@@ -19,6 +19,10 @@ public class CartItemDto {
     public void incrementQuantity (){
         this.quantity++;
     }
+    public void decrementQuantity (){
+        this.quantity--;
+    }
+
 
     public BigDecimal getItemTotalPrice(){
 

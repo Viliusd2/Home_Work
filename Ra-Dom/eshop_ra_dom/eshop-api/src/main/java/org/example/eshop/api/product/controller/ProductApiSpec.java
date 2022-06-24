@@ -27,7 +27,7 @@ public interface ProductApiSpec {
             notes = "Create User made custom product")
     ResponseEntity<Void> createProduct(@Valid @RequestBody ProductDto productDto);
 
-    @GetMapping(path = PRODUCT_PATH, produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE}) // by default produces JSON MIME type
+    @GetMapping(path = PRODUCTS_PATH, produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE}) // by default produces JSON MIME type
     @ApiOperation(
             value = "Get all product",
             httpMethod = "GET",

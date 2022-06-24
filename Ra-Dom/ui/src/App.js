@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import Example from "./components/MyAwesomeComponent";
+import ButtonWithText from "./components/ButtonWithText";
+import ProductForm from "./components/ProductV2";
+import Product from "./components/Product";
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
           Learn React
         </a>
         <Example name="nepaspaustas"/>
+        <ButtonWithText text="Nebuvo paspaustas"/>
+        <ProductForm />
+        <Product />
       </header>
     </div>
   );

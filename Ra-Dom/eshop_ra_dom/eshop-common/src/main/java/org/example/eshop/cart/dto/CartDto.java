@@ -26,6 +26,12 @@ public class CartDto {
                 .quantity(1)
                 .build());
     }
+    public void remove(ProductDto productDto) {
+        cartItemsDto.remove(CartItemDto.builder()
+                .productDto(productDto)
+                .quantity(1)
+                .build());
+    }
 
     public BigDecimal getCartTotalPrice(){
         return cartItemsDto.stream()

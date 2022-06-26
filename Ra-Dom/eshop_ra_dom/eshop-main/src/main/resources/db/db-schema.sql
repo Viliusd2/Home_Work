@@ -83,4 +83,16 @@ CREATE TABLE cart_cart_items
     cart_items_id BIGINT not null,
     FOREIGN KEY (cart_id) REFERENCES cart (id),
     FOREIGN KEY (cart_items_id) REFERENCES cart_items (id)
-)
+);
+
+DROP TABLE IF EXISTS file;
+CREATE TABLE file
+(
+    id                BIGINT PRIMARY KEY AUTO_INCREMENT,
+    file_id           UUID           NOT NULL,
+    file_name         VARCHAR(100)   NOT NULL,
+    file_extension    VARCHAR(15)    NOT NULL,
+    media_type        VARCHAR(10)    NOT NULL,
+    size              BIGINT         NOT NULL,
+    time_stamp         TIMESTAMP      DEFAULT current_timestamp
+);

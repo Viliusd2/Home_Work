@@ -5,6 +5,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.eshop.jpa.file.entity.File;
 import org.example.eshop.jpa.file.repository.FileRepository;
+import org.example.eshop.jpa.product.entity.Product;
+import org.example.eshop.jpa.product.repository.ProductRepository;
+import org.example.eshop.product.dto.ProductDto;
+import org.example.eshop.product.service.ProductService;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
@@ -17,6 +21,7 @@ import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.UUID;
 
 
 @Service
@@ -26,10 +31,12 @@ public class FileService {
 
     private final Path fileLocation = Path.of("./pictures").toAbsolutePath().normalize();
     private final FileRepository fileRepository;
+    private final ProductService productService;
 
-    public FileResponce saveFile(MultipartFile file) {
+    public FileResponse saveFile(MultipartFile file, ProductDto productDto) {
         createDirectory();
         try {
+
             String[] splitFile = file.getOriginalFilename().split("\\.");
 
             File savedFileInDb = fileRepository.save(
@@ -38,13 +45,15 @@ public class FileService {
                             .fileExtension(splitFile[1])
                             .size(file.getSize())
                             .mediaType(file.getContentType())
+                            .product(productService.getProductByUUID(productDto))
                             .build());
 
             Path filePathWithFileName = fileLocation.resolve(savedFileInDb.getUniqFileName());
 
             Files.copy(file.getInputStream(), filePathWithFileName, StandardCopyOption.REPLACE_EXISTING);
-            return FileResponce.builder()
+            return FileResponse.builder()
                     .originalFileName(savedFileInDb.getUniqFileName())
+                    .fileId(savedFileInDb.getId())
                     .build();
 
         } catch (IOException e) {

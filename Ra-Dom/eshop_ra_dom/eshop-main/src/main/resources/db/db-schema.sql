@@ -88,11 +88,13 @@ CREATE TABLE cart_cart_items
 DROP TABLE IF EXISTS file;
 CREATE TABLE file
 (
-    id                BIGINT PRIMARY KEY AUTO_INCREMENT,
-    file_id           UUID           NOT NULL,
-    file_name         VARCHAR(100)   NOT NULL,
-    file_extension    VARCHAR(15)    NOT NULL,
-    media_type        VARCHAR(10)    NOT NULL,
-    size              BIGINT         NOT NULL,
-    time_stamp         TIMESTAMP      DEFAULT current_timestamp
+    id             BIGINT PRIMARY KEY AUTO_INCREMENT,
+    file_id        UUID         NOT NULL,
+    product_id     BIGINT       NOT NULL,
+    file_name      VARCHAR(100) NOT NULL,
+    file_extension VARCHAR(15)  NOT NULL,
+    media_type     VARCHAR(10)  NOT NULL,
+    size           BIGINT       NOT NULL,
+    time_stamp     TIMESTAMP DEFAULT current_timestamp,
+    FOREIGN KEY (product_id) REFERENCES product (id)
 );

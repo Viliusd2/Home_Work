@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.eshop.jpa.file.entity.File;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -36,6 +39,9 @@ public class Product {
     private String flavor;
 
     private String description;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<File> product_pictures = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<ProductCategory> productCategories;

@@ -3,6 +3,7 @@ package org.example.eshop.jpa.file.entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.example.eshop.jpa.product.entity.Product;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -30,7 +31,13 @@ public class File {
 
     private long size;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
     public String getUniqFileName() {
         return fileId.toString() + "." + fileExtension;
+    }
+    public UUID getId() {
+        return fileId;
     }
 }

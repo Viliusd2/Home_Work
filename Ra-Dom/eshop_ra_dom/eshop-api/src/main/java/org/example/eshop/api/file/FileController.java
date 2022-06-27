@@ -1,6 +1,8 @@
 package org.example.eshop.api.file;
 
 import lombok.RequiredArgsConstructor;
+import org.example.eshop.api.product.dto.ProductsResponse;
+import org.example.eshop.product.dto.ProductDto;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +19,8 @@ public class FileController {
     private final FileService fileService;
 
     @PostMapping("/api/file/upload")
-    public FileResponce saveFile(@RequestParam MultipartFile file) {
-        return fileService.saveFile(file);
+    public FileResponse saveFile(@RequestParam MultipartFile file, ProductDto productDto) {
+        return fileService.saveFile(file, productDto);
     }
     @GetMapping("/api/file/download")
     public ResponseEntity<Resource> getFileByFileName(@RequestParam String fileName) {

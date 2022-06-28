@@ -29,28 +29,32 @@ function ExampleForProduct() {
                     type="text"
                     onChange={handleChange}
                     name="name"
-                /><br/>
+                />
+                <br />
                 <label htmlFor="price">Quantity:</label>
                 <input
                     value={product.price}
                     type="number"
                     onChange={handleChange}
                     name="price"
-                /><br/>
+                />
+                <br />
                 <label htmlFor="amount">Price:</label>
                 <input
                     value={product.amount}
                     type="number"
                     onChange={handleChange}
                     name="amount"
-                /><br/>
+                />
+                <br />
                 <label htmlFor="description">Description:</label>
                 <input
                     value={product.description}
                     type="text"
                     onChange={handleChange}
                     name="description"
-                /><br/>
+                />
+                <br />
 
                 <button type="submit">Submit</button>
             </form>

@@ -1,5 +1,4 @@
-
-import {FaFacebookSquare, FaInstagramSquare} from "react-icons/fa";
+import { FaFacebookSquare, FaInstagramSquare } from 'react-icons/fa';
 
 const FooterContainer = () => (
     <div className="container fixed-bottom">

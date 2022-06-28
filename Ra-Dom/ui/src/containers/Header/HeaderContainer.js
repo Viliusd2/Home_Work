@@ -7,12 +7,14 @@ import {
     Navbar,
     NavDropdown,
 } from 'react-bootstrap';
-import {NavLink} from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 const HeaderContainer = () => (
     <Navbar bg="light " expand="lg">
         <Container fluid>
-            <Navbar.Brand to="/" as={NavLink}>Eshop Ra-Dom</Navbar.Brand>
+            <Navbar.Brand to="/" as={NavLink}>
+                Eshop Ra-Dom
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -20,12 +22,25 @@ const HeaderContainer = () => (
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link to="/product/create" as={NavLink}>Create Product</Nav.Link>
-                    <Nav.Link to="/products" as={NavLink}>Product List</Nav.Link>
-                    <Nav.Link href="#" disabled>Registration</Nav.Link>
+                    <Nav.Link to="/product/create" as={NavLink}>
+                        Create Product
+                    </Nav.Link>
+                    <Nav.Link to="/products" as={NavLink}>
+                        Product List
+                    </Nav.Link>
+                    <Nav.Link to="/product/:productId" as={NavLink}>
+                        Product
+                    </Nav.Link>
+                    <Nav.Link href="#" disabled>
+                        Registration
+                    </Nav.Link>
                     <NavDropdown title="Language" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Lietuviu</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">English</NavDropdown.Item>
+                        <NavDropdown.Item href="#action3">
+                            Lietuviu
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action4">
+                            English
+                        </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Form className="d-flex">

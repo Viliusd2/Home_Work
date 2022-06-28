@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Alert, Button, Container, Form} from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import FormLabelControl from '../../../components/Form/FormLabelControl';
 
 function CreateProduct() {
@@ -9,9 +9,9 @@ function CreateProduct() {
         price: '',
         quantity: '',
         description: '',
-        success: false
+        success: false,
     });
-    const [message , sendMessage] = useState(false)
+    const [message, sendMessage] = useState(false);
 
     const handleChange = (e) => {
         setProduct({
@@ -23,7 +23,7 @@ function CreateProduct() {
     function handleSubmit(e) {
         console.log(product);
         e.preventDefault();
-        sendMessage(true)
+        sendMessage(true);
     }
 
     return (
@@ -67,15 +67,14 @@ function CreateProduct() {
                     <Button variant="success" type="submit">
                         Submit
                     </Button>
-                    {message &&
+                    {message && (
                         <>
-                        <p>{product.name}</p>
+                            <p>{product.name}</p>
                             <p>{product.price}</p>
                             <p>{product.quantity}</p>
                             <p>{product.description}</p>
                         </>
-
-                    }
+                    )}
                 </Form>
             </Container>
         </>

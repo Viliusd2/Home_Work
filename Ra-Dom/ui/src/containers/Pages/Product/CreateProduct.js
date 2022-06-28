@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import FormLabelControl from '../../../components/Form/FormLabelControl';
 
 function CreateProduct() {
     // Declare multiple state variables!
@@ -25,39 +26,40 @@ function CreateProduct() {
         <>
             <Container>
                 <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="name">
-                        <Form.Label>Product Name</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Product Name"
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="quantity">
-                        <Form.Label>Quantity</Form.Label>
-                        <Form.Control
-                            type="number"
-                            placeholder="Quantity"
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="price">
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control
-                            type="number"
-                            placeholder="Price"
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
+                    <FormLabelControl
+                        id="name"
+                        labelText="Product name"
+                        placeholderText="Enter product name"
+                        onchange={handleChange}
+                        inputType="text"
+                        classname="mb-3"
+                    />
+                    <FormLabelControl
+                        id="quantity"
+                        labelText="Quantity"
+                        placeholderText="Enter quantity"
+                        onchange={handleChange}
+                        inputType="number"
+                        classname="mb-3"
+                    />
+                    <FormLabelControl
+                        id="price"
+                        labelText="Price"
+                        placeholderText="Enter price"
+                        onchange={handleChange}
+                        inputType="number"
+                        classname="mb-3"
+                    />
+                    <FormLabelControl
+                        id="description"
+                        labelText="Description"
+                        placeholderText="Enter a description"
+                        onchange={handleChange}
+                        inputType="text"
+                        classname="mb-5"
+                        isTextArea
+                    />
 
-                    <Form.Group className="mb-3" controlId="description">
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control
-                            as="textarea"
-                            placeholder="Description"
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
 
                     <Button variant="success" type="submit">
                         Submit

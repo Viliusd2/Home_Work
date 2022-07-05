@@ -10,6 +10,6 @@ import java.util.UUID;
 public class FileResponse {
 
     private String originalFileName;
-    private UUID fileId;
+
 
 }

@@ -12,6 +12,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class File {
 
     @Id
@@ -31,9 +32,6 @@ public class File {
 
     private long size;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
     public String getUniqFileName() {
         return fileId.toString() + "." + fileExtension;
     }

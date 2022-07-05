@@ -5,14 +5,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.eshop.jpa.file.entity.File;
 import org.example.eshop.jpa.file.repository.FileRepository;
-import org.example.eshop.jpa.product.entity.Product;
-import org.example.eshop.jpa.product.repository.ProductRepository;
-import org.example.eshop.product.dto.ProductDto;
-import org.example.eshop.product.service.ProductService;
+
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -20,8 +18,8 @@ import java.io.InputStream;
 import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.UUID;
 
 
 @Service
@@ -29,11 +27,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class FileService {
 
-    private final Path fileLocation = Path.of("./pictures").toAbsolutePath().normalize();
+    private final Path fileLocation = Paths.get("./pictures").toAbsolutePath().normalize();
     private final FileRepository fileRepository;
-    private final ProductService productService;
 
-    public FileResponse saveFile(MultipartFile file, ProductDto productDto) {
+    @Transactional
+    public FileResponse saveFile(MultipartFile file) {
         createDirectory();
         try {
 
@@ -45,7 +43,6 @@ public class FileService {
                             .fileExtension(splitFile[1])
                             .size(file.getSize())
                             .mediaType(file.getContentType())
-                            .product(productService.getProductByUUID(productDto))
                             .build());
 
             Path filePathWithFileName = fileLocation.resolve(savedFileInDb.getUniqFileName());
@@ -53,7 +50,6 @@ public class FileService {
             Files.copy(file.getInputStream(), filePathWithFileName, StandardCopyOption.REPLACE_EXISTING);
             return FileResponse.builder()
                     .originalFileName(savedFileInDb.getUniqFileName())
-                    .fileId(savedFileInDb.getId())
                     .build();
 
         } catch (IOException e) {
@@ -69,7 +65,7 @@ public class FileService {
                 Files.createDirectory(fileLocation);
             }
         } catch (IOException e) {
-            log.error("Cannot create directory");
+            log.error("Cannot create directory", e);
             e.printStackTrace();
         }
     }

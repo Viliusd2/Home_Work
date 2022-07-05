@@ -40,9 +40,6 @@ public class Product {
 
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<File> product_pictures = new ArrayList<>();
-
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<ProductCategory> productCategories;
 }

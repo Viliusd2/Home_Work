@@ -3,6 +3,7 @@ package org.example.eshop.api.file;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.eshop.api.file.dto.FileResponse;
 import org.example.eshop.jpa.file.entity.File;
 import org.example.eshop.jpa.file.repository.FileRepository;
 

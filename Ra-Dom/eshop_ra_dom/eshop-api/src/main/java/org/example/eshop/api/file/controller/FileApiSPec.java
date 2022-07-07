@@ -11,12 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@RequestMapping("/api")
+@RequestMapping("/file")
 @Api(tags = "File Management")
 public interface FileApiSPec {
 
 
-    @PostMapping("/file/upload")
+    @PostMapping("/upload")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Upload File",
             httpMethod = "POST",
@@ -25,10 +25,7 @@ public interface FileApiSPec {
             @ApiResponse(code = 200, message = "Successfully saved file"),
     })
      FileResponse saveFile(@RequestParam MultipartFile file);
-
-
-
-    @GetMapping("/file/download")
+    @GetMapping("/download")
     @ApiOperation(value = "Download File",
             httpMethod = "GET",
             notes = "Retrieve file by file name")

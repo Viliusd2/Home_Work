@@ -15,12 +15,12 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.util.UUID;
 
-@RequestMapping("/api")
+@RequestMapping("/cart")
 @Api(tags = "Cart Controller")
 public interface CartApiSpec {
 
     //Turi būti įgyvendintos visos CRUD operacijos (CREATE, READ, UPDATE, DELETE).​
-    @PutMapping( "/cart/add/{productId}")
+    @PutMapping( "/add/{productId}")
     @ApiOperation(value = "Add product to cart",
             httpMethod = "PUT",
             notes = "Add selected product to your cart")
@@ -29,7 +29,7 @@ public interface CartApiSpec {
     })
     ResponseEntity<Void> addProductToCart(@Valid @RequestBody CartDto cart ,@PathVariable("productId") UUID productId);
 
-    @PutMapping( "/cart/remove/{productId}")
+    @PutMapping( "/remove/{productId}")
     @ApiOperation(value = "Remove product from cart",
             httpMethod = "PUT",
             notes = "Remove selected product from your cart")
@@ -38,7 +38,7 @@ public interface CartApiSpec {
     })
     ResponseEntity<Void> removeProductFromCart(@Valid @RequestBody CartDto cart,@PathVariable("productId") UUID productId);
 
-    @PostMapping("/cart")
+    @PostMapping("/create")
     @ApiOperation(value = "Create Cart",
             httpMethod = "POST",
             notes = "Save cart with all the selected products as a Purchase order")
@@ -47,7 +47,7 @@ public interface CartApiSpec {
     })
     ResponseEntity<Void> createCart(@Valid @RequestBody CartDto cart, Principal principal);
 
-    @GetMapping(path = "/carts", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get All carts",
             httpMethod = "GET",
             notes = "Retrieve all Carts from repository")
@@ -56,7 +56,7 @@ public interface CartApiSpec {
     })
     CartResponse getCarts();
 
-    @DeleteMapping("/cart/{uuid}")
+    @DeleteMapping("/{uuid}")
     @ApiOperation(value = "Delete Cart",
             httpMethod = "DELETE",
             notes = "Deletes Cart From Database")
@@ -65,7 +65,7 @@ public interface CartApiSpec {
     })
     ResponseEntity<Void> deleteCart(@PathVariable("uuid") UUID CartId);
 
-    @GetMapping(value = "/carts/{username}",produces = MediaType.APPLICATION_JSON_VALUE )
+    @GetMapping(value = "/{username}",produces = MediaType.APPLICATION_JSON_VALUE )
     @ApiOperation(value = "Get user carts",
             httpMethod = "GET",
             notes = "Retrieve all purchases made by that user")

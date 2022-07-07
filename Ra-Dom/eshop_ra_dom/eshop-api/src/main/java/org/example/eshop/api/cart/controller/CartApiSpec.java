@@ -25,7 +25,7 @@ public interface CartApiSpec {
             httpMethod = "PUT",
             notes = "Add selected product to your cart")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Kai sekmingai idedame producta i pirkiniu krepseli"),
+            @ApiResponse(code = 200, message = "Successfully added product to cart"),
     })
     ResponseEntity<Void> addProductToCart(@Valid @RequestBody CartDto cart ,@PathVariable("productId") UUID productId);
 
@@ -34,7 +34,7 @@ public interface CartApiSpec {
             httpMethod = "PUT",
             notes = "Remove selected product from your cart")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Kai sekmingai pasaliname producta is pirkiniu krepselio"),
+            @ApiResponse(code = 200, message = "When product removal was a success"),
     })
     ResponseEntity<Void> removeProductFromCart(@Valid @RequestBody CartDto cart,@PathVariable("productId") UUID productId);
 
@@ -43,7 +43,7 @@ public interface CartApiSpec {
             httpMethod = "POST",
             notes = "Save cart with all the selected products as a Purchase order")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Kai sekmingai sukuriamas uzsakymas"),
+            @ApiResponse(code = 200, message = "When order is created successfully"),
     })
     ResponseEntity<Void> createCart(@Valid @RequestBody CartDto cart, Principal principal);
 
@@ -52,16 +52,16 @@ public interface CartApiSpec {
             httpMethod = "GET",
             notes = "Retrieve all Carts from repository")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Kai operacija sekmingai ivykdyta"),
+            @ApiResponse(code = 200, message = "When get operation is a success"),
     })
     CartResponse getCarts();
 
-    @DeleteMapping("/carts/{uuid}")
+    @DeleteMapping("/cart/{uuid}")
     @ApiOperation(value = "Delete Cart",
             httpMethod = "DELETE",
             notes = "Deletes Cart From Database")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Kai operacija sekmingai ivykdyta"),
+            @ApiResponse(code = 200, message = "When delete operation is a success"),
     })
     ResponseEntity<Void> deleteCart(@PathVariable("uuid") UUID CartId);
 
@@ -70,7 +70,7 @@ public interface CartApiSpec {
             httpMethod = "GET",
             notes = "Retrieve all purchases made by that user")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Kai operacija sekmingai ivykdyta"),
+            @ApiResponse(code = 200, message = "When retrieve operation is a success"),
     })
     CartResponse getCartsByUsername(@PathVariable("username") String username);
 }

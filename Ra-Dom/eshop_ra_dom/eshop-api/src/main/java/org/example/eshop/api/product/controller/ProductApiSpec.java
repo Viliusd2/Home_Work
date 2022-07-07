@@ -33,9 +33,9 @@ public interface ProductApiSpec {
             httpMethod = "GET",
             notes = "Get all product from db, and any other information could be here")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Kai sekmingai grazina produktus"),
-            @ApiResponse(code = 401, message = "Reikalauja prisijungimo gaunant produktu sarasa"),
-            @ApiResponse(code = 403, message = "Neturite reikalingu teisiu gauti produktu sarasa")
+            @ApiResponse(code = 200, message = "On success-full retrieval"),
+            @ApiResponse(code = 401, message = "Login required for this operation"),
+            @ApiResponse(code = 403, message = "You have no authority to do this operation")
     })
     ProductsResponse getProducts();
 
@@ -44,9 +44,9 @@ public interface ProductApiSpec {
             httpMethod = "GET",
             notes = "Get a product from database by UUID number")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Kai sekmingai grazina produkta"),
-            @ApiResponse(code = 401, message = "Reikalauja prisijungimo gaunant produkta"),
-            @ApiResponse(code = 403, message = "Neturite reikalingu teisiu gauti produkta")
+            @ApiResponse(code = 200, message = "On success-full retrieval"),
+            @ApiResponse(code = 401, message = "Login required for this operation"),
+            @ApiResponse(code = 403, message = "You have no authority to do this operation")
     })
     ProductsResponse getProductByUUID(@PathVariable("uuid") UUID uuid);
 

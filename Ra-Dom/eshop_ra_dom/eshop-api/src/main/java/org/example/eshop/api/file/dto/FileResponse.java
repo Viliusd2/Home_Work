@@ -1,4 +1,4 @@
-package org.example.eshop.api.file;
+package org.example.eshop.api.file.dto;
 
 import lombok.Builder;
 import lombok.Getter;

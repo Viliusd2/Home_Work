@@ -1,7 +1,6 @@
 server:
   servlet:
-    session:
-      tracking-modes: COOKIE
+    context-path: /api
 spring:
   main:
     banner-mode: console

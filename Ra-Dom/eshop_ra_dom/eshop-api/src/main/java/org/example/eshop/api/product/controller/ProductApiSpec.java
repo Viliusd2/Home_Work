@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.UUID;
 
-@RequestMapping("/api")
+@RequestMapping()
 @Api(tags = "Product Controller")
 public interface ProductApiSpec {
 
      String PRODUCT_PATH = "/product";
      String PRODUCTS_PATH = "/products";
 
-    @PostMapping(path = "/create")
+    @PostMapping(path = PRODUCT_PATH + "/create")
     @ApiOperation(value = "Create product",
             httpMethod = "POST",
             notes = "Create User made custom product")

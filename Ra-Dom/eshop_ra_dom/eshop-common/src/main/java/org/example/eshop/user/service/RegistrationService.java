@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 public class RegistrationService {
     private final UserRepository userRepository;
     private final AuthorityRepository authorityRepository;
-
     private final PasswordEncoder passwordEncoder;
 
     @Transactional

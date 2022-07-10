@@ -1,10 +1,10 @@
-package mapper;
+package org.example.eshop.security.jwt.mapper;
 
 
-import dto.UserDto;
-import dto.UserRole;
-import entity.Authority;
-import entity.User;
+import org.example.eshop.security.jpa.entity.Authority;
+import org.example.eshop.security.jpa.entity.User;
+import org.example.eshop.security.jwt.dto.UserDto;
+import org.example.eshop.security.jwt.dto.UserRole;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package dto;
+package org.example.eshop.security.jwt.dto;
 
 
 import lombok.Builder;
@@ -14,7 +14,6 @@ public class UserDto{
     private String surname;
     private String email;
     private String password;
-    private String repeatedPassword;
     private String phoneNumber;
 
 }

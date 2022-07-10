@@ -1,4 +1,4 @@
-package config;
+package org.example.eshop.security.basic.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

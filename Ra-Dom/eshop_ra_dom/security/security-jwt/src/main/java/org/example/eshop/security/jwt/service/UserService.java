@@ -1,14 +1,13 @@
-package service;
+package org.example.eshop.security.jwt.service;
 
 
-import entity.User;
 import lombok.RequiredArgsConstructor;
-import mapper.UserMapper;
+import org.example.eshop.security.jpa.entity.repository.UserRepository;
+import org.example.eshop.security.jwt.mapper.UserMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -23,10 +22,6 @@ public class UserService implements UserDetailsService {
         return userRepository.findUserByEmailWithAuthorities(username)
                 .map(userMapper::toDto)
                 .orElseThrow(() -> new UsernameNotFoundException("'" + username + "' not found!"));
-    }
-
-    public User checkAndReturnUserIfExists(String username) throws UsernameNotFoundException {
-        return  userRepository.findUserByEmail(username);
     }
 
 

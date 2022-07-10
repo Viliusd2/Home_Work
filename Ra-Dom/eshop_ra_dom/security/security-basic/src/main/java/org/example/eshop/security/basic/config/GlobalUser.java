@@ -1,4 +1,4 @@
-package config;
+package org.example.eshop.security.basic.config;
 
 import lombok.Getter;
 import lombok.Setter;

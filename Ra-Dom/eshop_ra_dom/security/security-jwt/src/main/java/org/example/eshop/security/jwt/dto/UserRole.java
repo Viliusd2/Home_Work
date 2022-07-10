@@ -1,4 +1,4 @@
-package dto;
+package org.example.eshop.security.jwt.dto;
 
 import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,6 +10,7 @@ import java.util.Set;
 
 
 @Builder
+
 public class UserRole implements UserDetails {
 
     private UserDto user;
@@ -28,12 +29,12 @@ public class UserRole implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.user.getPassword();
+        return null;
     }
 
     @Override
     public String getUsername() {
-        return this.user.getEmail();
+        return null;
     }
 
     @Override

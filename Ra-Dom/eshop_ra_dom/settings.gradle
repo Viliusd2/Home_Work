@@ -1,7 +1,9 @@
 rootProject.name = 'eshop-Ra-Dom'
 include 'eshop-main'
-include 'eshop-mvc'
 include 'eshop-jpa'
 include 'eshop-common'
 include 'eshop-api'
+include 'security'
+include 'security:security-basic'
+findProject(':security:security-basic')?.name = 'security-basic'
 

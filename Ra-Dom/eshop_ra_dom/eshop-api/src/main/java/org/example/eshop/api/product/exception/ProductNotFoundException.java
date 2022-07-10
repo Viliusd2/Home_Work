@@ -1,4 +1,4 @@
-package org.example.eshop.product.exception;
+package org.example.eshop.api.product.exception;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

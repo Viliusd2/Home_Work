@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.example.eshop.api.product.dto.ProductsResponse;
-import org.example.eshop.product.dto.ProductDto;
+import org.example.eshop.api.product.dto.ProductDto;
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package org.example.eshop.product.dto;
+package org.example.eshop.api.product.dto;
 
 import lombok.Builder;
 import lombok.Data;

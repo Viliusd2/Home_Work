@@ -1,9 +1,9 @@
-package org.example.eshop.cart.mapper;
+package org.example.eshop.api.cart.mapper;
 
 
 import lombok.RequiredArgsConstructor;
-import org.example.eshop.DateConverter;
-import org.example.eshop.cart.dto.CartDto;
+import org.example.eshop.api.cart.dto.CartDto;
+import org.example.eshop.api.product.DateConverter;
 import org.example.eshop.jpa.cart.entity.Cart;
 import org.springframework.stereotype.Component;
 

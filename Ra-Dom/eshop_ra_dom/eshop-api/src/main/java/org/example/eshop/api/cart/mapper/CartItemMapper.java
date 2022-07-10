@@ -1,10 +1,10 @@
-package org.example.eshop.cart.mapper;
+package org.example.eshop.api.cart.mapper;
 
 
-import org.example.eshop.cart.dto.CartItemDto;
+import org.example.eshop.api.cart.dto.CartItemDto;
+import org.example.eshop.api.product.mapper.ProductMapper;
+import org.example.eshop.api.product.service.ProductService;
 import org.example.eshop.jpa.cart.entity.CartItem;
-import org.example.eshop.product.mapper.ProductMapper;
-import org.example.eshop.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

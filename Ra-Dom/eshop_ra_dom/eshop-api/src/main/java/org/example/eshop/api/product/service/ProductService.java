@@ -1,11 +1,11 @@
-package org.example.eshop.product.service;
+package org.example.eshop.api.product.service;
 
-import org.example.eshop.cart.dto.CartItemDto;
-import org.example.eshop.product.dto.ProductDto;
+import org.example.eshop.api.cart.dto.CartItemDto;
+import org.example.eshop.api.product.dto.ProductDto;
+import org.example.eshop.api.product.exception.ProductNotFoundException;
+import org.example.eshop.api.product.mapper.ProductMapper;
 import org.example.eshop.jpa.product.entity.Product;
 import org.example.eshop.jpa.product.entity.ProductCategory;
-import org.example.eshop.product.exception.ProductNotFoundException;
-import org.example.eshop.product.mapper.ProductMapper;
 import org.example.eshop.jpa.product.repository.ProductCategoryRepository;
 import org.example.eshop.jpa.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;

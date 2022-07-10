@@ -1,6 +1,6 @@
-package org.example.eshop.product.mapper;
+package org.example.eshop.api.product.mapper;
 
-import org.example.eshop.product.dto.ProductDto;
+import org.example.eshop.api.product.dto.ProductDto;
 import org.example.eshop.jpa.product.entity.Product;
 import org.example.eshop.jpa.product.entity.ProductCategory;
 import org.springframework.stereotype.Component;

@@ -3,7 +3,6 @@ package org.example.eshop.api.cart.dto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Getter;
-import org.example.eshop.cart.dto.CartDto;
 
 
 import java.util.List;

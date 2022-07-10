@@ -1,7 +1,7 @@
 package org.example.eshop.jpa.cart.entity;
 
 
-import entity.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,9 +25,6 @@ public class Cart {
     private Long id;
 
     private UUID cartId;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
     @Column(name = "purchase_date")
     private Date purchaseDate;

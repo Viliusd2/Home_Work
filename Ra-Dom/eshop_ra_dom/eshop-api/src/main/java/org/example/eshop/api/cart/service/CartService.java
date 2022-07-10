@@ -1,7 +1,6 @@
 package org.example.eshop.api.cart.service;
 
 
-
 import lombok.RequiredArgsConstructor;
 import org.example.eshop.api.cart.dto.CartDto;
 import org.example.eshop.api.cart.dto.CartItemDto;
@@ -15,8 +14,6 @@ import org.example.eshop.jpa.cart.entity.CartItem;
 import org.example.eshop.jpa.cart.repository.CartItemRepository;
 import org.example.eshop.jpa.cart.repository.CartRepository;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
-
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -32,8 +29,6 @@ public class CartService {
     private final ProductService productService;
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
-
-    private final UserRepository userRepository;
     private final CartItemMapper cartItemMapper;
     private final CartMapper cartMapper;
 
@@ -75,7 +70,6 @@ public class CartService {
         cartRepository.save(Cart.builder()
                 .purchaseDate(DateConverter.localDateFormatToSql(cartDto.getPurchaseDate()))
                 .cartId(cartDto.getCartId())
-                .user(userRepository.findUserByEmail(cartDto.getUserEmail()))
                 .cartItems(cartItemList)
                 .build());
         productService.updateProductsAfterPurchase(cartDto.getCartItemsDto());
@@ -98,11 +92,6 @@ public class CartService {
                 .collect(Collectors.toList());
     }
 
-    public List<CartDto> findCartByUsername(String username) {
-        return  cartRepository.findCartsByUserEmail(username).stream()
-                .map(cartMapper::toCartDto)
-                .collect(Collectors.toList());
-    }
 
     public boolean deleteCart(UUID cartId) {
         Optional<Cart> cart = cartRepository.findByCartId(cartId);

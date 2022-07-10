@@ -1,8 +1,9 @@
 package org.example.eshop.api.cart.dto;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import org.example.eshop.api.product.dto.ProductDto;
-
-import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,7 +18,6 @@ public class CartDto {
 
     private UUID cartId;
     private List<CartItemDto> cartItemsDto;
-    private String userEmail;
     private LocalDate purchaseDate;
 
 

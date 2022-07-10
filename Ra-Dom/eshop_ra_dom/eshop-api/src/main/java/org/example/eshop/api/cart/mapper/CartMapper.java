@@ -20,7 +20,6 @@ public class CartMapper {
         return CartDto.builder()
                 .purchaseDate(DateConverter.sqlDateFormatToLocal(cart.getPurchaseDate()))
                 .cartId(cart.getCartId())
-                .userEmail(cart.getUser().getEmail())
                 .cartItemsDto(cart.getCartItems().stream()
                         .map(cartItemMapper::mapToCartItemDto)
                         .collect(Collectors.toUnmodifiableList()))

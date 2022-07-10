@@ -2,6 +2,12 @@ server:
   servlet:
     context-path: /api
 spring:
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+  profiles:
+    include:
+    - global-users
   main:
     banner-mode: console
   datasource:
@@ -9,12 +15,6 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: root
-  mvc:
-    path match:
-      matching-strategy: ant_path_matcher
-  profiles:
-    include:
-    - global-users
   sql:
     init:
       schema-locations: classpath:db/db-schema.sql
@@ -38,10 +38,7 @@ spring:
   servlet:
     multipart:
       max-file-size: 5MB
-logging:
-  level:
-    com:
-      radom:
-        eshop_ra_dom:
-          config: DEBUG
-          filter: TRACE
+security:
+  jwt:
+    # validity time in minutes
+    validity-time: 30

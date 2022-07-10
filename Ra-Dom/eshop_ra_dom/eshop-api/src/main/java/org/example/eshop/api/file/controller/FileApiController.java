@@ -1,15 +1,19 @@
 package org.example.eshop.api.file.controller;
+
 import lombok.RequiredArgsConstructor;
-import org.example.eshop.api.file.dto.FileResponse;
 import org.example.eshop.api.file.FileService;
+import org.example.eshop.api.file.dto.FileResponse;
+import org.example.eshop.swager.annotation.OpenApi;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequiredArgsConstructor
+@OpenApi
 public class FileApiController implements FileApiSPec{
 
     private final FileService fileService;

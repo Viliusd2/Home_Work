@@ -1,13 +1,15 @@
 package org.example.eshop.api.cart.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.eshop.api.cart.dto.CartResponse;
 import org.example.eshop.api.cart.dto.CartDto;
+import org.example.eshop.api.cart.dto.CartResponse;
 import org.example.eshop.api.cart.service.CartService;
+import org.example.eshop.swager.annotation.OpenApi;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -15,6 +17,7 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
+@OpenApi
 public class CartApiController implements CartApiSpec {
     private final CartService cartService;
     public ResponseEntity<Void> addProductToCart(@Valid @RequestBody CartDto cart, @PathVariable UUID productId) {
@@ -33,7 +36,6 @@ public class CartApiController implements CartApiSpec {
     }
 
     public ResponseEntity<Void> createCart(@Valid @RequestBody CartDto cart, Principal principal) {
-        cart.setUserEmail(principal.getName());
         cartService.saveCart(cart);
         if (cartService.findCartByUUID(cart.getCartId())) {
             return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -56,12 +58,6 @@ public class CartApiController implements CartApiSpec {
     }
 
 
-    public CartResponse getCartsByUsername(String username) {
-        return CartResponse.builder()
-                .carts(cartService.findCartByUsername(username))
-                .build();
-
-    }
 
 
 }

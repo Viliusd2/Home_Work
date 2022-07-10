@@ -4,12 +4,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.example.eshop.api.cart.dto.CartResponse;
 import org.example.eshop.api.cart.dto.CartDto;
+import org.example.eshop.api.cart.dto.CartResponse;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -65,12 +64,4 @@ public interface CartApiSpec {
     })
     ResponseEntity<Void> deleteCart(@PathVariable("uuid") UUID CartId);
 
-    @GetMapping(value = "/{username}",produces = MediaType.APPLICATION_JSON_VALUE )
-    @ApiOperation(value = "Get user carts",
-            httpMethod = "GET",
-            notes = "Retrieve all purchases made by that user")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "When retrieve operation is a success"),
-    })
-    CartResponse getCartsByUsername(@PathVariable("username") String username);
 }

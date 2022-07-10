@@ -1,6 +1,7 @@
-package org.example.eshop.cart.dto;
+package org.example.eshop.api.cart.dto;
 
-import org.example.eshop.product.dto.ProductDto;
+import org.example.eshop.api.product.dto.ProductDto;
+
 import lombok.*;
 
 import java.math.BigDecimal;

@@ -2,8 +2,8 @@ package org.example.eshop.api.cart.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.eshop.api.cart.dto.CartResponse;
-import org.example.eshop.cart.dto.CartDto;
-import org.example.eshop.cart.service.CartService;
+import org.example.eshop.api.cart.dto.CartDto;
+import org.example.eshop.api.cart.service.CartService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

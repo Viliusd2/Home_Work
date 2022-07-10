@@ -1,21 +1,24 @@
-package org.example.eshop.cart.service;
+package org.example.eshop.api.cart.service;
 
-import org.example.eshop.DateConverter;
-import org.example.eshop.cart.dto.CartDto;
-import org.example.eshop.cart.dto.CartItemDto;
+
+
+import lombok.RequiredArgsConstructor;
+import org.example.eshop.api.cart.dto.CartDto;
+import org.example.eshop.api.cart.dto.CartItemDto;
+import org.example.eshop.api.cart.mapper.CartItemMapper;
+import org.example.eshop.api.cart.mapper.CartMapper;
+import org.example.eshop.api.product.DateConverter;
+import org.example.eshop.api.product.dto.ProductDto;
+import org.example.eshop.api.product.service.ProductService;
 import org.example.eshop.jpa.cart.entity.Cart;
 import org.example.eshop.jpa.cart.entity.CartItem;
-import org.example.eshop.cart.mapper.CartItemMapper;
-import org.example.eshop.cart.mapper.CartMapper;
 import org.example.eshop.jpa.cart.repository.CartItemRepository;
 import org.example.eshop.jpa.cart.repository.CartRepository;
-import org.example.eshop.product.dto.ProductDto;
-import org.example.eshop.product.service.ProductService;
-import org.example.eshop.user.service.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import repository.UserRepository;
 
+
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -27,10 +30,10 @@ import java.util.stream.Collectors;
 public class CartService {
 
     private final ProductService productService;
-    private final UserService userService;
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
 
+    private final UserRepository userRepository;
     private final CartItemMapper cartItemMapper;
     private final CartMapper cartMapper;
 
@@ -72,7 +75,7 @@ public class CartService {
         cartRepository.save(Cart.builder()
                 .purchaseDate(DateConverter.localDateFormatToSql(cartDto.getPurchaseDate()))
                 .cartId(cartDto.getCartId())
-                .user(userService.checkAndReturnUserIfExists(cartDto.getUserEmail()))
+                .user(userRepository.findUserByEmail(cartDto.getUserEmail()))
                 .cartItems(cartItemList)
                 .build());
         productService.updateProductsAfterPurchase(cartDto.getCartItemsDto());

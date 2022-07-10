@@ -1,4 +1,4 @@
-package org.example.eshop;
+package org.example.eshop.api.product;
 
 import java.sql.Date;
 import java.time.LocalDate;

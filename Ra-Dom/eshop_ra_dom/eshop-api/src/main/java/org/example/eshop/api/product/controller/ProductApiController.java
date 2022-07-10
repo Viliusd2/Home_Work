@@ -1,8 +1,8 @@
 package org.example.eshop.api.product.controller;
 
 import org.example.eshop.api.product.dto.ProductsResponse;
-import org.example.eshop.product.dto.ProductDto;
-import org.example.eshop.product.service.ProductService;
+import org.example.eshop.api.product.dto.ProductDto;
+import org.example.eshop.api.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -6,5 +6,5 @@ include 'security'
 include 'security:security-basic'
 include 'security:security-jpa'
 include 'security:security-jwt'
-include 'commons'
+include 'eshop-commons'
 

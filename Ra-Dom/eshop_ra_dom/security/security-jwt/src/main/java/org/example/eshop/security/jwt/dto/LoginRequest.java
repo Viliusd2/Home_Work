@@ -1,4 +1,4 @@
-package dto;
+package org.example.eshop.security.jwt.dto;
 
 import lombok.Data;
 

@@ -13,7 +13,8 @@ spring:
     path match:
       matching-strategy: ant_path_matcher
   profiles:
-    include: securityOff
+    include:
+    - global-users
   sql:
     init:
       schema-locations: classpath:db/db-schema.sql
@@ -37,11 +38,6 @@ spring:
   servlet:
     multipart:
       max-file-size: 5MB
-
-  security:
-    user:
-      name: user@eshop.lt
-      password: user
 logging:
   level:
     com:

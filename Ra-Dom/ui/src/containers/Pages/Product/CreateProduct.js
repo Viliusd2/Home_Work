@@ -25,6 +25,20 @@ function CreateProduct() {
         e.preventDefault();
         sendMessage(true);
     }
+    const showCreatedProductInfo = () => {
+        const {name, quantity, price, description} = product;
+ return message &&
+        <>
+            <hr/>
+            <div>
+                Created Product:
+                <div>{name}</div>
+                <div>{quantity}</div>
+                <div>{price}</div>
+                <div>{description}</div>
+            </div>
+        </>
+    }
 
     return (
         <>
@@ -67,15 +81,8 @@ function CreateProduct() {
                     <Button variant="success" type="submit">
                         Submit
                     </Button>
-                    {message && (
-                        <>
-                            <p>{product.name}</p>
-                            <p>{product.price}</p>
-                            <p>{product.quantity}</p>
-                            <p>{product.description}</p>
-                        </>
-                    )}
                 </Form>
+                { showCreatedProductInfo() }
             </Container>
         </>
     );

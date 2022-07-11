@@ -25,6 +25,8 @@ const HeaderContainer = () => (
                     <Nav.Link to="/product/create" as={NavLink}>Create Product</Nav.Link>
                     <Nav.Link to="/products" as={NavLink}>Products</Nav.Link>
                     <Nav.Link to="/product/:productId" as={NavLink}>Product</Nav.Link>
+                    <Nav.Link to="/cart" as={NavLink}>Cart</Nav.Link>
+
                     <Nav.Link href="#" disabled>Registration</Nav.Link>
                     <NavDropdown title="Language" id="navbarScrollingDropdown">
                         <NavDropdown.Item href="#action3">Lietuviu</NavDropdown.Item>

@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import FormLabelControl from '../../../components/Form/FormLabelControl';
 
-function CreateProduct() {
+function Product() {
     // Declare multiple state variables!
     const [product, setProduct] = useState({
         name: '',
         price: '',
-        quantity: '',
+        flavor: '',
+        quantityInStock: '',
+        portionSize: '',
         description: '',
         success: false,
     });
@@ -26,15 +28,17 @@ function CreateProduct() {
         sendMessage(true);
     }
     const showCreatedProductInfo = () => {
-        const {name, quantity, price, description} = product;
+        const {name, quantityInStock,portionSize,flavor, price, description} = product;
  return message &&
         <>
             <hr/>
             <div>
                 Created Product:
                 <div>{name}</div>
-                <div>{quantity}</div>
                 <div>{price}</div>
+                <div>{quantityInStock}</div>
+                <div>{portionSize}</div>
+                <div>{flavor}</div>
                 <div>{description}</div>
             </div>
         </>
@@ -87,4 +91,4 @@ function CreateProduct() {
         </>
     );
 }
-export default CreateProduct;
+export default Product;

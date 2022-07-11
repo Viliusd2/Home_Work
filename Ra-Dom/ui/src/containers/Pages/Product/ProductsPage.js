@@ -23,12 +23,13 @@ const ProductsPage = () => {
                             <Card.Header>
                                 <div className="d-flex justify-content-around">
                                     <div>{product.price} Eur</div>
-                                    <div>{product.quantity} available</div>
+                                    <div>{product.quantityInStock} available</div>
                                 </div>
                             </Card.Header>
                             <Card.Body>
                                 <Card.Title>{product.name}</Card.Title>
-                                <Card.Text>{product.description}</Card.Text>
+                                <Card.Text>Flavor: {product.flavor}</Card.Text>
+                                <Card.Text>Portion size: {product.portionSize}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>

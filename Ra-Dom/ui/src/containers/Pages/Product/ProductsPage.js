@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react";
-import {getProductsEndpoint} from "../../../api/apiEndpoints";
+import {getProductsListEndpoint} from "../../../api/apiEndpoints";
 import {Card, Col, Container, Row} from "react-bootstrap";
 
 const ProductsPage = () => {
     const [productItems, setProductItems] = useState([])
 
     useEffect(() => {
-        getProductsEndpoint()
+        getProductsListEndpoint()
             .then(({data}) => {
                 setProductItems(data.products)
             })

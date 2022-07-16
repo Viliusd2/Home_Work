@@ -1,26 +1,32 @@
 import './statics/loginStyle.css';
 import {Field, Form, Formik} from 'formik';
-import {
-    Button,
-    Container,
-    Form as BootstrapForm,
-    InputGroup,
-} from 'react-bootstrap';
+import {Button, Spinner} from 'react-bootstrap';
+import FormikFieldInput from "../../../components/Formik/FormikFieldInput";
+import * as Yup from 'yup';
+import {loginEndpoint} from "../../../api/apiEndpoints";
 
 const Login = () => {
-    const validate = (login) => {
-        const errors = {};
+    const validateSchema = Yup.object().shape({
+        email: Yup.string()
+            .min(5, 'Ilgis turi buti ne mazesnis nei 5')
+            .required()
+            //.email()
+            .matches(/^(.+)@(.+)$/, 'email neatitinka standarto'),
+        password: Yup.string()
+            .min(6, 'Slaptazodzio ilgis turi buti >= 6')
+            .required(),
+    });
 
-        if (!login.email.includes('@')) {
-            errors.email = "CIA NE EMAIL'AS!!!";
-        }
-
-        if (login.password.length < 6) {
-            errors.password = 'Slaptazodzio ilgis turi buti >= 6';
-        }
-
-        return errors;
-    };
+    const postLogin = (login, helper) => {
+        loginEndpoint({
+            username: login.email,
+            password: login.password,
+        }).then((response) =>
+            console.log('login response', response),
+        )
+            .catch((error) => console.log(error))
+            .finally(() => helper.setSubmitting(false));
+    }
 
     return (
         <Formik
@@ -28,10 +34,8 @@ const Login = () => {
                 email: '',
                 password: '',
             }}
-            onSubmit={(login, helper) => {
-                console.log('login', login);
-            }}
-            validate={validate}
+            onSubmit={postLogin}
+            validateSchema={validateSchema}
         >
             {(props) => (
                 <div className="Auth-form-container">
@@ -39,71 +43,34 @@ const Login = () => {
                         <div className="Auth-form-content">
                             <h3 className="Auth-form-title">Sign In</h3>
                             <div className="form-group mt-3">
-                                <Field name="email">
-                                    {({ field, form }) => {  // form -> Field form props
-
-                                        console.log('field', field)
-                                        console.log('form', form)
-
-                                        const isValid = !form.errors[field.name];
-                                        const isInvalid = form.touched[field.name] && !isValid;
-                                        return (
-                                            <BootstrapForm.Group controlId='email'>
-                                                <BootstrapForm.Label className="label">Email:</BootstrapForm.Label>
-                                                <InputGroup >
-                                                    <BootstrapForm.Control
-                                                        className="form-control mt-1"
-                                                        placeholder="Enter Email"
-                                                        type='text'
-                                                        name={field.name}
-                                                        isValid={form.touched[field.name] && isValid}
-                                                        isInvalid={isInvalid}
-                                                        feedback={form.errors[field.name]}
-                                                        onChange={field.onChange}
-                                                    />
-                                                    <BootstrapForm.Control.Feedback type="invalid">
-                                                        {form.errors[field.name]}
-                                                    </BootstrapForm.Control.Feedback>
-                                                </InputGroup>
-                                            </BootstrapForm.Group>
-                                        );
-                                    }}
-                                </Field>
+                                <Field name='email'
+                                       labelText='Email:'
+                                       type='text'
+                                       component={FormikFieldInput} />
                             </div>
                             <div className="form-group mt-3">
-                                <Field name="password">
-                                    {({ field, form }) => {  // form -> Field form props
-
-                                        console.log('field', field)
-                                        console.log('form', form)
-
-                                        const isValid = !form.errors[field.name];
-                                        const isInvalid = form.touched[field.name] && !isValid;
-                                        return (
-                                            <BootstrapForm.Group controlId='password'>
-                                                <BootstrapForm.Label className="label">Password:</BootstrapForm.Label>
-                                                <InputGroup >
-                                                    <BootstrapForm.Control
-                                                        className="form-control mt-1"
-                                                        placeholder="Enter Password"
-                                                        type='text'
-                                                        name={field.name}
-                                                        isValid={form.touched[field.name] && isValid}
-                                                        isInvalid={isInvalid}
-                                                        feedback={form.errors[field.name]}
-                                                        onChange={field.onChange}
-                                                    />
-                                                    <BootstrapForm.Control.Feedback type="invalid">
-                                                        {form.errors[field.name]}
-                                                    </BootstrapForm.Control.Feedback>
-                                                </InputGroup>
-                                            </BootstrapForm.Group>
-                                        );
-                                    }}
-                                </Field>
+                                <Field name='password'
+                                       labelText='Password:'
+                                       type='password'
+                                       component={FormikFieldInput} />
                             </div>
                             <div className="d-grid gap-2 mt-3">
-                                <Button type='submit'className="btn btn-primary">Submit</Button>
+                                {props.isSubmitting
+                                    ? <Button variant='primary' disabled>
+                                        <Spinner
+                                            as='span'
+                                            animation='grow'
+                                            size='sm'
+                                            role='status'
+                                            aria-hidden='true'
+                                        />
+                                        Processing...
+                                    </Button>
+                                    :  <Button type='submit'
+                                               variant='primary'>
+                                        Submit
+                                    </Button>
+                                }
                             </div>
                         </div>
                     </Form>

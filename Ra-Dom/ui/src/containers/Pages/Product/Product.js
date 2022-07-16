@@ -28,21 +28,31 @@ function Product() {
         sendMessage(true);
     }
     const showCreatedProductInfo = () => {
-        const {name, quantityInStock,portionSize,flavor, price, description} = product;
- return message &&
-        <>
-            <hr/>
-            <div>
-                Created Product:
-                <div>{name}</div>
-                <div>{price}</div>
-                <div>{quantityInStock}</div>
-                <div>{portionSize}</div>
-                <div>{flavor}</div>
-                <div>{description}</div>
-            </div>
-        </>
-    }
+        const {
+            name,
+            quantityInStock,
+            portionSize,
+            flavor,
+            price,
+            description,
+        } = product;
+        return (
+            message && (
+                <>
+                    <hr />
+                    <div>
+                        Created Product:
+                        <div>{name}</div>
+                        <div>{price}</div>
+                        <div>{quantityInStock}</div>
+                        <div>{portionSize}</div>
+                        <div>{flavor}</div>
+                        <div>{description}</div>
+                    </div>
+                </>
+            )
+        );
+    };
 
     return (
         <>
@@ -86,7 +96,7 @@ function Product() {
                         Submit
                     </Button>
                 </Form>
-                { showCreatedProductInfo() }
+                {showCreatedProductInfo()}
             </Container>
         </>
     );

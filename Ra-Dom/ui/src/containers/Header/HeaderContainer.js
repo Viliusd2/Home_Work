@@ -22,15 +22,29 @@ const HeaderContainer = () => (
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link to="/product/create" as={NavLink}>Create Product</Nav.Link>
-                    <Nav.Link to="/products" as={NavLink}>Products</Nav.Link>
-                    <Nav.Link to="/product/:productId" as={NavLink}>Product</Nav.Link>
-                    <Nav.Link to="/cart" as={NavLink}>Cart</Nav.Link>
+                    <Nav.Link to="/product/create" as={NavLink}>
+                        Create Product
+                    </Nav.Link>
+                    <Nav.Link to="/products" as={NavLink}>
+                        Products
+                    </Nav.Link>
+                    <Nav.Link to="/product/:productId" as={NavLink}>
+                        Product
+                    </Nav.Link>
+                    <Nav.Link to="/cart" as={NavLink}>
+                        Cart
+                    </Nav.Link>
 
-                    <Nav.Link href="#" disabled>Registration</Nav.Link>
+                    <Nav.Link href="#" disabled>
+                        Registration
+                    </Nav.Link>
                     <NavDropdown title="Language" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Lietuviu</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">English</NavDropdown.Item>
+                        <NavDropdown.Item href="#action3">
+                            Lietuviu
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action4">
+                            English
+                        </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Form className="d-flex">
@@ -42,7 +56,9 @@ const HeaderContainer = () => (
                     />
                     <Button variant="outline-success">Search</Button>
                 </Form>
-                <Nav.Link to="/login" as={NavLink}>LOGIN</Nav.Link>
+                <Nav.Link to="/login" as={NavLink}>
+                    LOGIN
+                </Nav.Link>
             </Navbar.Collapse>
         </Container>
     </Navbar>

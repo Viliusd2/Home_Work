@@ -42,7 +42,7 @@ const HeaderContainer = () => (
                     />
                     <Button variant="outline-success">Search</Button>
                 </Form>
-                <Nav.Link href="#action1">LOGIN</Nav.Link>
+                <Nav.Link to="/login" as={NavLink}>LOGIN</Nav.Link>
             </Navbar.Collapse>
         </Container>
     </Navbar>

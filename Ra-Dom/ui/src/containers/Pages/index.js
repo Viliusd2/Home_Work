@@ -3,6 +3,7 @@ import HomePage from './Home/HomePage';
 import ProductsPage from './Product/ProductsPage';
 import Product from './Product/Product';
 import CartPage from "./Cart/CartPage";
+import Login from "./Login/Login";
 
 export default () => (
     <Routes>
@@ -11,5 +12,7 @@ export default () => (
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/product/create" element={<Product />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/login" element={<Login />} />
+
     </Routes>
 );

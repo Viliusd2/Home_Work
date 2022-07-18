@@ -8,7 +8,6 @@ spring:
   profiles:
     include:
     - global-users
-    - pg
   main:
     banner-mode: console
   datasource:

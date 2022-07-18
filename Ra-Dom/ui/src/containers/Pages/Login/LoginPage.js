@@ -4,29 +4,35 @@ import {Button, Spinner} from 'react-bootstrap';
 import FormikFieldInput from "../../../components/Formik/FormikFieldInput";
 import * as Yup from 'yup';
 import {loginEndpoint} from "../../../api/apiEndpoints";
+import {useContext} from "react";
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
-    const validateSchema = Yup.object().shape({
-        email: Yup.string()
-            .min(5, 'Ilgis turi buti ne mazesnis nei 5')
-            .required()
-            //.email()
-            .matches(/^(.+)@(.+)$/, 'email neatitinka standarto'),
-        password: Yup.string()
-            .min(6, 'Slaptazodzio ilgis turi buti >= 6')
-            .required(),
-    });
+
+const validateSchema = Yup.object().shape({
+    email: Yup.string()
+        .min(5, 'Ilgis turi buti ne mazesnis nei 5')
+        .required()
+        //.email()
+        .matches(/^(.+)@(.+)$/, 'email neatitinka standarto'),
+    password: Yup.string()
+        .min(6, 'Slaptazodzio ilgis turi buti >= 6')
+        .required(),
+});
+
+const LoginPage = () => {
+
+    const navigate = useNavigate()
 
     const postLogin = (login, helper) => {
         loginEndpoint({
             username: login.email,
             password: login.password,
-        }).then((response) =>
-            console.log('login response', response),
-        )
+        }).then(({ data }) => {
+            navigate("/")
+        })
             .catch((error) => console.log(error))
-            .finally(() => helper.setSubmitting(false));
-    }
+            .finally(() => helper.setSubmitting(false))
+    };
 
     return (
         <Formik
@@ -80,4 +86,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginPage;

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import FormLabelControl from '../../../components/Form/FormLabelControl';
+import {createProductEndpoint} from "../../../api/apiEndpoints";
 
-function Product() {
+function NewProductCreationPage() {
     // Declare multiple state variables!
     const [product, setProduct] = useState({
         name: '',
@@ -13,7 +14,8 @@ function Product() {
         description: '',
         success: false,
     });
-    const [message, sendMessage] = useState(false);
+    const [message, setMessage] = useState(false);
+
 
     const handleChange = (e) => {
         setProduct({
@@ -22,11 +24,13 @@ function Product() {
         });
     };
 
-    function handleSubmit(e) {
-        console.log(product);
+    const onSubmit = (e) => {
         e.preventDefault();
-        sendMessage(true);
-    }
+        createProductEndpoint(product)
+            .then((response) => setMessage(true))
+
+    };
+
     const showCreatedProductInfo = () => {
         const {
             name,
@@ -41,7 +45,7 @@ function Product() {
                 <>
                     <hr />
                     <div>
-                        Created Product:
+                        Product Created:
                         <div>{name}</div>
                         <div>{price}</div>
                         <div>{quantityInStock}</div>
@@ -57,7 +61,7 @@ function Product() {
     return (
         <>
             <Container>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={onSubmit}>
                     <FormLabelControl
                         id="name"
                         labelText="Product name"
@@ -67,9 +71,17 @@ function Product() {
                         classname="mb-3"
                     />
                     <FormLabelControl
-                        id="quantity"
-                        labelText="Quantity"
+                        id="quantityInStock"
+                        labelText="Quantity In Stock"
                         placeholderText="Enter quantity"
+                        onchange={handleChange}
+                        inputType="number"
+                        classname="mb-3"
+                    />
+                    <FormLabelControl
+                        id="portionSize"
+                        labelText="Portion Size"
+                        placeholderText="Enter portion size"
                         onchange={handleChange}
                         inputType="number"
                         classname="mb-3"
@@ -80,6 +92,14 @@ function Product() {
                         placeholderText="Enter price"
                         onchange={handleChange}
                         inputType="number"
+                        classname="mb-3"
+                    />
+                    <FormLabelControl
+                        id="flavor"
+                        labelText="Flavor"
+                        placeholderText="Enter flavor"
+                        onchange={handleChange}
+                        inputType="text"
                         classname="mb-3"
                     />
                     <FormLabelControl
@@ -101,4 +121,4 @@ function Product() {
         </>
     );
 }
-export default Product;
+export default NewProductCreationPage;

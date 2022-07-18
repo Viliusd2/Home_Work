@@ -8,9 +8,16 @@ import {
     NavDropdown,
 } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import {AuthUserContext} from "../../context/AuthUserContext";
 
-const HeaderContainer = () => (
-    <Navbar bg="light " expand="lg">
+
+const HeaderContainer = () => {
+
+const { authUser } = useContext(AuthUserContext)
+
+return (
+<Navbar bg="light " expand="lg">
         <Container fluid>
             <Navbar.Brand to="/" as={NavLink}>
                 Eshop Ra-Dom
@@ -27,9 +34,6 @@ const HeaderContainer = () => (
                     </Nav.Link>
                     <Nav.Link to="/products" as={NavLink}>
                         Products
-                    </Nav.Link>
-                    <Nav.Link to="/product/:productId" as={NavLink}>
-                        Product
                     </Nav.Link>
                     <Nav.Link to="/cart" as={NavLink}>
                         Cart
@@ -56,12 +60,18 @@ const HeaderContainer = () => (
                     />
                     <Button variant="outline-success">Search</Button>
                 </Form>
-                <Nav.Link to="/login" as={NavLink}>
-                    LOGIN
-                </Nav.Link>
+                {!authUser.username
+                    ? <Nav.Link to="/login" as={NavLink}>
+                        Login
+                    </Nav.Link>
+                    : <Nav.Link href="/login">
+                        Logout
+                    </Nav.Link>
+                }
             </Navbar.Collapse>
         </Container>
     </Navbar>
 );
+}
 
 export default HeaderContainer;

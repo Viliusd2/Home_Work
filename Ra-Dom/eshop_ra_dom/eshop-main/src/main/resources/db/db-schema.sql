@@ -61,7 +61,9 @@ CREATE TABLE cart
 (
     id            BIGINT PRIMARY KEY AUTO_INCREMENT,
     cart_id       UUID   NOT NULL,
-    purchase_date DATE   not null
+    user_id       BIGINT not null,
+    purchase_date DATE   not null,
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 DROP TABLE IF EXISTS cart_items cascade;

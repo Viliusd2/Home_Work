@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import FormLabelControl from '../../../components/Form/FormLabelControl';
 import {createProductEndpoint} from "../../../api/apiEndpoints";
+import { useTranslation } from "react-i18next";
 
 function NewProductCreationPage() {
     // Declare multiple state variables!
@@ -15,6 +16,7 @@ function NewProductCreationPage() {
         success: false,
     });
     const [message, setMessage] = useState(false);
+    const { t } = useTranslation("productForm")
 
 
     const handleChange = (e) => {
@@ -64,48 +66,48 @@ function NewProductCreationPage() {
                 <Form onSubmit={onSubmit}>
                     <FormLabelControl
                         id="name"
-                        labelText="Product name"
-                        placeholderText="Enter product name"
+                        labelText={t("labels.name")}
+                        placeholderText={t("placeholders.name")}
                         onchange={handleChange}
                         inputType="text"
                         classname="mb-3"
                     />
                     <FormLabelControl
                         id="quantityInStock"
-                        labelText="Quantity In Stock"
-                        placeholderText="Enter quantity"
+                        labelText={t("labels.quantityInStock")}
+                        placeholderText={t("placeholders.quantityInStock")}
                         onchange={handleChange}
                         inputType="number"
                         classname="mb-3"
                     />
                     <FormLabelControl
                         id="portionSize"
-                        labelText="Portion Size"
-                        placeholderText="Enter portion size"
+                        labelText={t("labels.portionSize")}
+                        placeholderText={t("placeholders.portionSize")}
                         onchange={handleChange}
                         inputType="number"
                         classname="mb-3"
                     />
                     <FormLabelControl
                         id="price"
-                        labelText="Price"
-                        placeholderText="Enter price"
+                        labelText={t("labels.price")}
+                        placeholderText={t("placeholders.price")}
                         onchange={handleChange}
                         inputType="number"
                         classname="mb-3"
                     />
                     <FormLabelControl
                         id="flavor"
-                        labelText="Flavor"
-                        placeholderText="Enter flavor"
+                        labelText={t("labels.flavor")}
+                        placeholderText={t("placeholders.flavor")}
                         onchange={handleChange}
                         inputType="text"
                         classname="mb-3"
                     />
                     <FormLabelControl
                         id="description"
-                        labelText="Description"
-                        placeholderText="Enter a description"
+                        labelText={t("labels.description")}
+                        placeholderText={t("placeholders.description")}
                         onchange={handleChange}
                         inputType="text"
                         classname="mb-5"
@@ -113,7 +115,7 @@ function NewProductCreationPage() {
                     />
 
                     <Button variant="success" type="submit">
-                        Submit
+                        {t("common:buttons.submit")}
                     </Button>
                 </Form>
                 {showCreatedProductInfo()}

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { getProductsListEndpoint } from '../../../api/apiEndpoints';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import {Link} from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ProductsPage = () => {
     const [productItems, setProductItems] = useState([]);
+    const { t } = useTranslation("productList")
 
     useEffect(() => {
         getProductsListEndpoint()
@@ -16,7 +17,7 @@ const ProductsPage = () => {
 
     return (
         <Container fluid>
-            <h1 className={'text-center'}>Product list</h1>
+            <h1 className={'text-center'}>{t("title")}</h1>
             <Row xs={1} md={3} className="g-4">
                 {productItems.map((product) => (
                     <Col key={product.productId}>
@@ -25,15 +26,15 @@ const ProductsPage = () => {
                                 <div className="d-flex justify-content-around">
                                     <div>{product.price} Eur</div>
                                     <div>
-                                        {product.quantityInStock} available
+                                        {product.quantityInStock} {t("stock")}
                                     </div>
                                 </div>
                             </Card.Header>
                             <Card.Body>
-                                <Card.Title><Link >{product.name}</Link></Card.Title>
-                                <Card.Text>Flavor: {product.flavor}</Card.Text>
+                                <Card.Title>{product.name}</Card.Title>
+                                <Card.Text>{t("flavor")} {product.flavor}</Card.Text>
                                 <Card.Text>
-                                    Portion size: {product.portionSize}
+                                    {t("portion")} {product.portionSize}
                                 </Card.Text>
                             </Card.Body>
                         </Card>

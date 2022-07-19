@@ -1,0 +1,69 @@
+{
+  "common": {
+    "home": "Čia yra Pagrindinis Puslapis",
+    "hello": "Labas, $t(name)!",
+    "name": "Pasauli",
+    "buttons": {
+      "submit": "Išsaugoti"
+    }
+  },
+  "navigation": {
+    "createProduct": "Sukurti Produktą",
+    "products": "Prekių Sarašas",
+    "cart": "Krepšelis",
+    "registration": "Registracija",
+    "lang": {
+      "main": "Kalba",
+      "lt": "Lietuvių",
+      "en": "Anglų"
+    },
+    "search": {
+      "button": "Paieška",
+      "placeholder": "Įveskite Paieškos Raktą"
+    },
+    "login": "Prisijungimas",
+    "logout": "Logout"
+  },
+  "productForm": {
+    "shared": {
+      "product": "Produkto",
+      "enter": "Nurodykite"
+    },
+      "labels": {
+      "name": "$t(shared.product) pavadinimas",
+      "quantityInStock": "$t(shared.product) kiekis",
+      "price": "$t(shared.product) kaina",
+      "description": "$t(shared.product) aprašymas",
+      "flavor": "$t(shared.product) skonis",
+      "portionSize": "Porcijos dydis"
+    },
+    "placeholders": {
+      "name": "$t(shared.enter) pavadinimą",
+      "quantityInStock": "$t(shared.enter) kiekį",
+      "price": "$t(shared.enter) kainą",
+      "description": "$t(shared.enter) aprašymą",
+      "flavor": "$t(shared.enter) skonį",
+      "portionSize": "$t(shared.enter) porcijos dydį"
+    }
+  },
+  "productList": {
+    "title": "Prekių sarašas",
+    "flavor": "Skonis: ",
+    "portion": "Porcijos dydis: ",
+    "stock": "Likutis"
+  },
+  "login": {
+    "title": "Prisijungkite",
+    "label": {
+      "email": "El. Paštas: ",
+      "pass": "Slaptažodis: "
+    },
+    "placeholder": {
+      "email": "Įveskite el. paštą",
+      "pass": "Įveskite slaptažodį"
+    }
+  },
+  "footer": {
+    "about": "Apie mus"
+  }
+}

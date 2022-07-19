@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import {loginEndpoint} from "../../../api/apiEndpoints";
 import {useContext} from "react";
 import { useNavigate } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 
 
 const validateSchema = Yup.object().shape({
@@ -20,7 +21,7 @@ const validateSchema = Yup.object().shape({
 });
 
 const LoginPage = () => {
-
+    const { t } = useTranslation("login")
     const navigate = useNavigate()
 
     const postLogin = (login, helper) => {
@@ -47,16 +48,18 @@ const LoginPage = () => {
                 <div className="Auth-form-container">
                     <Form className="Auth-form">
                         <div className="Auth-form-content">
-                            <h3 className="Auth-form-title">Sign In</h3>
+                            <h3 className="Auth-form-title">{t("title")}</h3>
                             <div className="form-group mt-3">
                                 <Field name='email'
-                                       labelText='Email:'
+                                       labelText={t("label.email")}
+                                       placeholder={t("placeholder.email")}
                                        type='text'
                                        component={FormikFieldInput} />
                             </div>
                             <div className="form-group mt-3">
                                 <Field name='password'
-                                       labelText='Password:'
+                                       labelText={t("label.pass")}
+                                       placeholder={t("placeholder.pass")}
                                        type='password'
                                        component={FormikFieldInput} />
                             </div>
@@ -74,7 +77,7 @@ const LoginPage = () => {
                                     </Button>
                                     :  <Button type='submit'
                                                variant='primary'>
-                                        Submit
+                                        {t("common:buttons.submit")}
                                     </Button>
                                 }
                             </div>

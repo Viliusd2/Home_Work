@@ -7,6 +7,7 @@ import Pages from './Pages';
 import {useState} from "react";
 import {AuthUserContext, initialAuthUserObj} from "../context/AuthUserContext";
 import {saveToSessionStorage, StorageKey} from "../utils/sessionStorage";
+import "../i18n"
 
 function App() {
     const [authUser, setAuthUser] = useState(initialAuthUserObj)

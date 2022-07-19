@@ -4,7 +4,7 @@ const AuthUserContext = createContext(null)
 
 const initialAuthUserObj = {
     username: '',
-    fullname: '',
+    fullName: '',
     jwtToken: '',
 };
 

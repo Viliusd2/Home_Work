@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getProductsListEndpoint } from '../../../api/apiEndpoints';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import {Link} from "react-router-dom";
 
 const ProductsPage = () => {
     const [productItems, setProductItems] = useState([]);
@@ -29,7 +30,7 @@ const ProductsPage = () => {
                                 </div>
                             </Card.Header>
                             <Card.Body>
-                                <Card.Title>{product.name}</Card.Title>
+                                <Card.Title><Link >{product.name}</Link></Card.Title>
                                 <Card.Text>Flavor: {product.flavor}</Card.Text>
                                 <Card.Text>
                                     Portion size: {product.portionSize}

@@ -58,7 +58,8 @@ const NewProductPage = () => {
     };
 
     return (
-        <Container>
+        <Container className="Auth-form">
+            <h1 align="center">{t('title')}</h1>
             <Form onSubmit={onSubmit}>
                 <FormLabelControl
                     id="name"

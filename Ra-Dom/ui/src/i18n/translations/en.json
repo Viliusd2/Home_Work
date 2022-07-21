@@ -24,6 +24,7 @@
         "logout": "Logout"
     },
     "productForm": {
+        "title": "New $t(shared.product) Form",
         "shared": {
             "product": "Product",
             "enter": "Enter"
@@ -49,7 +50,8 @@
         "title": "Product List",
         "flavor": "Flavor: ",
         "portion": "Portion size: ",
-        "stock": "Available"
+        "stock": "Available",
+        "buy": "Add to Cart"
     },
     "login": {
         "title": "Sign In Form",

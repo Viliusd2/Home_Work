@@ -24,6 +24,7 @@
         "logout": "Logout"
     },
     "productForm": {
+        "title": "Naujo $t(shared.product) Forma",
         "shared": {
             "product": "Produkto",
             "enter": "Nurodykite"
@@ -49,7 +50,11 @@
         "title": "Prekių sarašas",
         "flavor": "Skonis: ",
         "portion": "Porcijos dydis: ",
-        "stock": "Likutis"
+        "stock": "Likutis",
+        "buy": "Pirkti"
+    },
+    "productShowcase": {
+        "title": "Produktas"
     },
     "login": {
         "title": "Prisijungimo Forma",

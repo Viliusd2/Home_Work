@@ -3,6 +3,7 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { createProductEndpoint } from '../../../api/apiEndpoints';
 import { useTranslation } from 'react-i18next';
 import FormLabelControl from '../../../components/Form/FormLabelControl';
+import FileUpload from "../FileUpload/FileUpload";
 
 const NewProductPage = () => {
     const [product, setProduct] = useState({
@@ -58,7 +59,8 @@ const NewProductPage = () => {
     };
 
     return (
-        <Container className="Auth-form">
+        <Container className={"d-flex justify-content-center align-items-center NewProduct-form"}>
+        <Container className="">
             <h1 align="center">{t('title')}</h1>
             <Form onSubmit={onSubmit}>
                 <FormLabelControl
@@ -117,6 +119,10 @@ const NewProductPage = () => {
             </Form>
             {showCreatedProductInfo()}
         </Container>
+    <Container className="">
+        <FileUpload></FileUpload>
+    </Container>
+    </Container>
     );
 };
 

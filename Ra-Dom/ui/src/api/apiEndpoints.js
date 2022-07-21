@@ -14,20 +14,6 @@ const createProductEndpoint = (productData) =>
  * @param loginData
  * @returns {Promise<AxiosResponse<any>>}
  */
-const loginEndpoint = (loginData) => HTTP.post("/login", loginData)
+const loginEndpoint = (loginData) => HTTP.post('/login', loginData);
 
-
-
-
-
-
-
-
-
-
-export {
-    getProductsListEndpoint ,
-    loginEndpoint,
-    createProductEndpoint,
-};
-
+export { getProductsListEndpoint, loginEndpoint, createProductEndpoint };

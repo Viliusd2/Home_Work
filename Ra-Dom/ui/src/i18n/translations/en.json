@@ -1,76 +1,74 @@
 {
-  "common": {
-    "home": "This is Home Page",
-    "hello": "Hello, !",
-    "buttons": {
-      "submit": "Submit"
+    "common": {
+        "home": "This is Home Page",
+        "hello": "Hello, !",
+        "buttons": {
+            "submit": "Submit"
+        }
+    },
+    "navigation": {
+        "createProduct": "Create Product",
+        "products": "Products List",
+        "cart": "My Cart",
+        "registration": "Registration",
+        "lang": {
+            "main": "Language",
+            "lt": "Lithuanian",
+            "en": "English"
+        },
+        "search": {
+            "button": "Search",
+            "placeholder": "Enter keyword"
+        },
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "productForm": {
+        "shared": {
+            "product": "Product",
+            "enter": "Enter"
+        },
+        "labels": {
+            "name": "$t(shared.product) name",
+            "quantityInStock": "$t(shared.product) stock quantity",
+            "price": "$t(shared.product) price",
+            "description": "$t(shared.product) description",
+            "flavor": "$t(shared.product) flavor",
+            "portionSize": "$t(shared.product) portion size"
+        },
+        "placeholders": {
+            "name": "$t(shared.enter) name",
+            "quantityInStock": "$t(shared.enter) quantity",
+            "price": "$t(shared.enter) price",
+            "description": "$t(shared.enter) description",
+            "flavor": "$t(shared.enter) flavor",
+            "portionSize": "$t(shared.enter) quantity"
+        }
+    },
+    "productList": {
+        "title": "Product List",
+        "flavor": "Flavor: ",
+        "portion": "Portion size: ",
+        "stock": "Available"
+    },
+    "login": {
+        "title": "Sign In Form",
+        "label": {
+            "email": "Email: ",
+            "pass": "Password: "
+        },
+        "placeholder": {
+            "email": "Enter Email",
+            "pass": "Enter Password"
+        },
+        "button": "Sign In"
+    },
+    "validations": {
+        "default": "An error occurred",
+        "required": "Field $t({{label}}) is required",
+        "min": "Must be longer than {{min}}"
+    },
+    "footer": {
+        "about": "About us"
     }
-  },
-  "navigation": {
-    "createProduct": "Create Product",
-    "products": "Products List",
-    "cart": "My Cart",
-    "registration": "Registration",
-    "lang": {
-      "main": "Language",
-      "lt": "Lithuanian",
-      "en": "English"
-    },
-    "search": {
-      "button": "Search",
-      "placeholder": "Enter keyword"
-    },
-    "login": "Login",
-    "logout": "Logout"
-  },
-  "productForm": {
-    "shared": {
-      "product": "Product",
-      "enter": "Enter"
-    },
-    "labels": {
-
-      "name": "$t(shared.product) name",
-      "quantityInStock": "$t(shared.product) stock quantity",
-      "price": "$t(shared.product) price",
-      "description": "$t(shared.product) description",
-      "flavor": "$t(shared.product) flavor",
-      "portionSize": "$t(shared.product) portion size"
-
-    },
-    "placeholders": {
-      "name": "$t(shared.enter) name",
-      "quantityInStock": "$t(shared.enter) quantity",
-      "price": "$t(shared.enter) price",
-      "description": "$t(shared.enter) description",
-      "flavor": "$t(shared.enter) flavor",
-      "portionSize": "$t(shared.enter) quantity"
-    }
-  },
-  "productList": {
-    "title": "Product List",
-    "flavor": "Flavor: ",
-    "portion": "Portion size: ",
-    "stock": "Available"
-  },
-  "login": {
-    "title": "Sign In Form",
-    "label": {
-      "email": "Email: ",
-      "pass": "Password: "
-    },
-    "placeholder": {
-      "email": "Enter Email",
-      "pass": "Enter Password"
-    },
-    "button": "Sign In"
-  },
-  "validations": {
-    "default": "An error occurred",
-    "required": "Field $t({{label}}) is required",
-    "min": "Must be longer than {{min}}"
-  },
-  "footer": {
-    "about": "About us"
-  }
 }

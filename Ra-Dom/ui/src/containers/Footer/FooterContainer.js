@@ -1,8 +1,8 @@
 import { FaFacebookSquare, FaInstagramSquare } from 'react-icons/fa';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 const FooterContainer = () => {
-    const {t} = useTranslation("footer")
+    const { t } = useTranslation('footer');
     return (
         <div className="container fixed-bottom">
             <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -17,23 +17,23 @@ const FooterContainer = () => {
                 <ul className="nav col-md-4 justify-content-end list-styled d-flex">
                     <li className="ms-3">
                         <a className="text-muted" href="#">
-                            <FaInstagramSquare/>
+                            <FaInstagramSquare />
                         </a>
                     </li>
                     <li className="ms-3">
                         <a className="text-muted" href="#">
-                            <FaFacebookSquare/>
+                            <FaFacebookSquare />
                         </a>
                     </li>
                     <li className="ms-3">
                         <a className="text-muted" href="#">
-                            {t("about")}
+                            {t('about')}
                         </a>
                     </li>
                 </ul>
             </footer>
         </div>
     );
-}
+};
 
 export default FooterContainer;

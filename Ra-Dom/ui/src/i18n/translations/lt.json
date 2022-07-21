@@ -1,8 +1,7 @@
 {
   "common": {
     "home": "Čia yra Pagrindinis Puslapis",
-    "hello": "Labas, $t(name)!",
-    "name": "Pasauli",
+    "hello": "Labas, ",
     "buttons": {
       "submit": "Išsaugoti"
     }
@@ -53,7 +52,7 @@
     "stock": "Likutis"
   },
   "login": {
-    "title": "Prisijungkite",
+    "title": "Prisijungimo Forma",
     "label": {
       "email": "El. Paštas: ",
       "pass": "Slaptažodis: "
@@ -61,7 +60,13 @@
     "placeholder": {
       "email": "Įveskite el. paštą",
       "pass": "Įveskite slaptažodį"
-    }
+    },
+    "button": "Prisijungti"
+  },
+  "validations": {
+    "default": "Įvyko klaida",
+    "required": "Laukas $t({{label}}) privalomas",
+    "min": "Turi buti ilgesnis nei {{min}}"
   },
   "footer": {
     "about": "Apie mus"

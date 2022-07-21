@@ -1,8 +1,7 @@
 {
   "common": {
     "home": "This is Home Page",
-    "hello": "Hello, $t(name)!",
-    "name": "World",
+    "hello": "Hello, !",
     "buttons": {
       "submit": "Submit"
     }
@@ -55,7 +54,7 @@
     "stock": "Available"
   },
   "login": {
-    "title": "Sign In",
+    "title": "Sign In Form",
     "label": {
       "email": "Email: ",
       "pass": "Password: "
@@ -63,7 +62,13 @@
     "placeholder": {
       "email": "Enter Email",
       "pass": "Enter Password"
-    }
+    },
+    "button": "Sign In"
+  },
+  "validations": {
+    "default": "An error occurred",
+    "required": "Field $t({{label}}) is required",
+    "min": "Must be longer than {{min}}"
   },
   "footer": {
     "about": "About us"

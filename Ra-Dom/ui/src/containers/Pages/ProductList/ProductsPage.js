@@ -19,6 +19,7 @@ const ProductsPage = ({ addToCartDA }) => {
     }, []);
 
     const handleAddProductToCart = (product) => {
+
         addToCartDA({
             id: product.productId,
             name: product.name,
@@ -47,17 +48,19 @@ const ProductsPage = ({ addToCartDA }) => {
                                 </Card.Header>
                                 <Card.Body>
                                     <Card.Title > <div align="center">
-                                        <Link to={"/products/" + product.productId} >
+                                        <Link to={"/product/" + product.productId} >
                                             {product.name}
                                         </Link>
                                     </div></Card.Title>
                                     <div className="d-flex justify-content-center">
                                         <div className="m-2 p-3">
+                                            <h6>{t('flavor')}</h6>
                                         <Card.Text>
-                                            <h6>{t('flavor')}</h6> {product.flavor}
+                                             {product.flavor}
                                         </Card.Text>
+                                            <h6>{t('portion')} </h6>
                                         <Card.Text>
-                                            <h6>{t('portion')} </h6>{product.portionSize}
+                                            {product.portionSize}
                                         </Card.Text>
                                     </div >
                                         <div className="m-2 p-3 d-flex justify-content-evenly">

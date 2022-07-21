@@ -5,7 +5,8 @@ import ProductsPage from './ProductList';
 import HomePage from './Home/HomePage';
 import CartPage from './Cart/CartPage';
 import LoginPage from './Login/LoginPage';
-import ProductPage from "./Product/ProductPage";
+import ProductPage from "./Product";
+
 
 const Pages = () => {
     const userRoles = useSelector((state) => state.user.roles);
@@ -30,7 +31,7 @@ const Pages = () => {
                     }
                 />
             )}
-            <Route path='/products/:productId' element={<ProductPage />} />
+            <Route path='/product/:productId' element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/login" element={<LoginPage />} />
         </Routes>

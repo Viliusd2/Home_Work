@@ -1,11 +1,10 @@
 import { useParams } from 'react-router-dom';
 import {Button, Col, Container} from "react-bootstrap";
-
 import {getOneProductEndpoint} from "../../../api/apiEndpoints";
 import {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
 
-const ProductPage = (props) => {
+const ProductPage = ({addToCartDA}) => {
     const { productId } = useParams(); // destruct param path name from url
     const [productFromDb, setProduct] = useState([]);
     const { t } = useTranslation('productShowcase');
@@ -20,15 +19,17 @@ const ProductPage = (props) => {
     }, []);
 
     const handleAddProductToCart = (product) => {
-        props.addToCart({
+        addToCartDA({
             id: product.productId,
             name: product.name,
-            price: product.price});
+            price: product.price,
+        })
     };
+
     return (
     <Container className="Auth-form" >
         {(productFromDb.map((product) => (
-            <Col key={product.productId}>
+            <div key={product.productId}>
             <h1>Selected Product</h1>
             <div>{product.name}</div>
             <div>{product.price}</div>
@@ -43,7 +44,7 @@ const ProductPage = (props) => {
                 >
                     {t("productList:buy")}
                 </Button>
-        </Col>
+        </div>
         )))}
     </Container>
     )

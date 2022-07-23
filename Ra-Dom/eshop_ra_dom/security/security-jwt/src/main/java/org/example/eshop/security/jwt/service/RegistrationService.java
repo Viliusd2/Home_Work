@@ -6,7 +6,7 @@ import org.example.eshop.security.jpa.entity.Authority;
 import org.example.eshop.security.jpa.entity.User;
 import org.example.eshop.security.jpa.entity.repository.AuthorityRepository;
 import org.example.eshop.security.jpa.entity.repository.UserRepository;
-import org.example.eshop.security.jwt.dto.UserDto;
+import org.example.eshop.security.jwt.dto.user.UserDto;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

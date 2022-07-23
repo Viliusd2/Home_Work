@@ -1,4 +1,4 @@
-package org.example.eshop.security.jwt.dto;
+package org.example.eshop.security.jwt.dto.login;
 
 import lombok.Value;
 

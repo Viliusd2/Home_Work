@@ -1,9 +1,9 @@
 package org.example.eshop.security.jwt.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.eshop.security.jwt.dto.LoginRequest;
-import org.example.eshop.security.jwt.dto.LoginResponse;
-import org.example.eshop.security.jwt.dto.UserRole;
+import org.example.eshop.security.jwt.dto.login.LoginRequest;
+import org.example.eshop.security.jwt.dto.login.LoginResponse;
+import org.example.eshop.security.jwt.dto.user.UserRole;
 import org.example.eshop.security.jwt.service.JwtProvider;
 import org.example.eshop.swager.annotation.OpenApi;
 import org.springframework.http.ResponseEntity;

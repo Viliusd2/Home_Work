@@ -1,4 +1,4 @@
-package org.example.eshop.security.jwt.dto;
+package org.example.eshop.security.jwt.dto.user;
 
 import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;

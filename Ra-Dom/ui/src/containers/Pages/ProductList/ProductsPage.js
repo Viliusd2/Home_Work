@@ -30,7 +30,7 @@ const ProductsPage = ({ addToCartDA }) => {
     return (
         <Container fluid>
             <h1 className={'text-center'}>Product list</h1>
-            <Row xs={1} md={3} className="g-4">
+            <Row xs={1} md={2} xl={3} className="g-4">
                 {loading ? (
                     <Spinner className="text-center" animation="border" />
                 ) : (

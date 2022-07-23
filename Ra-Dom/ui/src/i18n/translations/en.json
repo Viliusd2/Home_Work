@@ -53,17 +53,28 @@
         "stock": "Available",
         "buy": "Add to Cart"
     },
+    "productShowcase": {
+        "title": "Product"
+    },
     "login": {
         "title": "Sign In Form",
+        "button": "Sign In",
         "label": {
             "email": "Email: ",
             "pass": "Password: "
-        },
-        "placeholder": {
-            "email": "Enter Email",
-            "pass": "Enter Password"
-        },
-        "button": "Sign In"
+        }
+    },
+    "registration": {
+        "title": "Registration",
+        "button": "Sign up",
+        "label": {
+            "name": "Name",
+            "surname": "Surname",
+            "phoneNumber": "Phone Number",
+            "email": "Email: ",
+            "pass": "Password: "
+
+        }
     },
     "validations": {
         "default": "An error occurred",

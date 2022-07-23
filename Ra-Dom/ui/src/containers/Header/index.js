@@ -37,14 +37,17 @@ const HeaderContainer = () => {
                         <Nav.Link to="/products" as={NavLink}>
                             {t('products')}
                         </Nav.Link>
+                        {!authUser.username ? (
+                            <>
+                                <Nav.Link to="/register" as={NavLink}>
+                                    {t('registration')}
+                                </Nav.Link>
+                            </>
+                        ):(<></>)}
                         {authUser?.roles.includes('ROLE_ADMIN') && (
                             <>
                                 <Nav.Link to="/products/create" as={NavLink}>
-                                    {' '}
                                     {t('createProduct')}
-                                </Nav.Link>
-                                <Nav.Link href="#" disabled>
-                                    {t('registration')}
                                 </Nav.Link>
                             </>
                         )}

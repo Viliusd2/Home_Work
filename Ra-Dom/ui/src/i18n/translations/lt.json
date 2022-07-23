@@ -58,15 +58,23 @@
     },
     "login": {
         "title": "Prisijungimo Forma",
+        "button": "Prisijungti",
         "label": {
             "email": "El. Paštas: ",
             "pass": "Slaptažodis: "
-        },
-        "placeholder": {
-            "email": "Įveskite el. paštą",
-            "pass": "Įveskite slaptažodį"
-        },
-        "button": "Prisijungti"
+        }
+    },
+    "registration": {
+        "title": "Registracija",
+        "button": "Užsiregistruoti",
+        "label": {
+            "name": "Vardas: ",
+            "surname": "Pavardė: ",
+            "phoneNumber": "Telefono numeris: ",
+            "email": "Elektroninis paštas: ",
+            "pass": "Slaptažodis: "
+
+        }
     },
     "validations": {
         "default": "Įvyko klaida",

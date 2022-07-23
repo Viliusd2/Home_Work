@@ -7,12 +7,16 @@ const createProductEndpoint = (productData) => HTTP.post('/product/create', prod
 const fileUploadEndpoint = (fileData) => HTTP.post('/file/upload', fileData);
 
 const loginEndpoint = (loginData) => HTTP.post('/login', loginData);
-
+const registerUserEndpoint = (userData) => HTTP.post('/register', userData);
 export {
+    //products
     getProductsListEndpoint,
-    loginEndpoint,
     createProductEndpoint,
     getOneProductEndpoint,
-    fileUploadEndpoint
+    //file
+    fileUploadEndpoint,
+    //user
+    loginEndpoint,
+    registerUserEndpoint
 
 };

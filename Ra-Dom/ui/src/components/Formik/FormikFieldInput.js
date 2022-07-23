@@ -1,19 +1,19 @@
-import { Form, InputGroup } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
+import {Form, InputGroup} from 'react-bootstrap';
+import {useTranslation} from 'react-i18next';
 
 const FormikFieldInput = ({
-    field,
-    form: { errors, touched },
-    labelText,
-    type,
-}) => {
+                              field,
+                              form: {errors, touched},
+                              labelText,
+                              type,
+                          }) => {
     const fieldError = errors[field.name];
     const fieldTouched = touched[field.name];
 
     const isValid = !fieldError;
     const isInvalid = fieldTouched && !isValid;
 
-    const { t: validationsT } = useTranslation('validations');
+    const {t: validationsT} = useTranslation('validations');
 
     return (
         <Form.Group controlId={field.name}>
@@ -30,11 +30,10 @@ const FormikFieldInput = ({
 
                 {fieldError && (
                     <Form.Control.Feedback type="invalid">
-                        {fieldError instanceof String
-                            ? validationsT(fieldError)
-                            : validationsT(fieldError.key, {
-                                  label: fieldError.label,
-                              })}
+                        {fieldError instanceof String ?
+                            validationsT(fieldError) :
+                            validationsT(fieldError.key, {label: fieldError.label})}
+
                     </Form.Control.Feedback>
                 )}
             </InputGroup>

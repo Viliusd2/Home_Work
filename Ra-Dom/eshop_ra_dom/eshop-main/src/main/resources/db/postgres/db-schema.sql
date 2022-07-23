@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS product cascade;
-
 CREATE TABLE product
 (
     id                   BIGSERIAL PRIMARY KEY,
@@ -15,8 +14,7 @@ DROP TABLE IF EXISTS product_category cascade;
 CREATE TABLE product_category
 (
     id   BIGSERIAL PRIMARY KEY,
-    name VARCHAR(200) NOT NULL,
-    CONSTRAINT product_category_key UNIQUE (name)
+    name VARCHAR(200) NOT NULL
 );
 DROP TABLE IF EXISTS product_product_categories;
 CREATE TABLE product_product_categories
@@ -84,7 +82,7 @@ CREATE TABLE cart_cart_items
     FOREIGN KEY (cart_id) REFERENCES cart (id),
     FOREIGN KEY (cart_items_id) REFERENCES cart_items (id)
 );
-DROP TABLE IF EXISTS file;
+DROP TABLE IF EXISTS file cascade ;
 CREATE TABLE file
 (
     id                BIGSERIAL PRIMARY KEY,

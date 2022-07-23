@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { createProductEndpoint } from '../../../api/apiEndpoints';
+import {createProductEndpoint, fileUploadEndpoint} from '../../../api/apiEndpoints';
 import { useTranslation } from 'react-i18next';
 import FormLabelControl from '../../../components/Form/FormLabelControl';
 import FileUpload from "../FileUpload/FileUpload";
@@ -15,7 +15,6 @@ const NewProductPage = () => {
         description: '',
     });
     const [visible, setVisible] = useState(false);
-
     const { t } = useTranslation('productForm');
 
     const handleChange = (e) => {
@@ -120,7 +119,7 @@ const NewProductPage = () => {
             {showCreatedProductInfo()}
         </Container>
     <Container className="">
-        <FileUpload></FileUpload>
+        <FileUpload ></FileUpload>
     </Container>
     </Container>
     );

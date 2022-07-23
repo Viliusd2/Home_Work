@@ -6,6 +6,7 @@ import HomePage from './Home/HomePage';
 import CartPage from './Cart/CartPage';
 import LoginPage from './Login/LoginPage';
 import ProductPage from "./Product";
+import FileUpload from "./FileUpload/FileUpload";
 
 
 const Pages = () => {
@@ -31,6 +32,7 @@ const Pages = () => {
                     }
                 />
             )}
+            <Route path='/file/upload' element={<FileUpload />} />
             <Route path='/product/:productId' element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/login" element={<LoginPage />} />

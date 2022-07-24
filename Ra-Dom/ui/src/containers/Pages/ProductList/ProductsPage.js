@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import {Link} from "react-router-dom";
+import CardTest from "./CardTest";
 
 const ProductsPage = ({ addToCartDA }) => {
     const [productItems, setProductItems] = useState([]);
@@ -63,7 +64,7 @@ const ProductsPage = ({ addToCartDA }) => {
                                             {product.portionSize}
                                         </Card.Text>
                                     </div >
-                                        <div className="m-2 p-3 d-flex justify-content-evenly">
+                                        <div className="m-2 p-2 d-flex justify-content-center">
                                             <Button
                                                 onClick={() =>
                                                     handleAddProductToCart(product)
@@ -81,7 +82,9 @@ const ProductsPage = ({ addToCartDA }) => {
                     ))
                 )}
             </Row>
+            <CardTest/>
         </Container>
+
     );
 };
 

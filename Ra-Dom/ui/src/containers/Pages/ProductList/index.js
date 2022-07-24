@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addToCart } from '../../../redux/Cart/cartSlice';
+import {addToCart, removeFromCart} from '../../../redux/Cart/cartSlice';
 import ProductsPage from './ProductsPage';
 
 /**
@@ -7,6 +7,7 @@ import ProductsPage from './ProductsPage';
  */
 const mapDispatchToProps = {
     addToCartDA: addToCart,
+    removeFromCartByProductId: removeFromCart,
 };
 
 export default connect(null, mapDispatchToProps)(ProductsPage);

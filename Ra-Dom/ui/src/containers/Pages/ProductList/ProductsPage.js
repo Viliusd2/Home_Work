@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 
-const ProductsPage = ({addToCartDA}) => {
+const ProductsPage = ({addToCartDA,removeFromCartByProductId}) => {
     const [productItems, setProductItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const {t} = useTranslation('productList');
@@ -28,12 +28,13 @@ const ProductsPage = ({addToCartDA}) => {
             price: product.price,
         });
     };
-
+    const removeProductById = (id) => removeFromCartByProductId(id);
     const handleDeleteProduct= (product) => {
 
         deleteProductEndpoint(product.productId)
             .then(r => {
                 console.log(r);
+                removeProductById(product.productId)
                 setProductItems(productItems.filter(item => item.name !== product.name));
             })
             .catch((error) => console.log(error))

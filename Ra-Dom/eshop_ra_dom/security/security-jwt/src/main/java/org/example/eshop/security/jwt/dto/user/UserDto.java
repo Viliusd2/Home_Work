@@ -3,7 +3,6 @@ package org.example.eshop.security.jwt.dto.user;
 
 import lombok.Builder;
 import lombok.Getter;
-import org.example.eshop.security.jwt.validation.PhoneNumber;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -30,7 +29,6 @@ public class UserDto{
     private String password;
 
     @NotBlank
-    @PhoneNumber
     private String phoneNumber;
 
 }

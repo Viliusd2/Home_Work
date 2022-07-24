@@ -4,10 +4,9 @@ import { useSelector } from 'react-redux';
 import ProductsPage from './ProductList';
 import HomePage from './Home/HomePage';
 import CartPage from './Cart/CartPage';
-import LoginPage from './Login/LoginPage';
 import ProductPage from "./Product";
-import FileUpload from "./FileUpload/FileUpload";
 import Registration from "./Login/User/Registration";
+import LoginPage from "./Login/LoginPage";
 
 
 const Pages = () => {
@@ -34,7 +33,6 @@ const Pages = () => {
                 />
             )}
             <Route path='/register' element={<Registration />} />
-            <Route path='/file/upload' element={<FileUpload />} />
             <Route path='/product/:productId' element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/login" element={<LoginPage />} />

@@ -43,9 +43,9 @@ const Registration = () => {
     const dispatch = useDispatch();
 
     const postUser = (user, helper) => {
-        registerUserEndpoint(user).then(r =>
-            alert('successfully created account: ' + r.status)
-        ).catch((error) => console.log(error))
+        registerUserEndpoint(user)
+            .then(r => console.log(r))
+            .catch((error) => console.log(error))
             .finally(() => helper.setSubmitting(false));
 
         loginAfterCreation(user);

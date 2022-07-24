@@ -1,0 +1,10 @@
+rootProject.name = 'eshop-Ra-Dom'
+include 'eshop-main'
+include 'eshop-jpa'
+include 'eshop-api'
+include 'security'
+include 'security:security-basic'
+include 'security:security-jpa'
+include 'security:security-jwt'
+include 'eshop-commons'
+

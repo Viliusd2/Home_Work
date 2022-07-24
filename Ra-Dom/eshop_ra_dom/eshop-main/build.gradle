@@ -1,0 +1,8 @@
+dependencies {
+    implementation project(":eshop-api")
+//    implementation project(":security:security-basic")
+    implementation project(":security:security-jwt")
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+}

@@ -1,0 +1,44 @@
+server:
+  servlet:
+    context-path: /api
+spring:
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+  profiles:
+    include:
+    - global-users
+  main:
+    banner-mode: console
+  datasource:
+    url: jdbc:h2:mem:eshopdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: root
+  sql:
+    init:
+      schema-locations: classpath:db/db-schema.sql
+      data-locations: classpath:db/initial-data.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    web:
+      pageable:
+        default-page-size: 8
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+security:
+  jwt:
+    # validity time in minutes
+    validity-time: 30

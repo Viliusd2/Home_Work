@@ -29,11 +29,12 @@ const ProductsPage = ({addToCartDA}) => {
         });
     };
 
-    const handleDeleteProduct= (productId) => {
+    const handleDeleteProduct= (product) => {
 
-        deleteProductEndpoint(productId)
+        deleteProductEndpoint(product.productId)
             .then(r => {
                 console.log(r);
+                setProductItems(productItems.filter(item => item.name !== product.name));
             })
             .catch((error) => console.log(error))
     };
@@ -77,7 +78,7 @@ const ProductsPage = ({addToCartDA}) => {
                                         </div>
                                         {authUser?.roles.includes('ROLE_ADMIN') && (
                                             <div className="m-2 p-2 d-flex justify-content-center align-items-center">
-                                                <Button className="btn-danger" onClick={() => handleDeleteProduct(product.productId)}>
+                                                <Button className="btn-danger" onClick={() => handleDeleteProduct(product)}>
                                                     {t("delete")}
                                                 </Button>
                                             </div>

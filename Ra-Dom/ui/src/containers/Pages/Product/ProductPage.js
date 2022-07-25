@@ -1,15 +1,14 @@
 import {useParams} from 'react-router-dom';
 import {Button, Container} from "react-bootstrap";
-import {getOneProductEndpoint} from "../../../api/apiEndpoints";
+import {getOneProductEndpoint, updateProductEndpoint} from "../../../api/apiEndpoints";
 import {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import {useSelector} from "react-redux";
 
 const ProductPage = ({addToCartDA}) => {
     const {productId} = useParams(); // destruct param path name from url
     const [productFromDb, setProduct] = useState([]);
     const {t} = useTranslation('productShowcase');
-    const authUser = useSelector((state) => state.user);
+    // const authUser = useSelector((state) => state.user);
 
     useEffect(() => {
         getOneProductEndpoint(productId)
@@ -28,14 +27,17 @@ const ProductPage = ({addToCartDA}) => {
         })
     };
 
-    function handleUpdateProduct(product) {
-
-    }
+    // function handleUpdateProduct(product) {
+    //     updateProductEndpoint(product)
+    //         .then(r=> alert("response status : " + r.status))
+    //
+    // }
 
     return (
         <Container className="Auth-form">
             {(productFromDb.map((product) => (
                 <div key={product.productId}>
+
                     <h1>Selected Product</h1>
                     <div>{product.name}</div>
                     <div>{product.price}</div>
@@ -52,11 +54,11 @@ const ProductPage = ({addToCartDA}) => {
                                 {t("buy")}
                             </Button>
 
-                        {authUser?.roles.includes('ROLE_ADMIN') && (
-                                <Button className="btn-outline-success text-black" onClick={() => handleUpdateProduct(product)}>
-                                    {t('update')}
-                                </Button>
-                        )}
+                        {/*{authUser?.roles.includes('ROLE_ADMIN') && (*/}
+                        {/*        <Button className="btn-outline-success text-black" onClick={() => handleUpdateProduct(product)}>*/}
+                        {/*            {t('update')}*/}
+                        {/*        </Button>*/}
+                        {/*)}*/}
                     </div>
                 </div>
             )))}

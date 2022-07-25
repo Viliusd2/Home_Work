@@ -1,0 +1,13 @@
+.main-box{
+    width: 60vw;
+    background-image: url("../../../../assets/Plant.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: white;
+    margin-top: 50px;
+}

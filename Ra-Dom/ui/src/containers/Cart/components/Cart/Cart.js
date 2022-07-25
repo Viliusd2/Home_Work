@@ -1,5 +1,5 @@
 import { Button, Container, Table } from 'react-bootstrap';
-
+import './style.css'
 const Cart = ({
     cartItems,
     cartTotalItemsCount,
@@ -9,8 +9,8 @@ const Cart = ({
     const removeProductById = (id) => removeFromCartByProductId(id);
 
     return (
-        <Container fluid>
-            <Table striped bordered hover>
+        <Container fluid className={'main-box'}>
+            <Table striped bordered hover >
                 <thead>
                     <tr>
                         <th>Product Name</th>

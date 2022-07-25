@@ -6,6 +6,7 @@
     background-image: url("../../../../assets/home/Logo1.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 img{
     max-width: 100%;
@@ -19,5 +20,6 @@ img{
     background-color: rgb(246, 200, 140);
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 
 }

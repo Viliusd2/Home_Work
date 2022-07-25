@@ -12,7 +12,7 @@ const HomePage = () => {
         <>
 
             <Container>
-                <div align="center" className="home">
+                <div align="center" className="home d-flex">
                     <div className="homeImage">
                         {authUser.username ? (
                         <div className="homeBox">

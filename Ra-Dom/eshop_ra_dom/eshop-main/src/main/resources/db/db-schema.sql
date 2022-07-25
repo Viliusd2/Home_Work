@@ -10,7 +10,8 @@ CREATE TABLE product
     one_portion_quantity INT            NOT NULL,
     price                DECIMAL(20, 2) NOT NULL,
     flavor               VARCHAR(100) DEFAULT NULL,
-    description          VARCHAR(500) DEFAULT NULL
+    description          VARCHAR(500) DEFAULT NULL,
+    image_id             INT            NOT NULL
 );
 DROP TABLE IF EXISTS product_category;
 CREATE TABLE product_category

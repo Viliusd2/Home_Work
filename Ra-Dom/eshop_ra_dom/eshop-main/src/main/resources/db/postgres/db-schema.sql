@@ -8,7 +8,8 @@ CREATE TABLE product
     one_portion_quantity INT            NOT NULL,
     price                DECIMAL(20, 2) NOT NULL,
     flavor               VARCHAR(100) DEFAULT NULL,
-    description          VARCHAR(500) DEFAULT NULL
+    description          VARCHAR(500) DEFAULT NULL,
+    image_id             BIGINT         NOT NULL
 );
 DROP TABLE IF EXISTS product_category cascade;
 CREATE TABLE product_category
@@ -74,24 +75,24 @@ CREATE TABLE cart_items
     FOREIGN KEY (product_id) REFERENCES product (id)
 );
 
-DROP TABLE IF EXISTS cart_cart_items ;
+DROP TABLE IF EXISTS cart_cart_items;
 CREATE TABLE cart_cart_items
 (
-    cart_id    BIGINT not null,
-    cart_items_id    BIGINT not null,
+    cart_id       BIGINT not null,
+    cart_items_id BIGINT not null,
     FOREIGN KEY (cart_id) REFERENCES cart (id),
     FOREIGN KEY (cart_items_id) REFERENCES cart_items (id)
 );
-DROP TABLE IF EXISTS file cascade ;
+DROP TABLE IF EXISTS file cascade;
 CREATE TABLE file
 (
-    id                BIGSERIAL PRIMARY KEY,
-    file_id           UUID           NOT NULL,
-    file_name         VARCHAR(100)   NOT NULL,
-    file_extension    VARCHAR(15)    NOT NULL,
-    media_type        VARCHAR(10)    NOT NULL,
-    size              BIGINT         NOT NULL,
-    time_stamp         TIMESTAMP      DEFAULT current_timestamp
+    id             BIGSERIAL PRIMARY KEY,
+    file_id        UUID         NOT NULL,
+    file_name      VARCHAR(100) NOT NULL,
+    file_extension VARCHAR(15)  NOT NULL,
+    media_type     VARCHAR(10)  NOT NULL,
+    size           BIGINT       NOT NULL,
+    time_stamp     TIMESTAMP DEFAULT current_timestamp
 );
 
 

@@ -40,4 +40,6 @@ public class ProductDto {
 
     @NotBlank
     private String description;
+
+    private String fileName;
 }

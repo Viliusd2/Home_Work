@@ -1,14 +1,16 @@
 package org.example.eshop.api.product.service;
 
+import lombok.RequiredArgsConstructor;
 import org.example.eshop.api.cart.dto.CartItemDto;
 import org.example.eshop.api.product.dto.ProductDto;
 import org.example.eshop.api.product.exception.ProductNotFoundException;
 import org.example.eshop.api.product.mapper.ProductMapper;
+import org.example.eshop.jpa.file.entity.File;
+import org.example.eshop.jpa.file.repository.FileRepository;
 import org.example.eshop.jpa.product.entity.Product;
 import org.example.eshop.jpa.product.entity.ProductCategory;
 import org.example.eshop.jpa.product.repository.ProductCategoryRepository;
 import org.example.eshop.jpa.product.repository.ProductRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,7 @@ import java.util.stream.Collectors;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final FileRepository fileRepository;
     private final ProductCategoryRepository productCategoryRepository;
     private final ProductMapper mapper;
 
@@ -32,8 +35,18 @@ public class ProductService {
         ProductCategory productCategory = ProductCategory.builder()
                 .name("NaN")
                 .build();
-
-        productRepository.save(mapper.mapToEntity(productDto,productCategory));
+        Optional<File> optionalFile = fileRepository.findByFileName(productDto.getFileName());
+        File file = new File();
+        if (optionalFile.isPresent()){
+            file = optionalFile.get().toBuilder()
+                    .fileId(optionalFile.get().getFileId())
+                    .fileName(optionalFile.get().getFileName())
+                    .mediaType(optionalFile.get().getMediaType())
+                    .fileExtension(optionalFile.get().getFileExtension())
+                    .size(optionalFile.get().getSize())
+                    .build();
+        }
+        productRepository.save(mapper.mapToEntity(productDto,productCategory,file));
     }
 
     public Page<ProductDto> getProductPaginated(Pageable pageable) {

@@ -2,14 +2,15 @@ package org.example.eshop.jpa.file.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.example.eshop.jpa.product.entity.Product;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Builder
+@Getter
+@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -34,8 +35,5 @@ public class File {
 
     public String getUniqFileName() {
         return fileId.toString() + "." + fileExtension;
-    }
-    public UUID getId() {
-        return fileId;
     }
 }

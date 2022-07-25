@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.eshop.jpa.file.entity.File;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -37,6 +38,8 @@ public class Product {
 
     private String description;
 
+    @OneToOne
+    private File image;
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<ProductCategory> productCategories;
 }

@@ -1,6 +1,6 @@
 import {deleteProductEndpoint, getProductsListEndpoint} from '../../../api/apiEndpoints';
 import {useEffect, useState} from 'react';
-import {Button, Card, Col, Container, Nav, Row, Spinner} from 'react-bootstrap';
+import {Button, Card, Col, Container, Row, Spinner} from 'react-bootstrap';
 import {useTranslation} from 'react-i18next';
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";

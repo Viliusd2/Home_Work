@@ -54,7 +54,9 @@
         "buy": "Add to Cart"
     },
     "productShowcase": {
-        "title": "Product"
+        "title": "Product",
+        "buy": "Purchase",
+        "update": "Edit"
     },
     "login": {
         "title": "Sign In Form",

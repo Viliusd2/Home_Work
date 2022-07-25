@@ -54,7 +54,9 @@
         "buy": "Pirkti"
     },
     "productShowcase": {
-        "title": "Produktas"
+        "title": "Produktas",
+        "buy": "Pirkti",
+        "update": "Redaguoti"
     },
     "login": {
         "title": "Prisijungimo Forma",

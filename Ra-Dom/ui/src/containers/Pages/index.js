@@ -32,6 +32,7 @@ const Pages = () => {
                     }
                 />
             )}
+
             <Route path='/register' element={<Registration />} />
             <Route path='/product/:productId' element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />

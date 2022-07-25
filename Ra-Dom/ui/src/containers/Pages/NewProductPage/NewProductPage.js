@@ -3,7 +3,7 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { createProductEndpoint } from '../../../api/apiEndpoints';
 import { useTranslation } from 'react-i18next';
 import FormLabelControl from '../../../components/Form/FormLabelControl';
-import FileUpload from "../FileUpload/FileUpload";
+import FileUpload from "../File/FileUpload";
 
 const NewProductPage = () => {
     const [product, setProduct] = useState({

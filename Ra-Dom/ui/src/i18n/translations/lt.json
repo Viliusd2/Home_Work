@@ -1,7 +1,7 @@
 {
     "common": {
         "home": "Čia yra Pagrindinis Puslapis",
-        "hello": "Labas, ",
+        "hello": "Sveiki ",
         "buttons": {
             "submit": "Išsaugoti"
         }
@@ -79,7 +79,7 @@
     "validations": {
         "default": "Įvyko klaida",
         "required": "Laukas $t({{label}}) privalomas",
-        "min": "Turi buti ilgesnis nei {{min}}"
+        "length": "Turi būti ilgesnis nei $t({{label}})"
     },
     "footer": {
         "about": "Apie mus"

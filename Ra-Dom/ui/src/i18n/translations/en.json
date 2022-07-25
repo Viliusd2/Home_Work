@@ -1,7 +1,7 @@
 {
     "common": {
         "home": "This is Home Page",
-        "hello": "Hello, !",
+        "hello": "Welcome  !",
         "buttons": {
             "submit": "Submit"
         }
@@ -79,7 +79,7 @@
     "validations": {
         "default": "An error occurred",
         "required": "Field $t({{label}}) is required",
-        "min": "Must be longer than {{min}}"
+        "length": "Must be longer than $t({{label}})"
     },
     "footer": {
         "about": "About us"

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { createProductEndpoint } from '../../../api/apiEndpoints';
+import { createProductEndpoint } from '../../../../api/apiEndpoints';
 import { useTranslation } from 'react-i18next';
-import FormLabelControl from '../../../components/Form/FormLabelControl';
-import FileUpload from "../File/FileUpload";
+import FormLabelControl from '../../../../components/Form/FormLabelControl';
+import FileUpload from "../../File/FileUpload";
 
 const NewProductPage = () => {
     const [product, setProduct] = useState({
@@ -13,6 +13,7 @@ const NewProductPage = () => {
         quantityInStock: '',
         portionSize: '',
         description: '',
+        fileName:'',
         success: false,
     });
     const [message, setMessage] = useState(false);

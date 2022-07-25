@@ -1,10 +1,10 @@
-import {useParams} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {Button, Container} from "react-bootstrap";
-import {getOneProductEndpoint, updateProductEndpoint} from "../../../api/apiEndpoints";
+import {getOneProductEndpoint} from "../../../../api/apiEndpoints";
 import {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
 
-const ProductPage = ({addToCartDA}) => {
+const ProductShowcasePage = ({addToCartDA}) => {
     const {productId} = useParams(); // destruct param path name from url
     const [productFromDb, setProduct] = useState([]);
     const {t} = useTranslation('productShowcase');
@@ -66,4 +66,4 @@ const ProductPage = ({addToCartDA}) => {
     )
 };
 
-export default ProductPage;
+export default ProductShowcasePage;

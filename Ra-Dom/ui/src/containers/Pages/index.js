@@ -1,13 +1,12 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import NewProductPage from './NewProductPage/NewProductPage';
 import { useSelector } from 'react-redux';
-import ProductsPage from './ProductList';
-import HomePage from './Home/HomePage';
-import CartPage from './Cart/CartPage';
-import ProductPage from "./Product";
 import Registration from "./Login/User/Registration";
+import ProductShowcasePage from "./Product/Showcase";
+import CartPage from "./Cart/CartPage";
 import LoginPage from "./Login/LoginPage";
-
+import NewProductPage from "./Product/NewProduct/NewProductPage";
+import ProductsPage from "./Product/ProductsList";
+import HomePage from "./Home/HomePage";
 
 const Pages = () => {
     const userRoles = useSelector((state) => state.user.roles);
@@ -34,7 +33,7 @@ const Pages = () => {
             )}
 
             <Route path='/register' element={<Registration />} />
-            <Route path='/product/:productId' element={<ProductPage />} />
+            <Route path='/product/:productId' element={<ProductShowcasePage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/login" element={<LoginPage />} />
         </Routes>

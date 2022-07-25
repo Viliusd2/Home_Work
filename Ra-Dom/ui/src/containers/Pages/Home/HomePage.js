@@ -1,21 +1,33 @@
-import { useTranslation } from 'react-i18next';
-import { Container } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import {useTranslation} from 'react-i18next';
+import {Container, Nav} from 'react-bootstrap';
+import {useSelector} from 'react-redux';
+import "./css/style.css"
 
 const HomePage = () => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const authUser = useSelector((state) => state.user);
+
 
     return (
         <>
-            <Container className="Auth-form">
-                <h1>{t('home')}</h1>
-                <h2>{t('hello')}</h2>
-                <div>
-                    <strong>{authUser.fullName}</strong>
+
+            <Container>
+                <div align="center" className="home">
+                    <div className="homeImage">
+                        {authUser.username ? (
+                        <div className="homeBox">
+                            <div>
+                                <h2>{t('hello')} {authUser.fullName}
+                                </h2>
+                            </div>
+                        </div>
+                        ):(<></>)}
+                    </div>
                 </div>
             </Container>
+
         </>
-    );
+    )
+        ;
 };
 export default HomePage;

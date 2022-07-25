@@ -41,8 +41,9 @@ const ProductsPage = ({addToCartDA,removeFromCartByProductId}) => {
     };
 
     return (
-        <Container fluid >
-            <h1 className={'text-center'}>Product list</h1>
+        <>
+        <Container >
+            <h1 className={'container text-center w-50 bg-dark bg-opacity-25 text-dark'}>{t('title')}</h1>
             <Row xs={1} md={2} xl={3} className="g-4">
                 {loading ? (
                     <Spinner className="text-center" animation="border"/>
@@ -93,6 +94,7 @@ const ProductsPage = ({addToCartDA,removeFromCartByProductId}) => {
             </Row>
 
         </Container>
+        </>
 
     );
 };

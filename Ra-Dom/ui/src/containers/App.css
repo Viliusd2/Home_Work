@@ -1,5 +1,13 @@
 .mainApp {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
+    min-height: 90vh;
+    flex-grow: 1;
+    background-color: black;
+    background-image: url("../assets/macroons.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.footer{
+background-color: darkslategray;
 }

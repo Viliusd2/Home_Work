@@ -1,0 +1,23 @@
+
+.homeImage{
+    width: 1200px;
+    height: 500px;
+    align-self: center;
+    background-image: url("../../../../assets/home/Logo1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+img{
+    max-width: 100%;
+}
+.homeBox {
+    width: 600px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: rgb(246, 200, 140);
+    display: flex;
+    justify-content: center;
+
+}

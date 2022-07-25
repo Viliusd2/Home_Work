@@ -13,11 +13,13 @@ function App() {
     return (
         <Provider store={store}>
             <BrowserRouter>
+
                 <div className="mainApp">
                     <HeaderContainer />
                     <Pages />
-                    <FooterContainer />
                 </div>
+                <FooterContainer className="footer"/>
+
             </BrowserRouter>
         </Provider>
     );

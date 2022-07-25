@@ -11,12 +11,10 @@ import FormikFieldInput from "../../../components/Formik/FormikFieldInput";
 
 const validationSchema = Yup.object().shape({
     email: Yup.string()
-        .min(5)
         .required()
         .matches(/^(.+)@(.+)$/)
         .label("login:label.email"),
     password: Yup.string()
-        .min(4)
         .required()
         .label("login:label.pass"),
 });

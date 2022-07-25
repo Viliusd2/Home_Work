@@ -24,12 +24,12 @@ const validationSchema = Yup.object().shape({
     email: Yup.string()
         .min(5)
         .required()
-        .matches(/^(.+)@(.+)$/)
+        .matches(/^(.+)@(.+)$/,"This is not an email")
         .label('registration:label.email'),
     password: Yup.string()
-        .min(4)
+        .min(6)
         .required()
-        .label('registration:label.password'),
+        .label('registration:label.pass'),
     phoneNumber: Yup.string()
         .min(6)
         .required()
